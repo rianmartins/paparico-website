@@ -1,0 +1,11 @@
+.Button {
+  background-color: var(--color-primary);
+  font-family: var(--font-the-seasons);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding: 0.5rem 6rem;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}

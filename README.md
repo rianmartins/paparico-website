@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Paparico Website
 
-## Getting Started
+Official website for Paparico, an artisanal bakery specializing in the traditional Pernambucan bolo de rolo, handcrafted in Lisbon.
 
-First, run the development server:
+## Technologies
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- next/font/local for custom fonts (The Seasons)
+- Vercel (continuous deployment)
+- ESLint + Prettier
+
+## Features (initial version)
+
+- Base structure for the marketing/institutional website
+- Custom local fonts
+- Responsive layout
+- Reusable component structure
+- Automatic deployments from GitHub → Vercel
+
+## Running the Project Locally
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/<seu-usuario>/paparico-website.git
+cd paparico-website
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Access the project at: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project uses _Vercel_ for hosting.
+Every push to the `main` branch automatically triggers a production deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Manual deploy (optional):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+vercel --prod
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+ ├─ app/
+ │   ├─ layout.tsx
+ │   ├─ page.tsx
+ │   └─ globals.css
+ ├─ components/
+ ├─ constants/
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Custom Fonts
+
+The custom font families are stored under `public/fonts/`
+
+And loaded using `next/font/local` inside `layout.tsx`.
+
+## Commit Message Guidelines
+
+This project follows Conventional Commits:
+
+Examples:
+
+```
+feat: add hero section
+fix: correct navbar alignment
+style: adjust global typography
+chore: update dependencies
+```
+
+# About Paparico
+
+Paparico is an artisanal bakery based in Lisbon, dedicated to preserving the traditional Pernambucan bolo de rolo, crafted with quality and affection.
+Instagram: @paparico.prc

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter_Tight } from "next/font/google";
 import "./globals.css";
 
 const theSeasons = localFont({
@@ -50,6 +50,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Paparico",
   description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
@@ -62,7 +67,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${theSeasons.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${theSeasons.variable} ${interTight.variable}`}
+      >
         {children}
       </body>
     </html>

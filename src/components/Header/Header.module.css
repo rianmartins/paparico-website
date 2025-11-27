@@ -1,0 +1,32 @@
+.Header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  background: var(--background);
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  height: 160px;
+
+  .logo {
+    align-self: center;
+  }
+
+  .menu {
+    display: flex;
+    gap: 40px;
+    color: var(--color-primary);
+    font-weight: 500;
+    align-items: center;
+
+    .item {
+      font-size: 20px;
+      line-height: 150%;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      text-decoration: underline;
+    }
+  }
+}

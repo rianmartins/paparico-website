@@ -10,9 +10,12 @@ type ButtonProps = {
   size?: "small" | "medium" | "large";
 };
 
-const Button: FC<ButtonProps> = ({ children, onClick, className = "" }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, size = "medium", className = "" }) => {
   return (
-    <button className={cx(styles.Button, className)} onClick={onClick}>
+    <button
+      className={cx(styles.Button, styles[`Button--size-${size}`], className)}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

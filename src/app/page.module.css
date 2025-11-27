@@ -1,77 +1,83 @@
 .page {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   font-family: var(--font-geist-sans);
   background-color: var(--background);
+  font-family: var(--font-geist-sans);
+  color: var(--color-primary);
 }
 
 .main {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  max-width: 800px;
+  max-width: 1280px;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
   background-color: var(--foreground);
-  padding: 50px;
 
-  .logo {
-    margin: 0 auto;
+  .description {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    width: 75%;
+    text-align: left;
+    margin: 10 0 40;
   }
 
-  .info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .hero {
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 100%;
+  }
+
+  .productsGrid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .products {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    align-items: flex-start;
+
+    .mainProduct {
+      grid-column: span 3;
+    }
+
+    .otherProducts {
+      grid-column: span 2;
+      img {
+        height: 278px;
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  .reviews {
     width: 100%;
-    gap: 40px;
-
-    h1 {
-      font-size: 56px;
-      line-height: 56px;
-      color: var(--text-primary);
-      width: auto;
-      text-align: center;
-      font-family: var(--font-the-seasons);
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      font-family: var(--font-geist-sans);
-      width: 300px;
-      color: var(--text-primary);
-      text-align: center;
-    }
-  }
-
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 8px;
-
-    .icon {
-      width: 24px;
-      height: 24px;
-    }
-  }
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
   }
 }

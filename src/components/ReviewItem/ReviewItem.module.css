@@ -5,44 +5,71 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-family: var(--font-inter-tight);
   width: 100%;
   min-height: 200px;
-  gap: 16px;
+  gap: 21px;
+
+  .headline {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    .text {
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 150%;
+    }
+
+    .rating {
+      display: flex;
+    }
+  }
 
   .review {
-    font-family: var(--font-inter-tight);
-    color: var(--text-primary);
+    color: #828282;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 16px;
     line-height: 150%;
   }
 
   .user {
+    margin-top: 21px;
     display: flex;
     gap: 16px;
     align-items: center;
 
-    img {
+    .avatar {
       width: 45px;
       height: 45px;
       border-radius: 50%;
-      object-fit: cover;
+      background-color: #31405e;
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 25px;
+      font-weight: 500;
+      align-items: center;
+      justify-content: center;
+      display: flex;
     }
 
     .info {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+
       font-weight: 500;
-      font-size: 16px;
       line-height: 150%;
 
       .name {
         color: var(--text-primary);
+        font-size: 16px;
       }
 
-      .date {
+      .description {
         color: #828282;
+        font-size: 14px;
       }
     }
   }

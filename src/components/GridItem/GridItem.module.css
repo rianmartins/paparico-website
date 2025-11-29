@@ -1,6 +1,7 @@
 .GridItem {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   align-items: left;
   justify-content: center;
   gap: 4px;
@@ -20,7 +21,7 @@
   }
 
   .description {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 150%;
     color: var(--text-secondary);

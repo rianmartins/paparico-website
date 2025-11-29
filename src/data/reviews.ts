@@ -1,27 +1,31 @@
 export type Review = {
   name: string;
+  origin: string;
+  headline: string;
   rating: number; // 1–5
   text: string;
-  date: string;
 };
 
 export const reviews: Review[] = [
   {
-    name: "Joana",
+    name: "Aline B.",
     rating: 5,
-    text: "O melhor bolo de rolo que já provei em Portugal. Sabor de casa, puro carinho!",
-    date: "2025-07-08",
+    text: "Maravilhoso! Encomendei 2 bolos de rolo e a experiência foi ótima do início ao fim. Atendimento e entrega ágeis, a embalagem bonita, com ótima apresentação. Os bolos deliciosos. Recomendo e voltarei a encomendar.",
+    headline: "Os bolos deliciosos",
+    origin: "Avaliação Google",
   },
   {
-    name: "Carlos",
+    name: "Viola M.",
     rating: 5,
-    text: "Experiência incrível! Embalagem linda e sabor espetacular.",
-    date: "2025-07-08",
+    text: "Encomendei para o aniversário do meu companheiro, um pernambucano doc. Ele não gosta muito de doce, mas enloquece por Bolo de Rolo. Simplesmente adorou o presente, que fez ele lembrar da terra dele. Parabéns Paparico, muito sucesso pela frente!",
+    headline: "Simplesmente adorou",
+    origin: "Avaliação Google",
   },
   {
-    name: "Ana",
+    name: "Aline S.",
     rating: 5,
-    text: "Atendimento impecável e entrega super rápida. Recomendo de olhos fechados.",
-    date: "2025-07-08",
+    text: "Sabe aquele sabor de casa, que a gente mata a saudade pois bem sentimos ao seu deliciar com o bolo de rolo e os casadinhos, meu deus como eu tinha saudades disso e hoje eu pude me deliciar, obrigado pelo atendimento e qualidade dos produtos",
+    headline: "Sabor de casa",
+    origin: "Avaliação Google",
   },
 ];

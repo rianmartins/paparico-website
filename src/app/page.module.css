@@ -29,7 +29,6 @@
   }
 
   .hero {
-    margin-top: 60px;
     margin-bottom: 50px;
   }
 
@@ -45,6 +44,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 50px;
+
+    img {
+      height: 250px;
+    }
   }
 
   .products {
@@ -60,6 +63,7 @@
 
     .otherProducts {
       grid-column: span 2;
+
       img {
         height: 278px;
       }

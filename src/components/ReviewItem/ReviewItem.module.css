@@ -74,3 +74,42 @@
     }
   }
 }
+
+@media (max-width: 720px) {
+  .ReviewItem {
+    padding: 24px;
+    gap: 16px;
+
+    .headline {
+      gap: 4px;
+
+      .text {
+        font-size: 20px;
+      }
+    }
+
+    .review {
+      font-size: 14px;
+    }
+
+    .user {
+      margin-top: 12px;
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+
+      .info {
+        .name {
+          font-size: 15px;
+        }
+
+        .description {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

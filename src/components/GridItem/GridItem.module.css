@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  align-items: left;
+  align-items: flex-start;
   justify-content: center;
   gap: 4px;
   text-decoration: none;
+  width: 100%;
 
   .image {
     width: 100%;
@@ -39,4 +40,23 @@
 .clickable {
   cursor: pointer;
   color: inherit;
+}
+
+@media (max-width: 720px) {
+  .GridItem {
+    gap: 6px;
+
+    .image {
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 20px;
+    }
+
+    .description,
+    .price {
+      font-size: 16px;
+    }
+  }
 }

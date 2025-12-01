@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import styles from "./Header.module.css";
 import Button from "../Button";
+import { MENU_NAKED, WHATSAPP_URL } from "@/constants";
 
 type HeaderProps = {};
 
@@ -18,10 +19,16 @@ const Header: FC<HeaderProps> = ({}) => {
         priority
       />
       <div className={styles.menu}>
-        <div className={styles.item}>Produtos</div>
-        <div className={styles.item}>Bolo de rolo naked</div>
+        <a className={styles.item} href="#products">
+          Produtos
+        </a>
+        <a className={styles.item} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
+          Bolo de rolo naked
+        </a>
         {/* <div className={styles.item}>Para o seu evento</div> */}
-        <Button>Faça sua encomenda</Button>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+          <Button>Faça sua encomenda</Button>
+        </a>
       </div>
     </div>
   );

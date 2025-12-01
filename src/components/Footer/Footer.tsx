@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import styles from "./Footer.module.css";
 import SocialMediaIcon from "../SocialMediaIcon";
-import { FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from "@/constants";
+import { MENU_NAKED, FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from "@/constants";
 
 const Footer: FC = () => {
   return (
@@ -18,9 +18,15 @@ const Footer: FC = () => {
           </div>
         </div>
         <div className={styles.siteMap}>
-          <div>Produtos</div>
-          <div>Bolo de rolo naked</div>
-          <div>Faça a sua encomenda</div>
+          <a className={styles.link} href="#products">
+            Produtos
+          </a>
+          <a className={styles.link} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
+            Bolo de rolo naked
+          </a>
+          <a className={styles.link} href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            Faça a sua encomenda
+          </a>
         </div>
       </main>
     </div>

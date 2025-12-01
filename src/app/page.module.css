@@ -29,7 +29,7 @@
   }
 
   .hero {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 
   h1 {
@@ -38,16 +38,8 @@
     line-height: 100%;
   }
 
-  .productsGrid {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 50px;
-
-    img {
-      height: 250px;
-    }
+  .title {
+    padding-top: 25px;
   }
 
   .products {
@@ -65,7 +57,7 @@
       grid-column: span 2;
 
       img {
-        height: 278px;
+        height: 288px;
       }
     }
 
@@ -73,6 +65,18 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+    }
+  }
+
+  .productsGrid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+
+    img {
+      height: 250px;
     }
   }
 

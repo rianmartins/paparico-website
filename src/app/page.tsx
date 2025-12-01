@@ -1,6 +1,6 @@
 "use client";
 
-import { MENU_LINK } from "@/constants";
+import { MENU_NAKED } from "@/constants";
 
 import Header from "@/components/Header";
 import Button from "@/components/Button";
@@ -13,10 +13,6 @@ import { reviews } from "@/data/reviews";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const onOpenMenu = () => {
-    window.open(MENU_LINK, "_blank");
-  };
-
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -28,7 +24,9 @@ export default function Home() {
         </div>
         {/* <Button size="large">Menu</Button> */}
         <img className={styles.hero} src="/hero-image.png" alt="Um abraço doce" />
-        <h1>Os nossos produtos</h1>
+        <h1 id="products" className={styles.title}>
+          Os nossos produtos
+        </h1>
         <div className={styles.products}>
           <div className={styles.mainProduct}>
             <GridItem
@@ -50,6 +48,8 @@ export default function Home() {
               image="/products/bolo-de-rolo-naked-recheado.jpg"
               title="Bolo de rolo Naked"
               description="Personalize a sua medida de acordo com a sua necessidade"
+              href={MENU_NAKED}
+              openInNewTab
               hasStartingFrom
               price={21}
             />

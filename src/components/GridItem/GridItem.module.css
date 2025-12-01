@@ -5,6 +5,7 @@
   align-items: left;
   justify-content: center;
   gap: 4px;
+  text-decoration: none;
 
   .image {
     width: 100%;
@@ -33,4 +34,9 @@
     line-height: 150%;
     color: var(--color-primary);
   }
+}
+
+.clickable {
+  cursor: pointer;
+  color: inherit;
 }

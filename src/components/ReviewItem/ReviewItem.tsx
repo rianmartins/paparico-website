@@ -16,7 +16,9 @@ const ReviewItem: FC<ReviewItemProps> = ({ name, review, origin, headline, ratin
       <div className={styles.headline}>
         <div className={styles.text}>“{headline}”</div>
         <div className={styles.rating}>
-          {new Array(rating).fill(<img src={"/icons/star.svg"} alt="rating-star" />)}
+          {Array.from({ length: rating }, (_, index) => (
+            <img key={`rating-star-${index}`} src={"/icons/star.svg"} alt="rating-star" />
+          ))}
         </div>
       </div>
       <div className={styles.review}>“{review}”</div>

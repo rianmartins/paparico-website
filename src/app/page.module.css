@@ -1,77 +1,184 @@
 .page {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   font-family: var(--font-geist-sans);
   background-color: var(--background);
+  color: var(--color-primary);
 }
 
 .main {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  max-width: 800px;
+  max-width: 1280px;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
   background-color: var(--foreground);
-  padding: 50px;
+  padding: 0 32px 80px;
 
-  .logo {
-    margin: 0 auto;
+  .description {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 150%;
+    width: 100%;
+    max-width: 920px;
+    text-align: left;
+    margin: 16px 0 32px;
+    color: var(--text-secondary);
   }
 
-  .info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .hero {
+    margin-bottom: 25px;
     width: 100%;
-    gap: 40px;
+    height: auto;
+    border-radius: 18px;
+  }
 
-    h1 {
-      font-size: 56px;
-      line-height: 56px;
-      color: var(--text-primary);
-      width: auto;
-      text-align: center;
-      font-family: var(--font-the-seasons);
+  h1 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 100%;
+  }
+
+  .title {
+    padding-top: 25px;
+  }
+
+  .products {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    align-items: flex-start;
+    width: 100%;
+
+    .mainProduct {
+      grid-column: span 3;
     }
 
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      font-family: var(--font-geist-sans);
-      width: 300px;
-      color: var(--text-primary);
-      text-align: center;
+    .otherProducts {
+      grid-column: span 2;
+
+      img {
+        height: 288px;
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
   }
 
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .productsGrid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
     width: 100%;
-    gap: 8px;
 
-    .icon {
-      width: 24px;
-      height: 24px;
+    img {
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+
+  .reviews {
+    width: 100%;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .main {
+    padding: 0 24px 64px;
+
+    .description {
+      font-size: 20px;
+    }
+
+    .products {
+      grid-template-columns: repeat(2, 1fr);
+
+      .mainProduct,
+      .otherProducts {
+        grid-column: span 2;
+      }
+
+      .otherProducts img {
+        height: auto;
+      }
+    }
+
+    .productsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reviews {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
+@media (max-width: 720px) {
+  .main {
+    padding: 78px 20px 8px;
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+    h1 {
+      font-size: 32px;
+      line-height: 110%;
+    }
+
+    .description {
+      font-size: 18px;
+      margin: 12px 0 24px;
+    }
+
+    .hero {
+      margin: 12px 0 24px;
+      border-radius: 14px;
+    }
+
+    .products {
+      margin-top: 32px;
+      grid-template-columns: 1fr;
+      gap: 24px;
+
+      .mainProduct,
+      .otherProducts {
+        grid-column: span 1;
+      }
+
+      > div {
+        gap: 24px;
+      }
+
+      img {
+        height: auto;
+      }
+    }
+
+    .productsGrid {
+      margin-top: 32px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .reviews {
+      margin-top: 32px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
   }
 }

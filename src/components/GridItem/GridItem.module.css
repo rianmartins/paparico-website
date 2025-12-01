@@ -1,0 +1,62 @@
+.GridItem {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  text-decoration: none;
+  width: 100%;
+
+  .image {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 150%;
+    color: var(--color-primary);
+  }
+
+  .description {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--text-secondary);
+  }
+
+  .price {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--color-primary);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  color: inherit;
+}
+
+@media (max-width: 720px) {
+  .GridItem {
+    gap: 6px;
+
+    .image {
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 20px;
+    }
+
+    .description,
+    .price {
+      font-size: 16px;
+    }
+  }
+}

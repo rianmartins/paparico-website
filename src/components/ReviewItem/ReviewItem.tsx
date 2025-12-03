@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import styles from "./ReviewItem.module.css";
 
@@ -17,7 +18,13 @@ const ReviewItem: FC<ReviewItemProps> = ({ name, review, origin, headline, ratin
         <div className={styles.text}>“{headline}”</div>
         <div className={styles.rating}>
           {Array.from({ length: rating }, (_, index) => (
-            <img key={`rating-star-${index}`} src={"/icons/star.svg"} alt="rating-star" />
+            <Image
+              key={`rating-star-${index}`}
+              src="/icons/star.svg"
+              alt="Estrela de avaliação"
+              width={20}
+              height={20}
+            />
           ))}
         </div>
       </div>

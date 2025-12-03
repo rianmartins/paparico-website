@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import { MENU_NAKED } from "@/constants";
@@ -31,7 +32,15 @@ export default function Home() {
             </Button>
           </Link>
         </div>
-        <img className={styles.hero} src="/hero-image.png" alt="Um abraço doce" />
+        <Image
+          className={styles.hero}
+          src="/hero-image.png"
+          alt="Um abraço doce"
+          width={1600}
+          height={900}
+          priority
+          sizes="100vw"
+        />
         <h1 id="products" className={styles.title}>
           Os nossos produtos
         </h1>

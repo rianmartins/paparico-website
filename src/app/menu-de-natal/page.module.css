@@ -6,24 +6,24 @@
   color: var(--color-primary);
   position: relative;
   font-family: var(--font-inter-tight);
-}
 
-.header {
-  width: 100%;
-}
+  .main {
+    .header nav a {
+      color: #8a0400;
+    }
 
-.header nav a {
-  color: #8a0400;
-}
-
-.header a button {
-  background-color: #fff;
-  color: #8a0400;
+    .header a button {
+      background-color: #fff;
+      color: #8a0400;
+    }
+  }
 }
 
 .heroSection {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 720px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.6);

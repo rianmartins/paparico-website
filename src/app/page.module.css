@@ -161,8 +161,7 @@
     }
 
     .hero {
-      margin: 12px 0 24px;
-      border-radius: 14px;
+      display: none;
     }
 
     .products {

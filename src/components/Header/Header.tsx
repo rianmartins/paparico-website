@@ -22,9 +22,9 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
       </Link>
       <nav className={styles.menu}>
-        <a className={styles.item} href="/#products">
+        <Link className={styles.item} href="/#products">
           Produtos
-        </a>
+        </Link>
         <a className={styles.item} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
           Bolo de rolo naked
         </a>
@@ -44,9 +44,9 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <span />
       </button>
       <nav className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ""}`}>
-        <a className={styles.mobileItem} href="/#products" onClick={closeMenu}>
+        <Link className={styles.mobileItem} href="/#products" onClick={closeMenu}>
           Produtos
-        </a>
+        </Link>
         <a
           className={styles.mobileItem}
           href={MENU_NAKED}

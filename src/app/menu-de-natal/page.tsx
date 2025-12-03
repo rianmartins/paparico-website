@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import Header from "@/components/Header";
 import ProductItem from "@/components/ProductItem";
 import Footer from "@/components/Footer";
@@ -13,7 +15,15 @@ export default function ChristmasMenuPage() {
   return (
     <div className={styles.page}>
       <div className={styles.heroSection}>
-        <img className={styles.heroImage} alt="Celebre o Natal" src="/products/natal/hero.jpg" />
+        <Image
+          className={styles.heroImage}
+          alt="Celebre o Natal"
+          src="/products/natal/hero.jpg"
+          width={1920}
+          height={1080}
+          priority
+          sizes="100vw"
+        />
         <div className={styles.heroOverlay} aria-hidden="true" />
       </div>
       <main className={styles.main}>

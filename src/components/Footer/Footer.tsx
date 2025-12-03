@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import styles from "./Footer.module.css";
 import SocialMediaIcon from "../SocialMediaIcon";
@@ -10,7 +11,7 @@ const Footer: FC = () => {
       <main className={styles.main}>
         <div className={styles.socialMediaContainer}>
           <div className={styles.logo}>
-            <img src="/logo.png" alt="Paparico" width={226} height={62} />
+            <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
           </div>
           <div className={styles.socialMedia}>
             <SocialMediaIcon icon="/icons/facebook.svg" link={FACEBOOK_URL} />

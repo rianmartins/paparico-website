@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import cx from "classnames";
 
 import styles from "./GridItem.module.css";
@@ -26,7 +27,17 @@ const GridItem: React.FC<GridItemProps> = ({
 }) => {
   const content = (
     <>
-      <img src={image} className={styles.image} />
+      <div className={styles.imageWrapper}>
+        <Image
+          src={image}
+          alt={title}
+          width={600}
+          height={400}
+          className={styles.image}
+          sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 420px"
+          priority={image.includes("hero")}
+        />
+      </div>
       <div className={styles.title}>{title}</div>
       <div className={styles.description}>{description}</div>
       {price && (

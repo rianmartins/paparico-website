@@ -30,7 +30,20 @@
     color: var(--text-secondary);
   }
 
+  .menuCta {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 8px 0 20px;
+  }
+
+  .menuCtaButton {
+    box-shadow: 0 12px 30px rgba(49, 64, 94, 0.12);
+    background-color: #8a0400;
+  }
+
   .hero {
+    margin-top: 25px;
     margin-bottom: 25px;
     width: 100%;
     height: auto;
@@ -141,6 +154,10 @@
     .description {
       font-size: 18px;
       margin: 12px 0 24px;
+    }
+
+    .menuCta {
+      margin: 8px 0 16px;
     }
 
     .hero {

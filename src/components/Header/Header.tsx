@@ -1,29 +1,28 @@
 import { FC, useState } from "react";
+import cx from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./Header.module.css";
 import Button from "../Button";
 import { MENU_NAKED, WHATSAPP_URL } from "@/constants";
 
-type HeaderProps = {};
+type HeaderProps = {
+  className?: string;
+};
 
-const Header: FC<HeaderProps> = ({}) => {
+const Header: FC<HeaderProps> = ({ className = "" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className={styles.Header}>
-      <Image
-        className={styles.logo}
-        src="/logo.png"
-        alt="Paparico"
-        width={226}
-        height={62}
-        priority
-      />
+    <header className={cx(styles.Header, className)}>
+      <Link href="/" className={styles.logo} aria-label="Voltar para a página inicial">
+        <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
+      </Link>
       <nav className={styles.menu}>
-        <a className={styles.item} href="#products">
+        <a className={styles.item} href="/#products">
           Produtos
         </a>
         <a className={styles.item} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
@@ -45,7 +44,7 @@ const Header: FC<HeaderProps> = ({}) => {
         <span />
       </button>
       <nav className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ""}`}>
-        <a className={styles.mobileItem} href="#products" onClick={closeMenu}>
+        <a className={styles.mobileItem} href="/#products" onClick={closeMenu}>
           Produtos
         </a>
         <a

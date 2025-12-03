@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { MENU_NAKED } from "@/constants";
 
 import Header from "@/components/Header";
@@ -22,7 +24,13 @@ export default function Home() {
           suas finíssimas camadas de massa enroladas. O Paparico resgata essa iguaria em solo
           português, reconectando Portugal às suas raízes com sabor e tradição.
         </div>
-        {/* <Button size="large">Menu</Button> */}
+        <div className={styles.menuCta}>
+          <Link href="/menu-de-natal">
+            <Button size="large" className={styles.menuCtaButton}>
+              Confira nosso menu de Natal
+            </Button>
+          </Link>
+        </div>
         <img className={styles.hero} src="/hero-image.png" alt="Um abraço doce" />
         <h1 id="products" className={styles.title}>
           Os nossos produtos

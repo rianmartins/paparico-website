@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   display: flex;
-  background: var(--background);
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
@@ -54,13 +53,13 @@
     position: fixed;
     left: 0;
     right: 0;
-    height: 64px;
+    height: 74px;
     padding: 10px 16px;
 
     background: var(--background);
 
     .logo {
-      height: 40px;
+      height: 62px;
       width: auto;
     }
 

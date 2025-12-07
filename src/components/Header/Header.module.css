@@ -129,4 +129,8 @@
     font-weight: 500;
     color: var(--color-primary);
   }
+
+  .mobileLanguageSwitcher {
+    justify-content: center;
+  }
 }

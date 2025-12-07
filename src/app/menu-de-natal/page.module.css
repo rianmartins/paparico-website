@@ -16,6 +16,11 @@
       background-color: #fff;
       color: #8a0400;
     }
+
+    .header div[role="group"] button[aria-pressed="true"] {
+      background-color: #8a0400;
+      color: #fff;
+    }
   }
 }
 
@@ -229,7 +234,7 @@
   }
 
   .contentTitle {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .products {

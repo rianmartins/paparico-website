@@ -1,11 +1,17 @@
 import { FC } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./Footer.module.css";
 import SocialMediaIcon from "../SocialMediaIcon";
 import { MENU_NAKED, FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from "@/constants";
+import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
 const Footer: FC = () => {
+  const { language } = useLanguage();
+  const t = useTranslations();
+  const productsHref = `/${language}#products`;
+
   return (
     <div className={styles.Footer}>
       <main className={styles.main}>
@@ -18,17 +24,17 @@ const Footer: FC = () => {
             <SocialMediaIcon icon="/icons/instagram.svg" link={INSTAGRAM_URL} />
           </div>
         </div>
-        <div className={styles.siteMap}>
-          <a className={styles.link} href="#products">
-            Produtos
-          </a>
+        <nav className={styles.siteMap}>
+          <Link className={styles.link} href={productsHref}>
+            {t.footer.products}
+          </Link>
           <a className={styles.link} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
-            Bolo de rolo naked
+            {t.footer.naked}
           </a>
           <a className={styles.link} href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            Faça a sua encomenda
+            {t.footer.order}
           </a>
-        </div>
+        </nav>
       </main>
     </div>
   );

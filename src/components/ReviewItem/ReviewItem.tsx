@@ -9,9 +9,10 @@ type ReviewItemProps = {
   headline: string;
   rating: number;
   origin: string;
+  ratingAlt: string;
 };
 
-const ReviewItem: FC<ReviewItemProps> = ({ name, review, origin, headline, rating }) => {
+const ReviewItem: FC<ReviewItemProps> = ({ name, review, origin, headline, rating, ratingAlt }) => {
   return (
     <div className={styles.ReviewItem}>
       <div className={styles.headline}>
@@ -21,7 +22,7 @@ const ReviewItem: FC<ReviewItemProps> = ({ name, review, origin, headline, ratin
             <Image
               key={`rating-star-${index}`}
               src="/icons/star.svg"
-              alt="Estrela de avaliação"
+              alt={ratingAlt}
               width={20}
               height={20}
             />

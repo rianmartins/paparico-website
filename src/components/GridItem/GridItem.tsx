@@ -13,6 +13,7 @@ type GridItemProps = {
   className?: string;
   href?: string;
   openInNewTab?: boolean;
+  startingFromLabel?: string;
 };
 
 const GridItem: React.FC<GridItemProps> = ({
@@ -24,6 +25,7 @@ const GridItem: React.FC<GridItemProps> = ({
   className = "",
   href,
   openInNewTab,
+  startingFromLabel,
 }) => {
   const content = (
     <>
@@ -40,9 +42,10 @@ const GridItem: React.FC<GridItemProps> = ({
       </div>
       <div className={styles.title}>{title}</div>
       <div className={styles.description}>{description}</div>
-      {price && (
+      {price !== undefined && (
         <div className={styles.price}>
-          {hasStartingFrom && "a partir de"} € {price.toFixed(2)}
+          {hasStartingFrom && startingFromLabel ? `${startingFromLabel} ` : ""}
+          € {price.toFixed(2)}
         </div>
       )}
     </>

@@ -89,6 +89,11 @@
       .title {
         font-size: 36px;
       }
+
+      .description {
+        font-size: 20px;
+        line-height: 150%;
+      }
     }
   }
 }

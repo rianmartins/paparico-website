@@ -14,10 +14,11 @@ export default async function LangLayout({
   params,
 }: {
   children: ReactNode;
-  params: Promise<{ lang: Language }>;
+  params: Promise<{ lang: string }>;
 }) {
   const resolvedParams = await params;
-  const lang = SUPPORTED_LANGUAGES.includes(resolvedParams.lang) ? resolvedParams.lang : "pt";
+  const paramLang = resolvedParams.lang as Language;
+  const lang = SUPPORTED_LANGUAGES.includes(paramLang) ? paramLang : ("pt" as Language);
 
   return <LanguageProvider initialLanguage={lang}>{children}</LanguageProvider>;
 }

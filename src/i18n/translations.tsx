@@ -236,6 +236,14 @@ export const translations: Record<Language, TranslationContent> = {
           moreInfo: "(Serve até 10 pessoas)",
         },
         {
+          image: "/products/natal/bolo-de-rolo-natal.jpeg",
+          title: "Bolo de Rolo Natalino",
+          description:
+            "Bolo tradicional de goiabada na versão natalina: bolo de rolo de goiabada com topping e decoração com brigadeiro de parmesão com gotas de goiaba. Finalizado com acabamento artístico de biscoitos e frutas. A opção perfeita para encantar a mesa.",
+          price: 42,
+          moreInfo: "(Serve até 12 pessoas)",
+        },
+        {
           image: "/products/natal/pavlova.jpg",
           title: "Guirlanda de Pavlova",
           description:
@@ -245,7 +253,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         {
           image: "/products/natal/cheesecake.jpg",
-          title: "Cheesecake de goiabada",
+          title: "Cheesecake de Goiabada",
           description:
             "Base feita com biscoito de bolo de rolo de goiabada, coberta por um aveludado creme de queijo e finalizada com a goiabada Paparico. Apresentado em travessa de porcelana, com trabalho de bico em chantilly e delicadas gotas de goiabada — um equilíbrio perfeito entre tradição e elegância.",
           price: 32,
@@ -261,7 +269,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         {
           image: "/products/natal/palitos.jpg",
-          title: "Palitos crocante Bolo de Rolo",
+          title: "Palitos Crocante Bolo de Rolo",
           description: (
             <>
               <p>
@@ -440,15 +448,23 @@ export const translations: Record<Language, TranslationContent> = {
       items: [
         {
           image: "/products/natal/tronco.jpg",
-          title: "Chocolate log",
+          title: "Chocolate Log",
           description:
             "A Christmas classic, Paparico style: chocolate bolo de rolo shaped as a log, filled with white brigadeiro and covered in 53% Belgian chocolate. Finished with artistic details and festive decorations that shine on the table.",
           price: 32,
           moreInfo: "(Serves up to 10 people)",
         },
         {
+          image: "/products/natal/bolo-de-rolo-natal.jpeg",
+          title: "Christmas Bolo de Rolo",
+          description:
+            "Traditional guava bolo de rolo in a festive edition: guava roll cake topped and decorated with parmesan brigadeiro and guava drops. Finished with an artistic garnish of cookies and fruit — the perfect centerpiece to enchant the table.",
+          price: 42,
+          moreInfo: "(Serves up to 12 people)",
+        },
+        {
           image: "/products/natal/pavlova.jpg",
-          title: "Pavlova wreath",
+          title: "Pavlova Wreath",
           description:
             "Crisp on the outside and soft inside, in the shape of a Christmas wreath. Filled with parmesan brigadeiro and guava cream — a surprising, elegant pairing. Decorated with fresh raspberries, rosemary and sugar details for a light, irresistible dessert.",
           price: 32,
@@ -456,7 +472,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         {
           image: "/products/natal/cheesecake.jpg",
-          title: "Guava cheesecake",
+          title: "Guava Cheesecake",
           description:
             "Base made with guava bolo de rolo cookies, topped with a velvety cheese cream and finished with Paparico's guava paste. Served in a porcelain dish with piped chantilly and delicate guava drops — the perfect balance of tradition and elegance.",
           price: 32,
@@ -464,7 +480,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         {
           image: "/products/natal/bannoffe.jpg",
-          title: "Dulce de leche banoffee",
+          title: "Dulce de Leche Banoffee",
           description:
             "Crunchy base of dulce de leche bolo de rolo cookie, filled with Paparico's dulce de leche, fresh bananas and chantilly lightly scented with cinnamon. Finished with banana jam, decorative piping and a Christmas touch of dried banana and cinnamon stick. Served in a porcelain dish, perfect for sharing.",
           price: 30,
@@ -472,7 +488,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         {
           image: "/products/natal/palitos.jpg",
-          title: "Crunchy bolo de rolo sticks",
+          title: "Crunchy Bolo de Rolo Sticks",
           description: (
             <>
               <p>

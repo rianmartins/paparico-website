@@ -30,7 +30,7 @@
 
   .description {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 150%;
     color: var(--text-secondary);
   }
@@ -40,6 +40,19 @@
     font-size: 20px;
     line-height: 150%;
     color: var(--color-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .note {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--text-secondary);
+    width: min-content;
+    flex-grow: 1;
   }
 }
 
@@ -60,8 +73,17 @@
       font-size: 20px;
     }
 
-    .description,
     .price {
+      flex-direction: column;
+    }
+
+    .note {
+      width: 100%;
+    }
+
+    .description,
+    .price,
+    .note {
       font-size: 16px;
     }
   }

@@ -1,6 +1,10 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import cx from "classnames";
+
+import { useTranslations } from "@/i18n/LanguageProvider";
 
 import styles from "./GridItem.module.css";
 
@@ -10,10 +14,12 @@ type GridItemProps = {
   description: string | React.ReactNode;
   hasStartingFrom?: boolean;
   price?: number;
+  priceSuffix?: string;
   className?: string;
   href?: string;
   openInNewTab?: boolean;
   startingFromLabel?: string;
+  note?: string;
 };
 
 const GridItem: React.FC<GridItemProps> = ({
@@ -25,8 +31,13 @@ const GridItem: React.FC<GridItemProps> = ({
   className = "",
   href,
   openInNewTab,
-  startingFromLabel,
+  priceSuffix,
+  note,
 }) => {
+  const t = useTranslations();
+  const startingFromLabel = hasStartingFrom ? `${t.common.startingFrom} ` : "";
+  const suffix = priceSuffix ? ` ${priceSuffix}` : "";
+  const priceString = price ? `${startingFromLabel}€ ${price.toFixed(2)}${suffix}` : "";
   const content = (
     <>
       <div className={styles.imageWrapper}>
@@ -44,8 +55,8 @@ const GridItem: React.FC<GridItemProps> = ({
       <div className={styles.description}>{description}</div>
       {price !== undefined && (
         <div className={styles.price}>
-          {hasStartingFrom && startingFromLabel ? `${startingFromLabel} ` : ""}
-          € {price.toFixed(2)}
+          <span>{priceString}</span>
+          {note && <div className={styles.note}>{note}</div>}
         </div>
       )}
     </>
@@ -64,11 +75,7 @@ const GridItem: React.FC<GridItemProps> = ({
     );
   }
 
-  return (
-    <div className={cx(styles.GridItem, className)}>
-      {content}
-    </div>
-  );
+  return <div className={cx(styles.GridItem, className)}>{content}</div>;
 };
 
 export default GridItem;

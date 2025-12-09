@@ -17,6 +17,15 @@ type HomeProduct = {
   hasStartingFrom?: boolean;
 };
 
+type EventProduct = {
+  title: string;
+  description: string;
+  price: number;
+  note: string;
+  isPerUnit: boolean;
+  image: string;
+};
+
 export type TranslationContent = {
   common: {
     startingFrom: string;
@@ -26,6 +35,7 @@ export type TranslationContent = {
     homeAria: string;
     products: string;
     naked: string;
+    events: string;
     order: string;
     openMenu: string;
     closeMenu: string;
@@ -33,6 +43,7 @@ export type TranslationContent = {
   footer: {
     products: string;
     naked: string;
+    events: string;
     order: string;
   };
   home: {
@@ -66,6 +77,13 @@ export type TranslationContent = {
     };
     items: ChristmasMenuItem[];
   };
+  events: {
+    heroAlt: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    pageTitle: string;
+    items: EventProduct[];
+  };
 };
 
 export const translations: Record<Language, TranslationContent> = {
@@ -78,6 +96,7 @@ export const translations: Record<Language, TranslationContent> = {
       homeAria: "Voltar para a página inicial",
       products: "Produtos",
       naked: "Bolo de rolo naked",
+      events: "Para o seu evento",
       order: "Faça sua encomenda",
       openMenu: "Abrir menu de navegação",
       closeMenu: "Fechar menu de navegação",
@@ -85,6 +104,7 @@ export const translations: Record<Language, TranslationContent> = {
     footer: {
       products: "Produtos",
       naked: "Bolo de rolo naked",
+      events: "Para o seu evento",
       order: "Faça a sua encomenda",
     },
     home: {
@@ -287,6 +307,38 @@ export const translations: Record<Language, TranslationContent> = {
         },
       ],
     },
+    events: {
+      heroAlt: "Celebre com o Paparico",
+      heroTitle: "Para o seu evento",
+      heroSubtitle: "Personalize a sua medida de acordo com a sua necessidade",
+      pageTitle: "Escolha o paparico perfeito para a sua comemoração",
+      items: [
+        {
+          title: "Mini Bolo de Rolo 5cm",
+          description: "Goiabada, Chocolate, Doce de Leite ou Pistachio",
+          price: 2,
+          note: "(Pedido mínimo de 6 unidades)",
+          isPerUnit: true,
+          image: "/products/events/mini.jpg",
+        },
+        {
+          title: "Bombom de Bolo de Rolo",
+          description: "Goiabada, Chocolate, Doce de Leite",
+          price: 1.8,
+          note: "(Pedido mínimo de 6 unidades)",
+          isPerUnit: true,
+          image: "/products/events/bombom.jpg",
+        },
+        {
+          title: "Bem-rolado 4x4cm",
+          description: "Goiabada, Chocolate, Doce de leite ou Pistachio",
+          price: 2.5,
+          note: "(Pedido mínimo de 6 unidades)",
+          isPerUnit: true,
+          image: "/products/events/bem-casado.jpg",
+        },
+      ],
+    },
   },
   en: {
     common: {
@@ -297,6 +349,7 @@ export const translations: Record<Language, TranslationContent> = {
       homeAria: "Back to the home page",
       products: "Products",
       naked: "Naked bolo de rolo",
+      events: "For your event",
       order: "Place your order",
       openMenu: "Open navigation menu",
       closeMenu: "Close navigation menu",
@@ -304,6 +357,7 @@ export const translations: Record<Language, TranslationContent> = {
     footer: {
       products: "Products",
       naked: "Naked bolo de rolo",
+      events: "For your event",
       order: "Place your order",
     },
     home: {
@@ -503,6 +557,38 @@ export const translations: Record<Language, TranslationContent> = {
             </>
           ),
           price: 8.5,
+        },
+      ],
+    },
+    events: {
+      heroAlt: "Celebrate with Paparico",
+      heroTitle: "Para o seu evento",
+      heroSubtitle: "Personalize a sua medida de acordo com a sua necessidade",
+      pageTitle: "Escolha o paparico perfeito para a sua comemoração",
+      items: [
+        {
+          title: "Mini Bolo de Rolo 5cm",
+          description: "Guava, Chocolate, Dulce de Leche or Pistachio",
+          price: 2,
+          note: "(Minimum order of 6 units)",
+          isPerUnit: true,
+          image: "/products/events/mini.jpg",
+        },
+        {
+          title: "Bolo de Rolo Bonbon",
+          description: "Guava, Chocolate, Dulce de Leche",
+          price: 1.8,
+          note: "(Minimum order of 6 units)",
+          isPerUnit: true,
+          image: "/products/events/bombom.jpg",
+        },
+        {
+          title: "Bem-rolado 4x4cm",
+          description: "Guava, Chocolate, Dulce de Leche or Pistachio",
+          price: 2.5,
+          note: "(Minimum order of 6 units)",
+          isPerUnit: true,
+          image: "/products/events/bem-casado.jpg",
         },
       ],
     },

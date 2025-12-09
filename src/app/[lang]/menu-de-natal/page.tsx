@@ -1,40 +1,28 @@
 "use client";
 
-import Image from "next/image";
+import { useTranslations } from "@/i18n/LanguageProvider";
 
-import Header from "@/components/Header";
-import ProductItem from "@/components/ProductItem";
+import Button from "@/components/Button";
 import Footer from "@/components/Footer";
+import HeroHeader from "@/components/HeroHeader";
+import ProductItem from "@/components/ProductItem";
+import { WHATSAPP_URL } from "@/constants";
 
 import styles from "../../menu-de-natal/page.module.css";
-import Button from "@/components/Button";
-import { WHATSAPP_URL } from "@/constants";
-import { useTranslations } from "@/i18n/LanguageProvider";
 
 export default function ChristmasMenuPage() {
   const t = useTranslations();
 
   return (
     <div className={styles.page}>
-      <div className={styles.heroSection}>
-        <Image
-          className={styles.heroImage}
-          alt={t.menu.heroAlt}
-          src="/products/natal/hero.jpg"
-          width={1920}
-          height={1080}
-          priority
-          sizes="100vw"
-        />
-        <div className={styles.heroOverlay} aria-hidden="true" />
-      </div>
-      <main className={styles.main}>
-        <Header className={styles.header} />
-        <div className={styles.container}>
-          <h1 className={styles.title}>{t.menu.title}</h1>
-          <p className={styles.subtitle}>{t.menu.subtitle}</p>
-        </div>
-      </main>
+      <HeroHeader
+        className={styles.header}
+        heroClassName={styles.heroImage}
+        image="/products/natal/hero.jpg"
+        imageAlt={t.menu.heroAlt}
+        title={t.menu.title}
+        subtitle={t.menu.subtitle}
+      />
       <section className={styles.content}>
         <div className={styles.contentInner}>
           <h1 className={styles.contentTitle}>{t.menu.contentTitle}</h1>

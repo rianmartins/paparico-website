@@ -23,6 +23,7 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
   const closeMenu = () => setIsMenuOpen(false);
   const isHome = pathname === `/${language}` || pathname === `/${language}/`;
   const productsHref = `/${language}#products`;
+  const eventsHref = `/${language}/eventos`;
 
   return (
     <header className={cx(styles.Header, className)}>
@@ -36,6 +37,9 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <a className={styles.item} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
           {t.header.naked}
         </a>
+        <Link className={styles.item} href={eventsHref}>
+          {t.header.events}
+        </Link>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
           <Button>{t.header.order}</Button>
         </a>
@@ -65,6 +69,9 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         >
           {t.header.naked}
         </a>
+        <Link className={styles.mobileItem} href={eventsHref} onClick={closeMenu}>
+          {t.header.events}
+        </Link>
         <a
           className={styles.mobileItem}
           href={WHATSAPP_URL}

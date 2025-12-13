@@ -10,7 +10,6 @@ import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 const Footer: FC = () => {
   const { language } = useLanguage();
   const t = useTranslations();
-  const productsHref = `/${language}#products`;
 
   return (
     <div className={styles.Footer}>
@@ -25,9 +24,12 @@ const Footer: FC = () => {
           </div>
         </div>
         <nav className={styles.siteMap}>
-          <Link className={styles.link} href={productsHref}>
+          <Link className={styles.link} href={`/${language}#products`}>
             {t.footer.products}
           </Link>
+          <a className={styles.link} href={`/${language}/eventos`}>
+            {t.footer.events}
+          </a>
           <a className={styles.link} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
             {t.footer.naked}
           </a>

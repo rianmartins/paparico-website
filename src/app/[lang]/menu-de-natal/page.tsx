@@ -8,7 +8,7 @@ import HeroHeader from "@/components/HeroHeader";
 import ProductItem from "@/components/ProductItem";
 import { WHATSAPP_URL } from "@/constants";
 
-import styles from "../../menu-de-natal/page.module.css";
+import styles from "./page.module.css";
 
 export default function ChristmasMenuPage() {
   const t = useTranslations();

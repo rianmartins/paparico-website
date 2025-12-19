@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
-import styles from "../page.module.css";
+import styles from "./page.module.css";
 
 export default function Home() {
   const { language } = useLanguage();

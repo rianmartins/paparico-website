@@ -1,36 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import Header from "@/components/Header";
-import Button from "@/components/Button";
 import GridItem from "@/components/GridItem";
 import ReviewItem from "@/components/ReviewItem";
 import Footer from "@/components/Footer";
 
-import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
+import { useTranslations } from "@/i18n/LanguageProvider";
 
 import styles from "./page.module.css";
 
 export default function Home() {
-  const { language } = useLanguage();
   const t = useTranslations();
 
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <Header />
-        <div className={styles.description}>
-          {t.home.description}
-        </div>
-        <div className={styles.menuCta}>
-          <Link href={`/${language}/menu-de-natal`}>
-            <Button size="large" className={styles.menuCtaButton}>
-              {t.home.menuCta}
-            </Button>
-          </Link>
-        </div>
+        <div className={styles.description}>{t.home.description}</div>
         <Image
           className={styles.hero}
           src="/hero-image.png"
@@ -63,11 +51,7 @@ export default function Home() {
         </div>
         <div className={styles.productsGrid}>
           {t.home.products.grid.map((product) => (
-            <GridItem
-              key={product.title}
-              {...product}
-              startingFromLabel={t.common.startingFrom}
-            />
+            <GridItem key={product.title} {...product} startingFromLabel={t.common.startingFrom} />
           ))}
         </div>
         <h1>{t.home.reviewsTitle}</h1>

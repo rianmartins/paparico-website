@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import styles from "./Footer.module.css";
 import SocialMediaIcon from "../SocialMediaIcon";
-import { MENU_NAKED, FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from "@/constants";
+import { FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from "@/constants";
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
 const Footer: FC = () => {
@@ -29,9 +29,6 @@ const Footer: FC = () => {
           </Link>
           <a className={styles.link} href={`/${language}/eventos`}>
             {t.footer.events}
-          </a>
-          <a className={styles.link} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
-            {t.footer.naked}
           </a>
           <a className={styles.link} href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
             {t.footer.order}

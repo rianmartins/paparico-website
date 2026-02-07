@@ -2,7 +2,6 @@ import { type ReactNode } from "react";
 
 import { type ChristmasMenuItem } from "@/data/menuDeNatal";
 import { type Review } from "@/data/reviews";
-import { MENU_NAKED } from "@/constants";
 
 export type Language = "pt" | "en";
 export const SUPPORTED_LANGUAGES: Language[] = ["pt", "en"];
@@ -118,23 +117,20 @@ export const translations: Record<Language, TranslationContent> = {
           image: "/products/bolo-de-rolo-goiabada.jpg",
           title: "Bolo de rolo tradicional 450g",
           description: "Goiabada, Doce de leite, Chocolate e Pistachio",
-          price: 14,
+          price: 14.5,
         },
         secondary: [
           {
             image: "/products/bolo-de-rolo-doce-de-leite.jpg",
             title: "Bolo de rolo tradicional 900g",
             description: "Goiabada, Doce de leite, Chocolate e Pistachio",
-            price: 23,
+            price: 24,
           },
           {
             image: "/products/bolo-de-rolo-naked-recheado.jpg",
-            title: "Bolo de rolo Naked",
-            description: "Personalize a sua medida de acordo com a sua necessidade",
-            href: MENU_NAKED,
-            openInNewTab: true,
-            hasStartingFrom: true,
-            price: 21,
+            title: "Bolo de rolo Naked 4/4,5 Kg",
+            description: "20x15cm - rendimento 30/35 fatias",
+            price: 88,
           },
         ],
         grid: [
@@ -155,19 +151,19 @@ export const translations: Record<Language, TranslationContent> = {
             image: "/products/bolo-de-rolo-fatia.jpg",
             title: "Fatia de Bolo de rolo 50g",
             description: "Goiabada, Doce de leite, Chocolate e Pistachio",
-            price: 2,
+            price: 2.5,
           },
-          {
-            image: "/products/biscoito.jpg",
-            title: "Biscoito Crocante de Bolo de Rolo",
-            description: (
-              <>
-                <div>Goiabada</div>
-                <div>Churros com doce de leite</div>
-              </>
-            ),
-            price: 4,
-          },
+          // {
+          //   image: "/products/biscoito.jpg",
+          //   title: "Biscoito Crocante de Bolo de Rolo",
+          //   description: (
+          //     <>
+          //       <div>Goiabada</div>
+          //       <div>Churros com doce de leite</div>
+          //     </>
+          //   ),
+          //   price: 4,
+          // },
           {
             image: "/products/casadinho.jpg",
             title: "Biscoito casadinho 120g",
@@ -184,7 +180,7 @@ export const translations: Record<Language, TranslationContent> = {
                 <div>Pistachio com brigadeiro de chocolate</div>
               </>
             ),
-            price: 21,
+            price: 22.5,
           },
           {
             image: "/products/bolo-de-rolo-toppings-2-sabores.jpg",
@@ -371,23 +367,20 @@ export const translations: Record<Language, TranslationContent> = {
           image: "/products/bolo-de-rolo-goiabada.jpg",
           title: "Traditional bolo de rolo 450g",
           description: "Guava, dulce de leche, chocolate and pistachio",
-          price: 14,
+          price: 14.5,
         },
         secondary: [
           {
             image: "/products/bolo-de-rolo-doce-de-leite.jpg",
             title: "Traditional bolo de rolo 900g",
             description: "Guava, dulce de leche, chocolate and pistachio",
-            price: 23,
+            price: 24,
           },
           {
             image: "/products/bolo-de-rolo-naked-recheado.jpg",
-            title: "Naked bolo de rolo",
-            description: "Customize the size to suit your needs",
-            href: MENU_NAKED,
-            openInNewTab: true,
-            hasStartingFrom: true,
-            price: 21,
+            title: "Naked bolo de rolo 4-4.5 Kg",
+            description: "20x25cm - serving 30/35 slices",
+            price: 88,
           },
         ],
         grid: [
@@ -408,19 +401,19 @@ export const translations: Record<Language, TranslationContent> = {
             image: "/products/bolo-de-rolo-fatia.jpg",
             title: "Slice of bolo de rolo 50g",
             description: "Guava, dulce de leche, chocolate and pistachio",
-            price: 2,
+            price: 2.5,
           },
-          {
-            image: "/products/biscoito.jpg",
-            title: "Crunchy bolo de rolo cookie",
-            description: (
-              <>
-                <div>Guava</div>
-                <div>Churros with dulce de leche</div>
-              </>
-            ),
-            price: 4,
-          },
+          // {
+          //   image: "/products/biscoito.jpg",
+          //   title: "Crunchy bolo de rolo cookie",
+          //   description: (
+          //     <>
+          //       <div>Guava</div>
+          //       <div>Churros with dulce de leche</div>
+          //     </>
+          //   ),
+          //   price: 4,
+          // },
           {
             image: "/products/casadinho.jpg",
             title: "Casadinho cookie 120g",
@@ -437,7 +430,7 @@ export const translations: Record<Language, TranslationContent> = {
                 <div>Pistachio with chocolate brigadeiro</div>
               </>
             ),
-            price: 21,
+            price: 22.5,
           },
           {
             image: "/products/bolo-de-rolo-toppings-2-sabores.jpg",

@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 import Button from "../Button";
 import LanguageSwitcher from "../LanguageSwitcher";
-import { MENU_NAKED, WHATSAPP_URL } from "@/constants";
+import { WHATSAPP_URL } from "@/constants";
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
 type HeaderProps = {
@@ -34,9 +34,6 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <Link className={styles.item} href={productsHref} scroll={isHome}>
           {t.header.products}
         </Link>
-        <a className={styles.item} href={MENU_NAKED} target="_blank" rel="noopener noreferrer">
-          {t.header.naked}
-        </a>
         <Link className={styles.item} href={eventsHref}>
           {t.header.events}
         </Link>
@@ -60,15 +57,6 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <Link className={styles.mobileItem} href={productsHref} onClick={closeMenu} scroll={isHome}>
           {t.header.products}
         </Link>
-        <a
-          className={styles.mobileItem}
-          href={MENU_NAKED}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={closeMenu}
-        >
-          {t.header.naked}
-        </a>
         <Link className={styles.mobileItem} href={eventsHref} onClick={closeMenu}>
           {t.header.events}
         </Link>

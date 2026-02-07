@@ -76,7 +76,7 @@ src/
  │   │   └─ menu-de-natal/
  │   └─ globals.css
  ├─ components/              # Header, Footer, GridItem, HeroHeader, etc.
- ├─ constants/               # Shared constants (e.g., WhatsApp URL, MENU_NAKED)
+ ├─ constants/               # Shared constants (e.g., WhatsApp URL)
  ├─ data/                    # Content sources (menu items, reviews)
  └─ i18n/
      ├─ LanguageProvider.tsx # Context + hooks for language and translations

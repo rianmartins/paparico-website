@@ -53,16 +53,28 @@
   color: inherit;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 800px) {
   .GridItem {
     gap: 6px;
 
-    .imageWrapper {
-      margin-bottom: 16px;
+    .title {
+      font-size: 28px;
     }
 
+    .description {
+      font-size: 18px;
+    }
+  }
+
+  .GridItem:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .GridItem {
     .title {
-      font-size: 20px;
+      font-size: 24px;
     }
 
     .description {

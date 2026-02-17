@@ -48,7 +48,7 @@ const GridItem: React.FC<GridItemProps> = ({
       {sizes.map((item) => (
         <div key={item.title} className={styles.title}>
           <span>{item.title}</span>
-          <span>{`${item.price.toFixed(1)}€`}</span>
+          <span style={{ marginLeft: "25px" }}>{`${item.price.toFixed(1)}€`}</span>
         </div>
       ))}
       <div className={styles.description}>

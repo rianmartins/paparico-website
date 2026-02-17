@@ -22,8 +22,6 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
 
   const closeMenu = () => setIsMenuOpen(false);
   const isHome = pathname === `/${language}` || pathname === `/${language}/`;
-  const productsHref = `/${language}#products`;
-  const eventsHref = `/${language}/#information`;
 
   return (
     <header className={cx(styles.Header, className)}>
@@ -60,11 +58,22 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <span />
       </button>
       <nav className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuOpen : ""}`}>
-        <Link className={styles.mobileItem} href={productsHref} onClick={closeMenu} scroll={isHome}>
+        <Link
+          className={styles.mobileItem}
+          href={`/${language}#products`}
+          onClick={closeMenu}
+          scroll={isHome}
+        >
           {t.header.products}
         </Link>
-        <Link className={styles.mobileItem} href={eventsHref} onClick={closeMenu}>
-          {t.header.events}
+        <Link className={styles.mobileItem} href={`/${language}#information`} onClick={closeMenu}>
+          {t.header.information}
+        </Link>
+        <Link className={styles.mobileItem} href={`/${language}#reseller`} onClick={closeMenu}>
+          {t.header.reseller}
+        </Link>
+        <Link className={styles.mobileItem} href={`/${language}#reviews`} onClick={closeMenu}>
+          {t.header.reviews}
         </Link>
         <a
           className={styles.mobileItem}

@@ -11,7 +11,8 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-width: 1370px;
+    max-width: 1440px;
+    padding: 0 35px;
     align-items: flex-start;
     font-family: var(--font-inter-tight);
     gap: 32px;
@@ -103,6 +104,10 @@
       .socialMedia {
         justify-content: center;
       }
+    }
+
+    .siteName {
+      display: none;
     }
 
     .siteMap {

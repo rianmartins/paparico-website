@@ -86,6 +86,7 @@ export default function Home() {
               image="/products/bolo-de-rolo-toppings-doce-de-leite.png"
             />
             <GridText
+              className={styles.gridTextItem}
               title="Camadas de tradição. Sabor de casa."
               text={[
                 "Cada produto do Paparico é feito artesanalmente, com atenção a cada detalhe e respeito absoluto à tradição do bolo de rolo pernambucano.",
@@ -124,6 +125,7 @@ export default function Home() {
               image="/products/bolo-de-rolo-naked-recheado.jpg"
             />
             <GridText
+              className={styles.gridTextItem}
               title="Seu evento ainda mais especial."
               text={[
                 "Cada celebração tem a sua própria história — e nós gostamos de fazer parte dela.No Paparico, desenvolvemos pedidos sob encomenda, pensados de acordo com a sua ideia, o seu momento e o cuidado que a ocasião merece.",
@@ -142,7 +144,7 @@ export default function Home() {
           </div>
         </div>
         <div id="images" className={styles.gallery}>
-          <h1 className={`${styles.title} ${styles.galleryTitle}`}>{t.home.galleryTitle}</h1>
+          <h1 className={styles.title}>{t.home.galleryTitle}</h1>
           <div className={styles.galleryGrid}>
             <div className={styles.row}>
               <Image
@@ -193,7 +195,7 @@ export default function Home() {
               <h3>{t.home.info.pickupTitle}</h3>
               <p>{t.home.info.pickupDescription}</p>
             </div>
-            <Image src="/info-1.png" alt="Paparico" width={594} height={862} />
+            <Image src="/info-1.png" alt="Paparico" width={594} height={875} />
             <Image
               src="/info-2.png"
               alt="Paparico"
@@ -240,24 +242,24 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div id="reviews" className={styles.fullWidth}>
-            <h1 className={styles.title}>{t.home.reviews.title}</h1>
-            <h3>{t.home.reviews.subheadingOne}</h3>
-            <h3>{t.home.reviews.subheadingTwo}</h3>
-            <Button className={styles.reviewsCta}>{t.home.reviews.cta}</Button>
-            <div className={styles.reviews}>
-              {t.reviews.items.map((review) => (
-                <ReviewItem
-                  key={`${review.name}-${review.headline}`}
-                  name={review.name}
-                  review={review.text}
-                  origin={review.origin}
-                  headline={review.headline}
-                  rating={review.rating}
-                  ratingAlt={t.reviews.starAlt}
-                />
-              ))}
-            </div>
+        </div>
+        <div id="reviews" className={styles.reviews}>
+          <h1 className={styles.title}>{t.home.reviews.title}</h1>
+          <h3>{t.home.reviews.subheadingOne}</h3>
+          <h3>{t.home.reviews.subheadingTwo}</h3>
+          <Button className={styles.reviewsCta}>{t.home.reviews.cta}</Button>
+          <div className={styles.reviewsGrid}>
+            {t.reviews.items.map((review) => (
+              <ReviewItem
+                key={`${review.name}-${review.headline}`}
+                name={review.name}
+                review={review.text}
+                origin={review.origin}
+                headline={review.headline}
+                rating={review.rating}
+                ratingAlt={t.reviews.starAlt}
+              />
+            ))}
           </div>
         </div>
       </section>

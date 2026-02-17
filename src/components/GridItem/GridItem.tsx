@@ -8,57 +8,54 @@ import { useTranslations } from "@/i18n/LanguageProvider";
 
 import styles from "./GridItem.module.css";
 
+type PriceSized = {
+  title: string;
+  price: number;
+};
+
 type GridItemProps = {
   image: string;
-  title: string;
-  description: string | React.ReactNode;
-  hasStartingFrom?: boolean;
-  price?: number;
-  priceSuffix?: string;
+  flavors: string[];
+  sizes: PriceSized[];
   className?: string;
   href?: string;
   openInNewTab?: boolean;
-  startingFromLabel?: string;
-  note?: string;
 };
 
 const GridItem: React.FC<GridItemProps> = ({
   image,
-  title,
-  description,
-  price,
-  hasStartingFrom,
   className = "",
   href,
   openInNewTab,
-  priceSuffix,
-  note,
+  flavors,
+  sizes,
 }) => {
   const t = useTranslations();
-  const startingFromLabel = hasStartingFrom ? `${t.common.startingFrom} ` : "";
-  const suffix = priceSuffix ? ` ${priceSuffix}` : "";
-  const priceString = price ? `${startingFromLabel}€ ${price.toFixed(2)}${suffix}` : "";
+  const title = sizes[0].title;
   const content = (
     <>
       <div className={styles.imageWrapper}>
         <Image
           src={image}
           alt={title}
-          width={600}
-          height={400}
+          width={445}
+          height={445}
           className={styles.image}
           sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 420px"
           priority={image.includes("hero")}
         />
       </div>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.description}>{description}</div>
-      {price !== undefined && (
-        <div className={styles.price}>
-          <span>{priceString}</span>
-          {note && <div className={styles.note}>{note}</div>}
+      {sizes.map((item) => (
+        <div key={item.title} className={styles.title}>
+          <span>{item.title}</span>
+          <span>{`${item.price.toFixed(1)}€`}</span>
         </div>
-      )}
+      ))}
+      <div className={styles.description}>
+        {flavors.map((item) => (
+          <div key={item}>{item}</div>
+        ))}
+      </div>
     </>
   );
 

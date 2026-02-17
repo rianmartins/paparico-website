@@ -8,12 +8,27 @@ type ButtonProps = {
   className?: string;
   onClick?: () => void;
   size?: "small" | "medium" | "large";
+  variant?: "primary" | "secondary";
+  style?: React.CSSProperties;
 };
 
-const Button: FC<ButtonProps> = ({ children, onClick, size = "medium", className = "" }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  onClick,
+  size = "medium",
+  className = "",
+  variant = "primary",
+  style = {},
+}) => {
   return (
     <button
-      className={cx(styles.Button, styles[`Button--size-${size}`], className)}
+      style={style}
+      className={cx(
+        styles.Button,
+        styles[`Button--size-${size}`],
+        styles[`Button--variant-${variant}`],
+        className
+      )}
       onClick={onClick}
     >
       {children}

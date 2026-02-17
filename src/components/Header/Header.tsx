@@ -23,24 +23,30 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
   const closeMenu = () => setIsMenuOpen(false);
   const isHome = pathname === `/${language}` || pathname === `/${language}/`;
   const productsHref = `/${language}#products`;
-  const eventsHref = `/${language}/eventos`;
+  const eventsHref = `/${language}/#information`;
 
   return (
     <header className={cx(styles.Header, className)}>
       <Link href={`/${language}`} className={styles.logo} aria-label={t.header.homeAria}>
-        <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
+        <Image src="/logo-branca.png" alt="Paparico" width={226} height={62} priority />
       </Link>
       <nav className={styles.menu}>
-        <Link className={styles.item} href={productsHref} scroll={isHome}>
+        <Link className={styles.item} href={`/${language}#products`} scroll={isHome}>
           {t.header.products}
         </Link>
-        <Link className={styles.item} href={eventsHref}>
-          {t.header.events}
+        <Link className={styles.item} href={`/${language}#information`}>
+          {t.header.information}
+        </Link>
+        <Link className={styles.item} href={`/${language}#reseller`}>
+          {t.header.reseller}
+        </Link>
+        <Link className={styles.item} href={`/${language}#reviews`}>
+          {t.header.reviews}
         </Link>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-          <Button>{t.header.order}</Button>
+          <Button variant="secondary">{t.header.order}</Button>
         </a>
-        <LanguageSwitcher />
+        {/* <LanguageSwitcher /> */}
       </nav>
       <button
         className={styles.hamburger}

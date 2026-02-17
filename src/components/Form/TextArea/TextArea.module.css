@@ -1,0 +1,8 @@
+.TextArea {
+  width: 100%;
+  height: 96px;
+  padding: 14px 16px;
+  background-color: var(--color-primary);
+  color: #ebebeb;
+  resize: none;
+}

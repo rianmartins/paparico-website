@@ -1,202 +1,162 @@
 import { type ReactNode } from "react";
 
-import { type ChristmasMenuItem } from "@/data/menuDeNatal";
 import { type Review } from "@/data/reviews";
 
 export type Language = "pt" | "en";
 export const SUPPORTED_LANGUAGES: Language[] = ["pt", "en"];
 
-type HomeProduct = {
-  image: string;
-  title: string;
-  description: string | ReactNode;
-  price?: number;
-  href?: string;
-  openInNewTab?: boolean;
-  hasStartingFrom?: boolean;
-};
-
-type EventProduct = {
-  title: string;
-  description: string;
-  price: number;
-  note: string;
-  isPerUnit: boolean;
-  image: string;
-};
-
 export type TranslationContent = {
   common: {
-    startingFrom: string;
     languageSwitcher: string;
   };
   header: {
     homeAria: string;
     products: string;
-    naked: string;
     events: string;
+    information: string;
+    reseller: string;
+    reviews: string;
     order: string;
     openMenu: string;
     closeMenu: string;
   };
   footer: {
-    products: string;
-    naked: string;
-    events: string;
-    order: string;
+    backToTop: string;
+    terms: string;
+    contact: string;
   };
   home: {
-    description: string;
-    menuCta: string;
-    heroAlt: string;
     productsTitle: string;
-    products: {
-      main: HomeProduct;
-      secondary: HomeProduct[];
-      grid: HomeProduct[];
+    title: string;
+    text: ReactNode;
+    galleryTitle: string;
+    info: {
+      title: string;
+      subtitle: string;
+      paragraphs: string[];
+      shippingTitle: string;
+      shippingDescription: string;
+      pickupTitle: string;
+      pickupDescription: string;
     };
-    reviewsTitle: string;
+    reseller: {
+      title: string;
+      heading: string;
+      description: string[];
+      formLabels: {
+        name: string;
+        company: string;
+        email: string;
+        contact: string;
+        message: string;
+      };
+      cta: string;
+    };
+    reviews: {
+      title: string;
+      subheadingOne: string;
+      subheadingTwo: string;
+      cta: string;
+    };
+    heroSection: {
+      title: string;
+      subtitle: string;
+      alt: string;
+    };
   };
   reviews: {
     starAlt: string;
     items: Review[];
-  };
-  menu: {
-    heroAlt: string;
-    title: string;
-    subtitle: string;
-    contentTitle: string;
-    paragraphs: string[];
-    button: string;
-    notice: {
-      descriptionTop: string;
-      pickupTitle: string;
-      pickupTimes: string[];
-      closing: string;
-    };
-    items: ChristmasMenuItem[];
-  };
-  events: {
-    heroAlt: string;
-    heroTitle: string;
-    heroSubtitle: string;
-    pageTitle: string;
-    items: EventProduct[];
   };
 };
 
 export const translations: Record<Language, TranslationContent> = {
   pt: {
     common: {
-      startingFrom: "a partir de",
       languageSwitcher: "Selecionar idioma",
     },
     header: {
       homeAria: "Voltar para a página inicial",
       products: "Produtos",
-      naked: "Bolo de rolo naked",
       events: "Para o seu evento",
-      order: "Faça sua encomenda",
-      openMenu: "Abrir menu de navegação",
-      closeMenu: "Fechar menu de navegação",
-    },
+      information: "Informações",
+      reseller: "Seja um revendedor",
+      reviews: "Depoimentos",
+    order: "Faça sua encomenda",
+    openMenu: "Abrir menu de navegação",
+    closeMenu: "Fechar menu de navegação",
+  },
     footer: {
-      products: "Produtos",
-      naked: "Bolo de rolo naked",
-      events: "Para o seu evento",
-      order: "Faça a sua encomenda",
+      backToTop: "Voltar ao topo",
+      terms: "Termos e condições",
+      contact: "Fale conosco",
     },
-    home: {
-      description:
-        "O bolo de rolo é um doce tradicional e patrimônio imaterial de Pernambuco, marcado por suas finíssimas camadas de massa enroladas. O Paparico resgata essa iguaria em solo português, reconectando Portugal às suas raízes com sabor e tradição.",
-      menuCta: "Confira nosso menu de Natal",
-      heroAlt: "Um abraço doce",
-      productsTitle: "Os nossos produtos",
-      products: {
-        main: {
-          image: "/products/bolo-de-rolo-goiabada.jpg",
-          title: "Bolo de rolo tradicional 450g",
-          description: "Goiabada, Doce de leite, Chocolate e Pistachio",
-          price: 14.5,
-        },
-        secondary: [
-          {
-            image: "/products/bolo-de-rolo-doce-de-leite.jpg",
-            title: "Bolo de rolo tradicional 900g",
-            description: "Goiabada, Doce de leite, Chocolate e Pistachio",
-            price: 24,
-          },
-          {
-            image: "/products/bolo-de-rolo-naked-recheado.jpg",
-            title: "Bolo de rolo Naked 4/4,5 Kg",
-            description: "20x15cm - rendimento 30/35 fatias",
-            price: 88,
-          },
-        ],
-        grid: [
-          {
-            image: "/products/bolo-de-pote.jpg",
-            title: "Bolo de rolo no pote 180g",
-            description: (
-              <>
-                <div>Goiabada com Brigadeiro de Parmesão</div>
-                <div>Churros com doce de leite</div>
-                <div>Chocolate com Brigadeiro Branco</div>
-                <div>Pistachio com Brigadeiro 53%</div>
-              </>
-            ),
-            price: 7,
-          },
-          {
-            image: "/products/bolo-de-rolo-fatia.jpg",
-            title: "Fatia de Bolo de rolo 50g",
-            description: "Goiabada, Doce de leite, Chocolate e Pistachio",
-            price: 2.5,
-          },
-          // {
-          //   image: "/products/biscoito.jpg",
-          //   title: "Biscoito Crocante de Bolo de Rolo",
-          //   description: (
-          //     <>
-          //       <div>Goiabada</div>
-          //       <div>Churros com doce de leite</div>
-          //     </>
-          //   ),
-          //   price: 4,
-          // },
-          {
-            image: "/products/casadinho.jpg",
-            title: "Biscoito casadinho 120g",
-            description: "Massa amanteigada com recheio de goiabada",
-            price: 4,
-          },
-          {
-            image: "/products/bolo-de-rolo-toppings-doce-de-leite.jpg",
-            title: "Bolo de rolo com topping 550g",
-            description: (
-              <>
-                <div>Goiabada com brigadeiro de parmesão</div>
-                <div>Doce de leite com brigadeiro cappuccino</div>
-                <div>Pistachio com brigadeiro de chocolate</div>
-              </>
-            ),
-            price: 22.5,
-          },
-          {
-            image: "/products/bolo-de-rolo-toppings-2-sabores.jpg",
-            title: "Bolo de rolo com topping 1100g",
-            description: (
-              <>
-                <div>Goiabada com brigadeiro de parmesão</div>
-                <div>Doce de leite com brigadeiro cappuccino</div>
-                <div>Pistachio com brigadeiro de chocolate</div>
-              </>
-            ),
-            price: 38,
-          },
-        ],
+  home: {
+    productsTitle: "Conheça o nosso menu",
+    title: "A História do Bolo de Rolo",
+    text: (
+        <>
+          <p>
+            O bolo de rolo é um doce tradicional brasileiro, originário do estado de Pernambuco.
+          </p>
+          <p>
+            Sua história começa no período colonial, quando os portugueses trouxeram para o Brasil a
+            receita do &quot;colchão de noiva&quot;, um bolo típico da culinária lusitana.
+          </p>
+          <p>
+            Adaptado às condições e ingredientes locais, o bolo de rolo se transformou em um doce
+            único, caracterizado por finas camadas de massa enroladas com recheio de goiabada.
+          </p>
+          <p>
+            O Paparico trouxe o bolo de rolo de volta a Portugal, reintroduzindo o doce às suas
+            raízes lusitanas e conquistando paladares com essa iguaria brasileira.
+          </p>
+        </>
+      ),
+      heroSection: {
+        title: "O tradicional bolo de rolo",
+        subtitle:
+          "No Paparico, cada camada conta uma história. Um gesto de cuidado, um sabor que acolhe, um abraço em forma de bolo que atravessa o tempo e mantém viva a tradição pernambucana.",
+        alt: "Paparico",
       },
-      reviewsTitle: "O que falam do Paparico",
+      galleryTitle: "Mais que um doce. Um gesto de carinho",
+      info: {
+        title: "Informações",
+        subtitle: "Como funcionam os pedidos",
+        paragraphs: [
+          "No Paparico, cada pedido nasce das mãos e do cuidado. Produzimos bolos artesanais, preparados sob encomenda, respeitando o tempo, a receita e o afeto que cada criação pede.",
+          "Os nossos produtos têm validade de até 30 dias, sempre seguindo as boas práticas de conservação e segurança alimentar.",
+          "As encomendas podem ser feitas através do WhatsApp ou Instagram. Após o contacto, confirmamos disponibilidade, valores, prazos e a melhor forma de entrega.",
+        ],
+        shippingTitle: "ENVIOS",
+        shippingDescription:
+          "Enviamos para todo o país através de transportadora. Os envios nacionais têm um custo fixo de €4,50 para pedidos até 5kg. Para outros volumes ou localizações, o valor é informado sob consulta",
+        pickupTitle: "RETIRADAS",
+        pickupDescription:
+          "Também é possível retirar o pedido na nossa sede de produção. O Paparico não é uma loja física e trabalha exclusivamente com encomendas previamente confirmadas e pagas, sendo a retirada realizada apenas nesses casos.",
+      },
+      reseller: {
+        title: "Seja um revendedor",
+        heading: "Leve o sabor do paparico para mais perto das pessoas.",
+        description: [
+          "Se você acredita em produtos feitos com cuidado, tradição e afeto, será um prazer caminhar juntos.",
+          "Entre em contacto connosco e descubra como revender o Paparico no seu espaço.",
+        ],
+        formLabels: {
+          name: "Nome",
+          company: "Empresa",
+          email: "Email",
+          contact: "Contato",
+          message: "Mensagem",
+        },
+        cta: "Faça a sua avaliação",
+      },
+      reviews: {
+        title: "O que falam do Paparico",
+        subheadingOne: "Entre camadas, memórias.",
+        subheadingTwo: "Entre sabores, palavras que ficam.",
+        cta: "Faça a sua avaliação",
+      },
     },
     reviews: {
       starAlt: "Estrela de avaliação",
@@ -224,229 +184,75 @@ export const translations: Record<Language, TranslationContent> = {
         },
       ],
     },
-    menu: {
-      heroAlt: "Celebre o Natal",
-      title: "Natal paparico",
-      subtitle: "por uma mesa cheia de lembranças",
-      contentTitle: "Do paparico á sua mesa: para um Natal especial",
-      paragraphs: [
-        "Neste Natal, o Paparico veste a mesa com delicadeza, aconchego e o afeto das festas que aquecem o coração. Cada criação nasce para celebrar encontros, envolver famílias e transformar pequenos instantes em lembranças doces.",
-        "Doçuras que perfumam a casa, texturas que abraçam e sabores que contam histórias — assim nasce o nosso menu natalino. Um convite para saborear a magia das festas com o encanto único do Paparico.",
-      ],
-      button: "Encomendar",
-      notice: {
-        descriptionTop:
-          "Nesta época de grande movimento na nossa cozinha, o Paparico irá operar exclusivamente com retiradas na nossa sede, na Amadora. Assim garantimos que cada pedido recebe o cuidado e a qualidade que o Natal merece.",
-        pickupTitle: "Horários de retirada:",
-        pickupTimes: ["23/12 — das 08h às 16h30", "24/12 — das 08h às 15h"],
-        closing:
-          "Agradecemos a compreensão e desejamos um Natal cheio de sabor e simplicidade — do Paparico para a vossa mesa.",
-      },
-      items: [
-        {
-          image: "/products/natal/tronco.jpg",
-          title: "Tronco de Chocolate",
-          description:
-            "Clássico natalino em versão Paparico: bolo de rolo de chocolate moldado em formato de tronco, com recheio de brigadeiro branco e cobertura de chocolate belga 53%. Finalizado com acabamento artístico e decorações festivas que encantam à mesa.",
-          price: 32,
-          moreInfo: "(Serve até 10 pessoas)",
-        },
-        {
-          image: "/products/natal/bolo-de-rolo-natal.jpeg",
-          title: "Bolo de Rolo Natalino",
-          description:
-            "Bolo tradicional de goiabada na versão natalina: bolo de rolo de goiabada com topping e decoração com brigadeiro de parmesão com gotas de goiaba. Finalizado com acabamento artístico de biscoitos e frutas. A opção perfeita para encantar a mesa.",
-          price: 42,
-          moreInfo: "(Serve até 12 pessoas)",
-        },
-        {
-          image: "/products/natal/pavlova.jpg",
-          title: "Guirlanda de Pavlova",
-          description:
-            "Pavlova crocante por fora e macia por dentro, em formato de guirlanda natalina. Recheada com brigadeiro de parmesão e creme de goiaba, combinação surpreendente e sofisticada. Decorada com framboesas frescas, alecrim e toques de açúcar — uma sobremesa leve e irresistível.",
-          price: 32,
-          moreInfo: "(Serve até 10 pessoas)",
-        },
-        {
-          image: "/products/natal/cheesecake.jpg",
-          title: "Cheesecake de Goiabada",
-          description:
-            "Base feita com biscoito de bolo de rolo de goiabada, coberta por um aveludado creme de queijo e finalizada com a goiabada Paparico. Apresentado em travessa de porcelana, com trabalho de bico em chantilly e delicadas gotas de goiabada — um equilíbrio perfeito entre tradição e elegância.",
-          price: 32,
-          moreInfo: "(Serve até 10 pessoas)",
-        },
-        {
-          image: "/products/natal/bannoffe.jpg",
-          title: "Banoffee de Doce de Leite",
-          description:
-            "Base crocante de biscoito de bolo de rolo de doce de leite, recheada com doce de leite Paparico, bananas frescas e chantilly levemente aromatizado com canela. Finalizada com geleia de banana, bico decorativo e um toque natalino de banana desidratada e pau de canela. Servida em travessa de porcelana, perfeita para compartilhar.",
-          price: 30,
-          moreInfo: "(Serve até 10 pessoas)",
-        },
-        {
-          image: "/products/natal/palitos.jpg",
-          title: "Palitos Crocante Bolo de Rolo",
-          description: (
-            <>
-              <p>
-                Palitos crocantes de bolo de rolo sabor goiabada, decorados em chocolate branco
-                belga e embalados com todo o encanto do Natal.
-              </p>
-              <p>
-                Acompanha um pote em cerâmica natalina exclusiva, perfeito para presentear ou
-                decorar a mesa das festas. Uma combinação delicada entre o sabor artesanal do
-                Paparico e a magia do Natal.
-              </p>
-            </>
-          ),
-          price: 8.5,
-        },
-      ],
-    },
-    events: {
-      heroAlt: "Celebre com o Paparico",
-      heroTitle: "Para o seu evento",
-      heroSubtitle: "Personalize a sua medida de acordo com a sua necessidade",
-      pageTitle: "Escolha o paparico perfeito para a sua comemoração",
-      items: [
-        {
-          title: "Mini Bolo de Rolo 5cm",
-          description: "Goiabada, Chocolate, Doce de Leite ou Pistachio",
-          price: 2,
-          note: "(Pedido mínimo de 6 unidades)",
-          isPerUnit: true,
-          image: "/products/events/mini.jpg",
-        },
-        {
-          title: "Bombom de Bolo de Rolo",
-          description: "Goiabada, Chocolate, Doce de Leite",
-          price: 1.8,
-          note: "(Pedido mínimo de 6 unidades)",
-          isPerUnit: true,
-          image: "/products/events/bombom.jpg",
-        },
-        {
-          title: "Bem-rolado 4x4cm",
-          description: "Goiabada, Chocolate, Doce de leite ou Pistachio",
-          price: 2.5,
-          note: "(Pedido mínimo de 6 unidades)",
-          isPerUnit: true,
-          image: "/products/events/bem-casado.jpg",
-        },
-      ],
-    },
   },
   en: {
     common: {
-      startingFrom: "starting from",
       languageSwitcher: "Switch language",
     },
     header: {
       homeAria: "Back to the home page",
       products: "Products",
-      naked: "Naked bolo de rolo",
       events: "For your event",
-      order: "Place your order",
-      openMenu: "Open navigation menu",
-      closeMenu: "Close navigation menu",
-    },
+      information: "Information",
+      reseller: "Be a reseller",
+      reviews: "Reviews",
+    order: "Place your order",
+    openMenu: "Open navigation menu",
+    closeMenu: "Close navigation menu",
+  },
     footer: {
-      products: "Products",
-      naked: "Naked bolo de rolo",
-      events: "For your event",
-      order: "Place your order",
+      backToTop: "Back to top",
+      terms: "Terms and conditions",
+      contact: "Contact us",
     },
-    home: {
-      description:
-        "Bolo de rolo is a traditional dessert and intangible heritage of Pernambuco, known for its ultra-thin rolled layers. Paparico brings this delicacy to Portugal, reconnecting the country to its roots with flavor and tradition.",
-      menuCta: "Check our Christmas menu",
-      heroAlt: "A sweet hug",
-      productsTitle: "Our products",
-      products: {
-        main: {
-          image: "/products/bolo-de-rolo-goiabada.jpg",
-          title: "Traditional bolo de rolo 450g",
-          description: "Guava, dulce de leche, chocolate and pistachio",
-          price: 14.5,
-        },
-        secondary: [
-          {
-            image: "/products/bolo-de-rolo-doce-de-leite.jpg",
-            title: "Traditional bolo de rolo 900g",
-            description: "Guava, dulce de leche, chocolate and pistachio",
-            price: 24,
-          },
-          {
-            image: "/products/bolo-de-rolo-naked-recheado.jpg",
-            title: "Naked bolo de rolo 4-4.5 Kg",
-            description: "20x25cm - serving 30/35 slices",
-            price: 88,
-          },
+  home: {
+    productsTitle: "Our products",
+    title: "The history of Bolo de Rolo",
+      text: <p>123</p>,
+      galleryTitle: "More than a dessert. A gesture of care",
+      info: {
+        title: "Information",
+        subtitle: "How orders work",
+        paragraphs: [
+          "At Paparico, every order is handmade with care. We prepare artisanal cakes to order, respecting the time, recipe, and affection each creation deserves.",
+          "Our products keep for up to 30 days, always following best practices for storage and food safety.",
+          "Orders can be placed via WhatsApp or Instagram. After you reach out, we confirm availability, prices, timelines, and the best delivery option.",
         ],
-        grid: [
-          {
-            image: "/products/bolo-de-pote.jpg",
-            title: "Bolo de rolo in a jar 180g",
-            description: (
-              <>
-                <div>Guava with parmesan brigadeiro</div>
-                <div>Churros with dulce de leche</div>
-                <div>Chocolate with white brigadeiro</div>
-                <div>Pistachio with 53% chocolate brigadeiro</div>
-              </>
-            ),
-            price: 7,
-          },
-          {
-            image: "/products/bolo-de-rolo-fatia.jpg",
-            title: "Slice of bolo de rolo 50g",
-            description: "Guava, dulce de leche, chocolate and pistachio",
-            price: 2.5,
-          },
-          // {
-          //   image: "/products/biscoito.jpg",
-          //   title: "Crunchy bolo de rolo cookie",
-          //   description: (
-          //     <>
-          //       <div>Guava</div>
-          //       <div>Churros with dulce de leche</div>
-          //     </>
-          //   ),
-          //   price: 4,
-          // },
-          {
-            image: "/products/casadinho.jpg",
-            title: "Casadinho cookie 120g",
-            description: "Buttery dough filled with guava paste",
-            price: 4,
-          },
-          {
-            image: "/products/bolo-de-rolo-toppings-doce-de-leite.jpg",
-            title: "Bolo de rolo with topping 550g",
-            description: (
-              <>
-                <div>Guava with parmesan brigadeiro</div>
-                <div>Dulce de leche with cappuccino brigadeiro</div>
-                <div>Pistachio with chocolate brigadeiro</div>
-              </>
-            ),
-            price: 22.5,
-          },
-          {
-            image: "/products/bolo-de-rolo-toppings-2-sabores.jpg",
-            title: "Bolo de rolo with topping 1100g",
-            description: (
-              <>
-                <div>Guava with parmesan brigadeiro</div>
-                <div>Dulce de leche with cappuccino brigadeiro</div>
-                <div>Pistachio with chocolate brigadeiro</div>
-              </>
-            ),
-            price: 38,
-          },
-        ],
+        shippingTitle: "SHIPPING",
+        shippingDescription:
+          "We ship nationwide via carrier. Domestic shipping has a fixed cost of €4.50 for orders up to 5kg. For other weights or locations, the cost is provided upon request.",
+        pickupTitle: "PICKUP",
+        pickupDescription:
+          "You can also pick up your order at our production space. Paparico is not a physical store and works exclusively with confirmed and paid orders, with pickups available only in these cases.",
       },
-      reviewsTitle: "What people say about Paparico",
+      reseller: {
+        title: "Become a reseller",
+        heading: "Bring Paparico closer to people.",
+        description: [
+          "If you believe in products made with care, tradition, and affection, we would love to work together.",
+          "Get in touch to learn how to resell Paparico in your shop.",
+        ],
+        formLabels: {
+          name: "Name",
+          company: "Company",
+          email: "Email",
+          contact: "Contact",
+          message: "Message",
+        },
+        cta: "Leave your review",
+      },
+      reviews: {
+        title: "What people say about Paparico",
+        subheadingOne: "Between layers, memories.",
+        subheadingTwo: "Between flavors, words that stay.",
+        cta: "Leave your review",
+      },
+      heroSection: {
+        title: "The traditional bolo de rolo",
+        subtitle:
+          "At Paparico, each layer tells a story. A gesture of care and love. The flavor that connects us to our roots. A hug in shape of cake that goes beyond time and keep the traditions alive.",
+        alt: "Paparico",
+      },
     },
     reviews: {
       starAlt: "Review star",
@@ -471,117 +277,6 @@ export const translations: Record<Language, TranslationContent> = {
           text: "It tastes like home, the flavor we miss so much. That is exactly how the bolo de rolo and casadinhos felt — I had missed them so much and today I got to enjoy them. Thank you for the great service and quality products.",
           headline: "Tastes like home",
           origin: "Google review",
-        },
-      ],
-    },
-    menu: {
-      heroAlt: "Celebrate Christmas",
-      title: "Paparico Christmas",
-      subtitle: "for a table full of memories",
-      contentTitle: "From Paparico to your table: for a special Christmas",
-      paragraphs: [
-        "This Christmas, Paparico dresses the table with delicacy, warmth and the affection of gatherings that warm the heart. Each creation is made to celebrate togetherness, bring families closer and turn small moments into sweet memories.",
-        "Sweet treats that scent the home, textures that embrace and flavors that tell stories — that's how our Christmas menu comes to life. An invitation to savor the magic of the season with Paparico's unique charm.",
-      ],
-      button: "Order now",
-      notice: {
-        descriptionTop:
-          "During this busy season in our kitchen, Paparico will operate exclusively with pickups at our Amadora location. This way we ensure every order receives the care and quality that Christmas deserves.",
-        pickupTitle: "Pickup hours:",
-        pickupTimes: ["23/12 — from 08:00 to 16:30", "24/12 — from 08:00 to 15:00"],
-        closing:
-          "Thank you for your understanding. We wish you a Christmas full of flavor and simplicity — from Paparico to your table.",
-      },
-      items: [
-        {
-          image: "/products/natal/tronco.jpg",
-          title: "Chocolate Log",
-          description:
-            "A Christmas classic, Paparico style: chocolate bolo de rolo shaped as a log, filled with white brigadeiro and covered in 53% Belgian chocolate. Finished with artistic details and festive decorations that shine on the table.",
-          price: 32,
-          moreInfo: "(Serves up to 10 people)",
-        },
-        {
-          image: "/products/natal/bolo-de-rolo-natal.jpeg",
-          title: "Christmas Bolo de Rolo",
-          description:
-            "Traditional guava bolo de rolo in a festive edition: guava roll cake topped and decorated with parmesan brigadeiro and guava drops. Finished with an artistic garnish of cookies and fruit — the perfect centerpiece to enchant the table.",
-          price: 42,
-          moreInfo: "(Serves up to 12 people)",
-        },
-        {
-          image: "/products/natal/pavlova.jpg",
-          title: "Pavlova Wreath",
-          description:
-            "Crisp on the outside and soft inside, in the shape of a Christmas wreath. Filled with parmesan brigadeiro and guava cream — a surprising, elegant pairing. Decorated with fresh raspberries, rosemary and sugar details for a light, irresistible dessert.",
-          price: 32,
-          moreInfo: "(Serves up to 10 people)",
-        },
-        {
-          image: "/products/natal/cheesecake.jpg",
-          title: "Guava Cheesecake",
-          description:
-            "Base made with guava bolo de rolo cookies, topped with a velvety cheese cream and finished with Paparico's guava paste. Served in a porcelain dish with piped chantilly and delicate guava drops — the perfect balance of tradition and elegance.",
-          price: 32,
-          moreInfo: "(Serves up to 10 people)",
-        },
-        {
-          image: "/products/natal/bannoffe.jpg",
-          title: "Dulce de Leche Banoffee",
-          description:
-            "Crunchy base of dulce de leche bolo de rolo cookie, filled with Paparico's dulce de leche, fresh bananas and chantilly lightly scented with cinnamon. Finished with banana jam, decorative piping and a Christmas touch of dried banana and cinnamon stick. Served in a porcelain dish, perfect for sharing.",
-          price: 30,
-          moreInfo: "(Serves up to 10 people)",
-        },
-        {
-          image: "/products/natal/palitos.jpg",
-          title: "Crunchy Bolo de Rolo Sticks",
-          description: (
-            <>
-              <p>
-                Crunchy guava bolo de rolo sticks, coated in Belgian white chocolate and wrapped
-                with all the charm of Christmas.
-              </p>
-              <p>
-                Comes with an exclusive ceramic Christmas jar, perfect for gifting or decorating the
-                holiday table. A delicate blend of Paparico&apos;s artisanal flavor and the magic of
-                the season.
-              </p>
-            </>
-          ),
-          price: 8.5,
-        },
-      ],
-    },
-    events: {
-      heroAlt: "Celebrate with Paparico",
-      heroTitle: "Para o seu evento",
-      heroSubtitle: "Personalize a sua medida de acordo com a sua necessidade",
-      pageTitle: "Escolha o paparico perfeito para a sua comemoração",
-      items: [
-        {
-          title: "Mini Bolo de Rolo 5cm",
-          description: "Guava, Chocolate, Dulce de Leche or Pistachio",
-          price: 2,
-          note: "(Minimum order of 6 units)",
-          isPerUnit: true,
-          image: "/products/events/mini.jpg",
-        },
-        {
-          title: "Bolo de Rolo Bonbon",
-          description: "Guava, Chocolate, Dulce de Leche",
-          price: 1.8,
-          note: "(Minimum order of 6 units)",
-          isPerUnit: true,
-          image: "/products/events/bombom.jpg",
-        },
-        {
-          title: "Bem-rolado 4x4cm",
-          description: "Guava, Chocolate, Dulce de Leche or Pistachio",
-          price: 2.5,
-          note: "(Minimum order of 6 units)",
-          isPerUnit: true,
-          image: "/products/events/bem-casado.jpg",
         },
       ],
     },

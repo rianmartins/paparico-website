@@ -7,178 +7,217 @@
   font-family: var(--font-geist-sans);
   background-color: var(--background);
   color: var(--color-primary);
+
+  section {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1370px;
+    display: flex;
+    margin: auto;
+  }
+
+  .coverImage {
+    width: 100%;
+    object-fit: cover;
+    padding-top: 50px;
+  }
 }
 
-.main {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 1280px;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: var(--foreground);
-  padding: 0 32px 80px;
+.content {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-roslindale);
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
 
-  .description {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 150%;
+  h1.title {
+    font-size: 90px;
+    line-height: 153px;
+  }
+
+  h2.subtitle {
+    font-size: 60px;
+  }
+
+  h3 {
+    font-size: 50px;
+  }
+
+  .fullWidth {
     width: 100%;
-    max-width: 920px;
-    text-align: left;
-    margin: 16px 0 32px;
-    color: var(--text-secondary);
   }
 
-  .hero {
-    margin-top: 25px;
-    margin-bottom: 25px;
+  .columnFullWidth {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: auto;
-    border-radius: 18px;
   }
 
-  h1 {
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 100%;
+  .textRight {
+    text-align: right;
   }
 
-  .title {
-    padding-top: 25px;
+  .info {
+    display: flex;
+    gap: 30px;
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .title {
+      font-family: var(--font-roslindale);
+      font-size: 85px;
+      text-align: right;
+      font-weight: 300;
+      line-height: 100%;
+      text-transform: uppercase;
+      width: 470px;
+      justify-self: end;
+    }
+
+    .text {
+      font-family: var(--font-apercu-pro);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-primary);
+
+      p:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .productShowcase {
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    width: 100%;
   }
 
   .products {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
-    align-items: flex-start;
-    width: 100%;
+    padding-top: 50px;
 
-    .mainProduct {
-      grid-column: span 3;
-    }
+    .productsGrid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      align-items: flex-start;
+      width: 100%;
 
-    .otherProducts {
-      grid-column: span 2;
-
-      img {
-        height: 280px;
+      > div {
+        display: flex;
+        flex-direction: column;
       }
-    }
-
-    > div {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
     }
   }
 
-  .productsGrid {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 50px;
+  .gallery {
     width: 100%;
 
-    img {
-      height: 250px;
-      object-fit: cover;
+    h1.galleryTitle {
+      width: 800px;
+      line-height: 85px;
+      margin-bottom: 30px;
+    }
+
+    .galleryGrid {
+      width: 100%;
+      margin-bottom: 50px;
+      gap: 16px;
+      display: flex;
+      flex-direction: column;
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+    }
+  }
+
+  .infoOrders {
+    width: 100%;
+    margin-bottom: 50px;
+
+    .ordersLayout {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 48px;
+      width: 100%;
+    }
+
+    .text {
+      p {
+        font-family: var(--font-apercu-pro);
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        margin: 20px 0;
+      }
+    }
+
+    .ordersText {
+      display: flex;
+      flex-direction: column;
+      width: 432px;
+    }
+  }
+
+  .reseller {
+    width: 100%;
+
+    .resellerHeading {
+      width: 710px;
+    }
+
+    .resellerContent {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    .resellerForm {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .resellerDescription {
+      width: 430px;
+      margin-bottom: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
   }
 
   .reviews {
     width: 100%;
-    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-bottom: 50px;
   }
-}
 
-@media (max-width: 1100px) {
-  .main {
-    padding: 0 24px 64px;
-
-    .description {
-      font-size: 20px;
-    }
-
-    .products {
-      grid-template-columns: repeat(2, 1fr);
-
-      .mainProduct,
-      .otherProducts {
-        grid-column: span 2;
-      }
-
-      .otherProducts img {
-        height: auto;
-      }
-    }
-
-    .productsGrid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .reviews {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .alignStart {
+    align-self: flex-start;
   }
-}
 
-@media (max-width: 720px) {
-  .main {
-    padding: 78px 20px 8px;
+  .alignEnd {
+    align-self: flex-end;
+  }
 
-    h1 {
-      font-size: 32px;
-      line-height: 110%;
-    }
-
-    .description {
-      font-size: 18px;
-      margin: 12px 0 24px;
-    }
-
-    .hero {
-      display: none;
-    }
-
-    .products {
-      margin-top: 32px;
-      grid-template-columns: 1fr;
-      gap: 24px;
-
-      .mainProduct,
-      .otherProducts {
-        grid-column: span 1;
-      }
-
-      > div {
-        gap: 24px;
-      }
-
-      img {
-        height: auto;
-      }
-    }
-
-    .productsGrid {
-      margin-top: 32px;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .reviews {
-      margin-top: 32px;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-bottom: 32px;
-    }
+  .reviewsCta {
+    margin: 40px 0;
   }
 }

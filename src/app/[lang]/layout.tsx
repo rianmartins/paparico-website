@@ -9,15 +9,14 @@ export function generateStaticParams() {
   return SUPPORTED_LANGUAGES.map((lang) => ({ lang }));
 }
 
-export default async function LangLayout({
+export default function LangLayout({
   children,
   params,
 }: {
   children: ReactNode;
-  params: Promise<{ lang: string }>;
+  params: { lang: string };
 }) {
-  const resolvedParams = await params;
-  const paramLang = resolvedParams.lang as Language;
+  const paramLang = params.lang as Language;
   const lang = SUPPORTED_LANGUAGES.includes(paramLang) ? paramLang : ("pt" as Language);
 
   return <LanguageProvider initialLanguage={lang}>{children}</LanguageProvider>;

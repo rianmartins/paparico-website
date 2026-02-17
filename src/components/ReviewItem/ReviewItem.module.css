@@ -1,11 +1,11 @@
 .ReviewItem {
   padding: 32px;
-  border-radius: 20px;
   border: 1px solid #ebebeb;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: var(--font-inter-tight);
+  font-family: var(--font-apercu-pro);
   width: 100%;
   min-height: 200px;
   gap: 21px;
@@ -13,6 +13,7 @@
   .headline {
     display: flex;
     flex-direction: column;
+    font-family: var(--font-roslindale);
     gap: 7px;
 
     .text {

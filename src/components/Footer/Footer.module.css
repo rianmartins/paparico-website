@@ -7,15 +7,22 @@
 
   .main {
     margin: 0 auto;
-    padding: 0 32px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-width: 1280px;
+    max-width: 1370px;
     align-items: flex-start;
     font-family: var(--font-inter-tight);
     gap: 32px;
+  }
+
+  .siteName {
+    display: flex;
+    align-self: flex-end;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
   }
 
   .socialMediaContainer {
@@ -32,6 +39,7 @@
   }
 
   .siteMap {
+    width: 226px;
     display: flex;
     flex-direction: column;
     gap: 12px;

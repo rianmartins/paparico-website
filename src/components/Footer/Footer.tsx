@@ -1,14 +1,13 @@
 import { FC } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import styles from "./Footer.module.css";
 import SocialMediaIcon from "../SocialMediaIcon";
-import { FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from "@/constants";
-import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
+import { FACEBOOK_URL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL } from "@/constants";
+import { useTranslations } from "@/i18n/LanguageProvider";
+import Button from "../Button";
 
 const Footer: FC = () => {
-  const { language } = useLanguage();
   const t = useTranslations();
 
   return (
@@ -19,20 +18,20 @@ const Footer: FC = () => {
             <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
           </div>
           <div className={styles.socialMedia}>
-            <SocialMediaIcon icon="/icons/facebook.svg" link={FACEBOOK_URL} />
+            <SocialMediaIcon icon="/icons/tiktok.svg" link={TIKTOK_URL} />
             <SocialMediaIcon icon="/icons/instagram.svg" link={INSTAGRAM_URL} />
+            <SocialMediaIcon icon="/icons/facebook.svg" link={FACEBOOK_URL} />
           </div>
         </div>
+        <div className={styles.siteName}>https://paparico.pt</div>
         <nav className={styles.siteMap}>
-          <Link className={styles.link} href={`/${language}#products`}>
-            {t.footer.products}
-          </Link>
-          <a className={styles.link} href={`/${language}/eventos`}>
-            {t.footer.events}
-          </a>
-          <a className={styles.link} href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            {t.footer.order}
-          </a>
+          <div className={styles.link} onClick={() => window.scrollTo(0, 0)}>
+            {t.footer.backToTop}
+          </div>
+          <div className={styles.link} onClick={() => window.scrollTo(0, 0)}>
+            {t.footer.terms}
+          </div>
+          <Button onClick={() => window.open(WHATSAPP_URL, "_blank")}>{t.footer.contact}</Button>
         </nav>
       </main>
     </div>

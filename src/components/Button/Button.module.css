@@ -1,25 +1,29 @@
 .Button {
-  background-color: var(--color-primary);
-  color: var(--color-accent);
-  border-radius: 10px;
   border: none;
   cursor: pointer;
 }
 
 .Button--size-small {
-  border-radius: 10px;
   padding: 8px 12px;
   font-size: 12px;
 }
 
 .Button--size-medium {
-  border-radius: 10px;
   padding: 14px 24px;
   font-size: 16px;
 }
 
 .Button--size-large {
-  border-radius: 10px;
   padding: 20px 32px;
   font-size: 24px;
+}
+
+.Button--variant-primary {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+}
+
+.Button--variant-secondary {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
 }

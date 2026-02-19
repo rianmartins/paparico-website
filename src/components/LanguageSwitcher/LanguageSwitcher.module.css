@@ -2,30 +2,18 @@
   display: inline-flex;
   gap: 4px;
   padding: 4px;
-  border: 1px solid #e6e6e6;
-  border-radius: 999px;
-  background: #fff;
   width: fit-content;
   margin: auto;
-}
+  color: white;
 
-.button {
-  min-width: 38px;
-  height: 30px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--color-primary);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-}
+  div {
+    font-family: var(--font-apercu-pro);
+    font-weight: 500;
+    cursor: pointer;
+  }
 
-.active {
-  background: var(--color-primary);
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(138, 71, 51, 0.25);
+  .active {
+    font-weight: 900;
+    text-decoration: underline;
+  }
 }

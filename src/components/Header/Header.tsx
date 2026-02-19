@@ -26,7 +26,14 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
   return (
     <header className={cx(styles.Header, className)}>
       <Link href={`/${language}`} className={styles.logo} aria-label={t.header.homeAria}>
-        <Image src="/logo-branca.png" alt="Paparico" width={226} height={62} priority />
+        <Image src="/logo-branca.png" alt="Paparico" width={162} height={45} priority />
+      </Link>
+      <Link
+        href={`/${language}`}
+        className={cx(styles.logo, styles.mobile)}
+        aria-label={t.header.homeAria}
+      >
+        <Image src="/logo.png" alt="Paparico" width={162} height={45} priority />
       </Link>
       <nav className={styles.menu}>
         <Link className={styles.item} href={`/${language}#products`} scroll={isHome}>
@@ -41,11 +48,16 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <Link className={styles.item} href={`/${language}#reviews`}>
           {t.header.reviews}
         </Link>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-          <Button variant="secondary">{t.header.order}</Button>
-        </a>
-        {/* <LanguageSwitcher /> */}
+        <LanguageSwitcher />
       </nav>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.orderButton}
+      >
+        <Button variant="secondary">{t.header.order}</Button>
+      </a>
       <button
         className={styles.hamburger}
         type="button"

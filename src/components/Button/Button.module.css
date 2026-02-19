@@ -1,6 +1,9 @@
 .Button {
   border: none;
   cursor: pointer;
+  font-family: var(--font-apercu-pro);
+  font-weight: 600;
+  line-height: 18px;
 }
 
 .Button--size-small {
@@ -9,7 +12,7 @@
 }
 
 .Button--size-medium {
-  padding: 14px 24px;
+  padding: 12px 18px;
   font-size: 16px;
 }
 

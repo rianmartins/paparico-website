@@ -59,7 +59,7 @@ export type TranslationContent = {
       cta: string;
     };
     heroSection: {
-      title: string;
+      title: string | ReactNode;
       subtitle: string;
       alt: string;
     };
@@ -82,19 +82,19 @@ export const translations: Record<Language, TranslationContent> = {
       information: "Informações",
       reseller: "Seja um revendedor",
       reviews: "Depoimentos",
-    order: "Faça sua encomenda",
-    openMenu: "Abrir menu de navegação",
-    closeMenu: "Fechar menu de navegação",
-  },
+      order: "Faça sua encomenda",
+      openMenu: "Abrir menu de navegação",
+      closeMenu: "Fechar menu de navegação",
+    },
     footer: {
       backToTop: "Voltar ao topo",
       terms: "Termos e condições",
       contact: "Fale conosco",
     },
-  home: {
-    productsTitle: "Conheça o nosso menu",
-    title: "A História do Bolo de Rolo",
-    text: (
+    home: {
+      productsTitle: "Conheça o nosso menu",
+      title: "A História do Bolo de Rolo",
+      text: (
         <>
           <p>
             O bolo de rolo é um doce tradicional brasileiro, originário do estado de Pernambuco.
@@ -114,7 +114,12 @@ export const translations: Record<Language, TranslationContent> = {
         </>
       ),
       heroSection: {
-        title: "O tradicional bolo de rolo",
+        title: (
+          <>
+            O tradicional
+            <wbr /> bolo&nbsp;de&nbsp;rolo
+          </>
+        ),
         subtitle:
           "No Paparico, cada camada conta uma história. Um gesto de cuidado, um sabor que acolhe, um abraço em forma de bolo que atravessa o tempo e mantém viva a tradição pernambucana.",
         alt: "Paparico",
@@ -196,18 +201,18 @@ export const translations: Record<Language, TranslationContent> = {
       information: "Information",
       reseller: "Be a reseller",
       reviews: "Reviews",
-    order: "Place your order",
-    openMenu: "Open navigation menu",
-    closeMenu: "Close navigation menu",
-  },
+      order: "Place your order",
+      openMenu: "Open navigation menu",
+      closeMenu: "Close navigation menu",
+    },
     footer: {
       backToTop: "Back to top",
       terms: "Terms and conditions",
       contact: "Contact us",
     },
-  home: {
-    productsTitle: "Our products",
-    title: "The history of Bolo de Rolo",
+    home: {
+      productsTitle: "Our products",
+      title: "The history of Bolo de Rolo",
       text: <p>123</p>,
       galleryTitle: "More than a dessert. A gesture of care",
       info: {
@@ -248,7 +253,12 @@ export const translations: Record<Language, TranslationContent> = {
         cta: "Leave your review",
       },
       heroSection: {
-        title: "The traditional bolo de rolo",
+        title: (
+          <>
+            The tradicional
+            <wbr /> bolo&nbsp;de&nbsp;rolo
+          </>
+        ),
         subtitle:
           "At Paparico, each layer tells a story. A gesture of care and love. The flavor that connects us to our roots. A hug in shape of cake that goes beyond time and keep the traditions alive.",
         alt: "Paparico",

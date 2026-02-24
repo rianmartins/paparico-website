@@ -384,15 +384,15 @@ export const translations: Record<Language, TranslationContent> = {
   },
   en: {
     common: {
-      languageSwitcher: "Switch language",
+      languageSwitcher: "Select language",
     },
     header: {
       homeAria: "Back to the home page",
       products: "Products",
       events: "For your event",
       information: "Information",
-      reseller: "Be a reseller",
-      reviews: "Reviews",
+      reseller: "Become a reseller",
+      reviews: "Testimonials",
       order: "Place your order",
       openMenu: "Open navigation menu",
       closeMenu: "Close navigation menu",
@@ -403,31 +403,47 @@ export const translations: Record<Language, TranslationContent> = {
       contact: "Contact us",
     },
     home: {
-      productsTitle: "Our products",
+      productsTitle: "Discover our menu",
       title: "The history of Bolo de Rolo",
-      text: <p>123</p>,
-      galleryTitle: "More than a dessert. A gesture of care",
+      text: (
+        <>
+          <p>Bolo de rolo is a traditional Brazilian sweet from the state of Pernambuco.</p>
+          <p>
+            Its story begins in the colonial period, when the Portuguese brought to Brazil the
+            recipe for &quot;colchão de noiva,&quot; a classic of Portuguese cuisine.
+          </p>
+          <p>
+            Adapted to local conditions and ingredients, bolo de rolo became a unique dessert,
+            characterized by thin layers of sponge rolled with guava paste filling.
+          </p>
+          <p>
+            Paparico brought bolo de rolo back to Portugal, reintroducing the sweet to its
+            Portuguese roots and winning over palates with this Brazilian delicacy.
+          </p>
+        </>
+      ),
+      galleryTitle: "More than a sweet. A gesture of affection",
       info: {
         title: "Information",
         subtitle: "How orders work",
         paragraphs: [
-          "At Paparico, every order is handmade with care. We prepare artisanal cakes to order, respecting the time, recipe, and affection each creation deserves.",
+          "At Paparico, every order starts with hands-on care. We craft artisanal cakes made to order, respecting the time, recipe, and affection each creation calls for.",
           "Our products keep for up to 30 days, always following best practices for storage and food safety.",
           "Orders can be placed via WhatsApp or Instagram. After you reach out, we confirm availability, prices, timelines, and the best delivery option.",
         ],
         shippingTitle: "SHIPPING",
         shippingDescription:
           "We ship nationwide via carrier. Domestic shipping has a fixed cost of €4.50 for orders up to 5kg. For other weights or locations, the cost is provided upon request.",
-        pickupTitle: "PICKUP",
+        pickupTitle: "PICKUPS",
         pickupDescription:
-          "You can also pick up your order at our production space. Paparico is not a physical store and works exclusively with confirmed and paid orders, with pickups available only in these cases.",
+          "You can also pick up your order at our production space. Paparico is not a physical store and works exclusively with confirmed and paid orders, so pickups only happen in those cases.",
       },
       reseller: {
         title: "Become a reseller",
-        heading: "Bring Paparico closer to people.",
+        heading: "Bring Paparico's flavor closer to people.",
         description: [
-          "If you believe in products made with care, tradition, and affection, we would love to work together.",
-          "Get in touch to learn how to resell Paparico in your shop.",
+          "If you believe in products made with care, tradition, and affection, it will be a pleasure to walk together.",
+          "Get in touch with us to find out how to resell Paparico in your space.",
         ],
         formLabels: {
           name: "Name",
@@ -440,9 +456,9 @@ export const translations: Record<Language, TranslationContent> = {
           submit: "Send",
           sending: "Sending...",
           cancel: "Cancel",
-          success: "Message sent! We will get back to you soon.",
+          success: "Message sent successfully! We will get back to you soon.",
           error: "We couldn't send your message. Please try again shortly.",
-          required: "Please fill in name, email and message.",
+          required: "Please fill in name, email, and message.",
         },
         cta: "Leave your review",
       },
@@ -455,12 +471,12 @@ export const translations: Record<Language, TranslationContent> = {
       heroSection: {
         title: (
           <>
-            The tradicional
+            The traditional
             <wbr /> bolo&nbsp;de&nbsp;rolo
           </>
         ),
         subtitle:
-          "At Paparico, each layer tells a story. A gesture of care and love. The flavor that connects us to our roots. A hug in shape of cake that goes beyond time and keep the traditions alive.",
+          "At Paparico, each layer tells a story. A gesture of care, a flavor that welcomes, a hug in cake form that travels through time and keeps the Pernambucan tradition alive.",
         alt: "Paparico",
       },
     },
@@ -491,21 +507,22 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     modal: {
-      close: "Exit",
+      close: "Close",
     },
     termsAndConditions: {
       title: "Terms and conditions",
       content: (
         <>
           <p>
-            This document sets out the Terms and Conditions for using Paparico&apos;s website, owned
-            by <b>Fatia Empolgante Unipessoal, Lda</b>, as well as for orders placed through our
-            official customer channels.
+            This document sets out the Terms and Conditions for using Paparico&apos;s website, a
+            brand owned by <b>Fatia Empolgante Unipessoal, Lda</b>, as well as for orders placed
+            through our official customer channels.
           </p>
           <p>
             By contacting us and placing an order,{" "}
             <b>
-              the customer states that they have read, understood, and agree to the terms below.
+              the customer declares they have read, understood, and agree with the terms described
+              below.
             </b>
           </p>
           <div style={{ marginBottom: "20px" }}>
@@ -524,9 +541,9 @@ export const translations: Record<Language, TranslationContent> = {
           <div style={{ marginBottom: "20px" }}>
             <div style={{ fontWeight: "bold" }}>2. Orders and confirmation</div>
             <p>
-              All orders are subject to prior confirmation, whether for ready-to-ship products or
-              made-to-order items. For an order to be valid and confirmed, full payment is required
-              at the time of the request, except for events or special orders (see item 8).
+              All orders are subject to prior confirmation, whether they are ready-to-ship items or
+              made to order. For an order to be valid and confirmed, full payment is required at the
+              time of the request, except for events and special orders (see item 8).
             </p>
           </div>
           <div style={{ marginBottom: "20px" }}>
@@ -549,15 +566,15 @@ export const translations: Record<Language, TranslationContent> = {
                 The production space is solely for preparing and handing over pre-scheduled orders
               </li>
               <li>
-                Even for ready-to-ship items, order confirmation and a scheduled pickup time are
-                always required
+                Even for ready-made items, order confirmation and prior scheduling of the pickup
+                time are always required
               </li>
             </ul>
             <p>
-              If no ready-to-ship product is available, the minimum production time is 1 business
-              day, except for celebration cakes or special orders, which may require different lead
+              If no ready-made product is available, the minimum production time is 1 business day,
+              except for celebration cakes or special orders, which may require different lead
               times. During peak periods (holidays, events), production timelines may change and
-              will always be communicated at the time of ordering.
+              will always be communicated to the customer at the time of ordering.
             </p>
           </div>
           <div style={{ marginBottom: "20px" }}>
@@ -574,10 +591,7 @@ export const translations: Record<Language, TranslationContent> = {
             <p>Pickups must be:</p>
             <ul>
               <li>scheduled in advance</li>
-              <li>
-                carried out within customer service hours and only after order confirmation and
-                payment
-              </li>
+              <li>carried out within customer service hours and only after order confirmation</li>
             </ul>
             <p>Customer service and pickup hours:</p>
             <ul>
@@ -596,8 +610,8 @@ export const translations: Record<Language, TranslationContent> = {
               </li>
             </ul>
             <p>
-              In the event of a verified mistake by Paparico (incorrect or defective product), a
-              replacement will be offered after assessing the situation.
+              In the event of a verified mistake by Paparico (incorrect or defective product), the
+              product will be replaced after evaluating the situation.
             </p>
           </div>
           <div style={{ marginBottom: "20px" }}>
@@ -623,10 +637,7 @@ export const translations: Record<Language, TranslationContent> = {
             <ul>
               <li>a shelf life of 30 days, unless stated otherwise</li>
               <li>storage requirements of a cool, dry place</li>
-              <li>
-                no prolonged exposure to air, to avoid drying out and preserve freshness after
-                opening
-              </li>
+              <li>no prolonged exposure to air, to avoid drying out</li>
             </ul>
             <p>
               After delivery or pickup, the customer is responsible for correctly storing the

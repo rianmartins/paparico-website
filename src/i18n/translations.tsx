@@ -76,6 +76,13 @@ export type TranslationContent = {
     starAlt: string;
     items: Review[];
   };
+  modal: {
+    close: string;
+  };
+  termsAndConditions: {
+    title: string;
+    content: ReactNode;
+  };
 };
 
 export const translations: Record<Language, TranslationContent> = {
@@ -205,6 +212,175 @@ export const translations: Record<Language, TranslationContent> = {
         },
       ],
     },
+    modal: {
+      close: "Sair",
+    },
+    termsAndConditions: {
+      title: "Termos e condições",
+      content: (
+        <>
+          <p>
+            O presente documento estabelece os Termos e Condições aplicáveis à utilização do site do
+            Paparico, marca pertencente à <b>Fatia Empolgante Unipessoal, Lda</b>, bem como às
+            encomendas realizadas através dos nossos canais oficiais de atendimento.
+          </p>
+          <p>
+            Ao entrar em contacto e realizar uma encomenda connosco,
+            <b>o cliente declara que leu, compreendeu e concorda com os termos abaixo descritos.</b>
+          </p>
+          <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>1. Natureza do site e canais de encomenda</div>
+            <p>
+              O site do Paparico tem caráter informativo e institucional, servindo como canal de
+              apresentação dos nossos produtos e da nossa marca. As encomendas não são realizadas
+              diretamente pelo site, devendo ser feitas exclusivamente através dos seguintes canais
+              oficiais:
+            </p>
+            <ul>
+              <li>WhatsApp: +351 932 774 555</li>
+              <li>Instagram: @paparico.prc</li>
+              <li>E-mail: comercial@paparico.pt</li>
+            </ul>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>2. Encomendas e confirmação</div>
+            <p>
+              Todas as encomendas estão sujeitas a confirmação prévia, independentemente de se
+              tratarem de produtos de pronta entrega ou de produção sob encomenda. Para que a
+              encomenda seja considerada válida e confirmada, é necessário o pagamento integral no
+              momento do pedido, salvo exceções aplicáveis a eventos e encomendas especiais (ver
+              ponto 8).
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>3. Formas de pagamento</div>
+            <p>Atualmente, o Paparico aceita as seguintes formas de pagamento:</p>
+            <ul>
+              <li>MBWay: +351 932 774 555</li>
+              <li>Transferência bancária via IBAN: PT50 0000 0000 0000 0000 0000 0</li>
+            </ul>
+            <p>
+              A produção ou reserva do produto apenas é iniciada após a confirmação do pagamento.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>4. Produção artesanal e disponibilidade</div>
+            <p>
+              Os produtos do Paparico são produzidos de forma artesanal, podendo existir produtos de
+              pronta entrega. No entanto:
+            </p>
+            <ul>
+              <li>O Paparico não funciona como loja física</li>
+              <li>
+                O espaço de produção destina-se exclusivamente à produção e retirada de encomendas
+                previamente agendadas
+              </li>
+              <li>
+                Mesmo nos casos de pronta entrega, é sempre necessária confirmação da encomenda
+                agendamento prévio do horário de retirada
+              </li>
+            </ul>
+            <p>
+              Caso não haja produto disponível em pronta entrega, o prazo mínimo de produção é de 1
+              dia útil, com exceção de bolos festivos ou encomendas especiais, que poderão exigir
+              prazos diferenciados. Em períodos de maior procura (como datas festivas e eventos), os
+              prazos de produção poderão sofrer alterações, sendo sempre informados ao cliente no
+              momento do pedido.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>5. Entregas</div>
+            <p>
+              O Paparico realiza envios para todo o território nacional através de transportadora.
+              As condições são as seguintes:
+            </p>
+            <ul>
+              <li>Envio nacional com custo fixo de €4,50 para encomendas até 5kg</li>
+              <li>Para outros volumes ou localizações específicas, o valor será sob consulta</li>
+              <li>Os prazos de entrega dependem da transportadora e da localidade de destino</li>
+            </ul>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>6. Retirada de encomendas</div>
+            <p>As retiradas devem ser:</p>
+            <ul>
+              <li>sempre agendadas previamente</li>
+              <li>
+                realizadas dentro do horário de atendimento efetuadas apenas após confirmação da
+                encomenda
+              </li>
+            </ul>
+            <p>Horário de atendimento e retiradas:</p>
+            <ul>
+              <li>Terça a sexta, das 8h às 20h</li>
+              <li>Sábado, das 9h às 18h</li>
+              <li>Não realizamos retiradas aos domingos.</li>
+            </ul>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>7. Cancelamentos, trocas e reembolsos</div>
+            <p>Devido à natureza artesanal e alimentar dos produtos:</p>
+            <ul>
+              <li>Não aceitamos cancelamentos de encomendas após a confirmação do pedido</li>
+              <li>Não são aceitas devoluções, conforme legislação aplicável a bens alimentares</li>
+            </ul>
+            <p>
+              Em caso de erro comprovado por parte do Paparico (produto incorreto ou com problema),
+              será oferecida a substituição do produto, mediante avaliação do ocorrido.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>8. Eventos e encomendas personalizadas</div>
+            <p>
+              Para eventos corporativos, privados ou encomendas personalizadas, as seguintes
+              condições aplicam-se:
+            </p>
+            <ul>
+              <li>Os valores são definidos sob consulta e orçamento</li>
+              <li>As encomendas não são canceláveis</li>
+            </ul>
+            <p>Trabalhamos com:</p>
+            <ul>
+              <li>sinal de 50% no momento da confirmação</li>
+              <li>saldo remanescente pago no dia da entrega</li>
+            </ul>
+            <p>Os prazos, quantidades e condições específicas são acordados caso a caso.</p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>9. Validade e conservação dos produtos</div>
+            <p>Os produtos do Paparico possuem:</p>
+            <ul>
+              <li>validade de 30 dias, salvo indicação contrária</li>
+              <li>devem ser armazenados em local fresco e seco</li>
+              <li>não devem permanecer expostos ao ar, para evitar o ressecamento</li>
+            </ul>
+            <p>
+              Após a entrega ou retirada, a responsabilidade pela correta conservação do produto
+              passa a ser do cliente.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>10. Comunicação</div>
+            <p>
+              Toda a comunicação oficial do Paparico é realizada exclusivamente pelos canais
+              informados nestes termos.
+            </p>
+            <p>
+              O cliente compromete-se a fornecer informações corretas e completas para garantir um
+              atendimento adequado.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>11. Alterações dos termos</div>
+            <p>
+              O Paparico reserva-se o direito de alterar estes Termos e Condições a qualquer
+              momento, sendo sempre válida a versão publicada no site no momento do contacto ou da
+              encomenda.
+            </p>
+          </div>
+        </>
+      ),
+    },
   },
   en: {
     common: {
@@ -313,6 +489,170 @@ export const translations: Record<Language, TranslationContent> = {
           origin: "Google review",
         },
       ],
+    },
+    modal: {
+      close: "Exit",
+    },
+    termsAndConditions: {
+      title: "Terms and conditions",
+      content: (
+        <>
+          <p>
+            This document sets out the Terms and Conditions for using Paparico&apos;s website, owned
+            by <b>Fatia Empolgante Unipessoal, Lda</b>, as well as for orders placed through our
+            official customer channels.
+          </p>
+          <p>
+            By contacting us and placing an order,{" "}
+            <b>
+              the customer states that they have read, understood, and agree to the terms below.
+            </b>
+          </p>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>1. Nature of the website and order channels</div>
+            <p>
+              Paparico&apos;s website is informational and institutional, serving as a channel to
+              showcase our products and brand. Orders are not placed directly on the site and must
+              be made exclusively through the following official channels:
+            </p>
+            <ul>
+              <li>WhatsApp: +351 932 774 555</li>
+              <li>Instagram: @paparico.prc</li>
+              <li>E-mail: comercial@paparico.pt</li>
+            </ul>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>2. Orders and confirmation</div>
+            <p>
+              All orders are subject to prior confirmation, whether for ready-to-ship products or
+              made-to-order items. For an order to be valid and confirmed, full payment is required
+              at the time of the request, except for events or special orders (see item 8).
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>3. Payment methods</div>
+            <p>Paparico currently accepts the following payment methods:</p>
+            <ul>
+              <li>MBWay: +351 932 774 555</li>
+              <li>Bank transfer via IBAN: PT50 0000 0000 0000 0000 0000 0</li>
+            </ul>
+            <p>Production or reservation of the product only begins after payment is confirmed.</p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>4. Handmade production and availability</div>
+            <p>
+              Paparico&apos;s products are handmade, and there may be ready-to-ship items. However:
+            </p>
+            <ul>
+              <li>Paparico does not operate as a physical store</li>
+              <li>
+                The production space is solely for preparing and handing over pre-scheduled orders
+              </li>
+              <li>
+                Even for ready-to-ship items, order confirmation and a scheduled pickup time are
+                always required
+              </li>
+            </ul>
+            <p>
+              If no ready-to-ship product is available, the minimum production time is 1 business
+              day, except for celebration cakes or special orders, which may require different lead
+              times. During peak periods (holidays, events), production timelines may change and
+              will always be communicated at the time of ordering.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>5. Deliveries</div>
+            <p>Paparico ships nationwide via courier. The conditions are:</p>
+            <ul>
+              <li>Flat-rate national shipping of €4.50 for orders up to 5kg</li>
+              <li>For other volumes or specific locations, the price is provided upon request</li>
+              <li>Delivery times depend on the courier and destination</li>
+            </ul>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>6. Order pickup</div>
+            <p>Pickups must be:</p>
+            <ul>
+              <li>scheduled in advance</li>
+              <li>
+                carried out within customer service hours and only after order confirmation and
+                payment
+              </li>
+            </ul>
+            <p>Customer service and pickup hours:</p>
+            <ul>
+              <li>Tuesday to Friday, 8 a.m. to 8 p.m.</li>
+              <li>Saturday, 9 a.m. to 6 p.m.</li>
+              <li>No pickups on Sundays.</li>
+            </ul>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>7. Cancellations, exchanges, and refunds</div>
+            <p>Due to the handmade and perishable nature of the products:</p>
+            <ul>
+              <li>We do not accept order cancellations after confirmation</li>
+              <li>
+                Returns are not accepted, in line with regulations for perishable food products
+              </li>
+            </ul>
+            <p>
+              In the event of a verified mistake by Paparico (incorrect or defective product), a
+              replacement will be offered after assessing the situation.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>8. Events and custom orders</div>
+            <p>
+              For corporate events, private events, or custom orders, the following conditions
+              apply:
+            </p>
+            <ul>
+              <li>Pricing is provided upon request and quotation</li>
+              <li>These orders cannot be canceled</li>
+            </ul>
+            <p>We work with:</p>
+            <ul>
+              <li>a 50% deposit upon confirmation</li>
+              <li>remaining balance paid on the delivery day</li>
+            </ul>
+            <p>Lead times, quantities, and specific conditions are agreed upon case by case.</p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>9. Product shelf life and storage</div>
+            <p>Paparico products have:</p>
+            <ul>
+              <li>a shelf life of 30 days, unless stated otherwise</li>
+              <li>storage requirements of a cool, dry place</li>
+              <li>
+                no prolonged exposure to air, to avoid drying out and preserve freshness after
+                opening
+              </li>
+            </ul>
+            <p>
+              After delivery or pickup, the customer is responsible for correctly storing the
+              product.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>10. Communication</div>
+            <p>
+              All official communication from Paparico is conducted exclusively through the channels
+              listed in these terms.
+            </p>
+            <p>
+              The customer agrees to provide accurate and complete information to ensure proper
+              service.
+            </p>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <div style={{ fontWeight: "bold" }}>11. Changes to the terms</div>
+            <p>
+              Paparico reserves the right to amend these Terms and Conditions at any time; the
+              version published on the website at the time of contact or ordering always applies.
+            </p>
+          </div>
+        </>
+      ),
     },
   },
 };

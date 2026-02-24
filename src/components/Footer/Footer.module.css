@@ -14,16 +14,8 @@
     max-width: 1440px;
     padding: 0 35px;
     align-items: flex-start;
-    font-family: var(--font-inter-tight);
+    font-family: var(--font-apercu-pro);
     gap: 32px;
-  }
-
-  .siteName {
-    display: flex;
-    align-self: flex-end;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 150%;
   }
 
   .socialMediaContainer {
@@ -77,10 +69,6 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-    }
-
-    .siteName {
-      display: none;
     }
 
     .siteMap {

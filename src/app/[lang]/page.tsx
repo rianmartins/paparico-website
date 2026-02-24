@@ -1,15 +1,14 @@
 "use client";
 
+import { type ChangeEvent, type FormEvent, useState } from "react";
 import Image from "next/image";
 
+import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
+
+import HeroHeader from "@/components/HeroHeader";
 import GridItem from "@/components/GridItem";
 import ReviewItem from "@/components/ReviewItem";
 import Footer from "@/components/Footer";
-
-import { useTranslations } from "@/i18n/LanguageProvider";
-
-import styles from "./page.module.css";
-import HeroHeader from "@/components/HeroHeader";
 import Form from "@/components/Form";
 import InputLabel from "@/components/Form/InputLabel";
 import Input from "@/components/Form/Input";
@@ -17,9 +16,99 @@ import TextArea from "@/components/Form/TextArea";
 import Button from "@/components/Button";
 import GridText from "@/components/GridText";
 import FormField from "@/components/Form/FormField";
+import { REVIEW_LINK } from "@/constants";
+
+import styles from "./page.module.css";
 
 export default function Home() {
+  const { language } = useLanguage();
   const t = useTranslations();
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [message, setMessage] = useState("");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const resetStatus = () => {
+    if (formStatus !== "idle") {
+      setFormStatus("idle");
+      setErrorMessage("");
+    }
+  };
+
+  const handleInputChange =
+    (setter: (value: string) => void) =>
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      resetStatus();
+      setter(event.target.value);
+    };
+
+  const handleCancel = () => {
+    setName("");
+    setCompany("");
+    setEmail("");
+    setContact("");
+    setMessage("");
+    setFormStatus("idle");
+    setErrorMessage("");
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const trimmedValues = {
+      name: name.trim(),
+      company: company.trim(),
+      email: email.trim(),
+      contact: contact.trim(),
+      message: message.trim(),
+    };
+
+    if (!trimmedValues.name || !trimmedValues.email || !trimmedValues.message) {
+      setErrorMessage(t.home.reseller.formActions.required);
+      setFormStatus("error");
+      return;
+    }
+
+    setFormStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/reseller", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...trimmedValues, language }),
+      });
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(data?.error || t.home.reseller.formActions.error);
+      }
+
+      setFormStatus("success");
+      setName("");
+      setCompany("");
+      setEmail("");
+      setContact("");
+      setMessage("");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : t.home.reseller.formActions.error;
+      setErrorMessage(message);
+      setFormStatus("error");
+    }
+  };
+
+  const statusMessage =
+    formStatus === "success"
+      ? t.home.reseller.formActions.success
+      : formStatus === "error"
+      ? errorMessage || t.home.reseller.formActions.error
+      : undefined;
+
+  const statusTone =
+    formStatus === "success" ? "success" : formStatus === "error" ? "error" : undefined;
 
   return (
     <div className={styles.page}>
@@ -205,7 +294,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div id="reseller" className={styles.reseller}>
+        <div id="reseller" className={styles.reseller} style={{ display: "none" }}>
           <h1 className={styles.title}>{t.home.reseller.title}</h1>
           <div className={styles.fullWidth}>
             <h3 className={styles.resellerHeading}>{t.home.reseller.heading}</h3>
@@ -217,26 +306,70 @@ export default function Home() {
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
-                <Form>
+                <Form
+                  onSubmit={handleSubmit}
+                  onCancel={handleCancel}
+                  isSubmitting={formStatus === "submitting"}
+                  submitLabel={t.home.reseller.formActions.submit}
+                  submittingLabel={t.home.reseller.formActions.sending}
+                  cancelLabel={t.home.reseller.formActions.cancel}
+                  statusMessage={statusMessage}
+                  statusTone={statusTone}
+                >
                   <FormField>
                     <InputLabel>{t.home.reseller.formLabels.name}</InputLabel>
-                    <Input placeholder={t.home.reseller.formLabels.name} />
+                    <Input
+                      name="name"
+                      placeholder={t.home.reseller.formLabels.name}
+                      value={name}
+                      onChange={handleInputChange(setName)}
+                      required
+                      autoComplete="name"
+                    />
                   </FormField>
                   <FormField>
                     <InputLabel>{t.home.reseller.formLabels.company}</InputLabel>
-                    <Input placeholder={t.home.reseller.formLabels.company} />
+                    <Input
+                      name="company"
+                      placeholder={t.home.reseller.formLabels.company}
+                      value={company}
+                      onChange={handleInputChange(setCompany)}
+                      autoComplete="organization"
+                    />
                   </FormField>
                   <FormField>
                     <InputLabel>{t.home.reseller.formLabels.email}</InputLabel>
-                    <Input placeholder={t.home.reseller.formLabels.email} />
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder={t.home.reseller.formLabels.email}
+                      value={email}
+                      onChange={handleInputChange(setEmail)}
+                      required
+                      autoComplete="email"
+                    />
                   </FormField>
                   <FormField>
                     <InputLabel>{t.home.reseller.formLabels.contact}</InputLabel>
-                    <Input placeholder={t.home.reseller.formLabels.contact} />
+                    <Input
+                      type="tel"
+                      name="contact"
+                      placeholder={t.home.reseller.formLabels.contact}
+                      value={contact}
+                      onChange={handleInputChange(setContact)}
+                      autoComplete="tel"
+                    />
                   </FormField>
                   <FormField>
                     <InputLabel>{t.home.reseller.formLabels.message}</InputLabel>
-                    <TextArea placeholder={t.home.reseller.formLabels.message} />
+                    <TextArea
+                      name="message"
+                      placeholder={t.home.reseller.formLabels.message}
+                      value={message}
+                      onChange={handleInputChange(setMessage)}
+                      required
+                      autoComplete="off"
+                    />
                   </FormField>
                 </Form>
               </div>
@@ -247,7 +380,9 @@ export default function Home() {
           <h1 className={styles.title}>{t.home.reviews.title}</h1>
           <h3>{t.home.reviews.subheadingOne}</h3>
           <h3>{t.home.reviews.subheadingTwo}</h3>
-          <Button className={styles.reviewsCta}>{t.home.reviews.cta}</Button>
+          <Button className={styles.reviewsCta} onClick={() => window.open(REVIEW_LINK, "_blank")}>
+            {t.home.reviews.cta}
+          </Button>
           <div className={styles.reviewsGrid}>
             {t.reviews.items.map((review) => (
               <ReviewItem
@@ -265,7 +400,7 @@ export default function Home() {
       </section>
       <Image
         className={styles.coverImage}
-        src="/map.png"
+        src="/map-paparico.png"
         alt="Paparico map"
         width={1440}
         height={623}

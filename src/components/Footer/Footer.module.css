@@ -87,8 +87,9 @@
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: flex-start;
-      text-align: left;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
       gap: 14px 24px;
     }
   }

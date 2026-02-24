@@ -9,3 +9,22 @@
   gap: 16px;
   justify-content: flex-end;
 }
+
+.status {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: right;
+}
+
+.statusSuccess {
+  color: #c6f6d5;
+}
+
+.statusError {
+  color: #ffc5c5;
+}
+
+.statusInfo {
+  color: #d6e4ff;
+}

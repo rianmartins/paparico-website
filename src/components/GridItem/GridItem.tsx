@@ -4,8 +4,6 @@ import React from "react";
 import Image from "next/image";
 import cx from "classnames";
 
-import { useTranslations } from "@/i18n/LanguageProvider";
-
 import styles from "./GridItem.module.css";
 
 type PriceSized = {
@@ -30,7 +28,6 @@ const GridItem: React.FC<GridItemProps> = ({
   flavors,
   sizes,
 }) => {
-  const t = useTranslations();
   const title = sizes[0].title;
   const content = (
     <>

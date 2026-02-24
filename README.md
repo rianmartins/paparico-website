@@ -43,6 +43,16 @@ npm run dev
 
 Access the project at: `http://localhost:3000`
 
+### Environment variables
+
+Create a `.env.local` file and set the email credentials used by the reseller form:
+
+```
+RESEND_API_KEY=...
+RESEND_FROM_EMAIL=notifications@yourdomain.com
+RESEND_TO_EMAIL=owner@yourdomain.com
+```
+
 ## Production Build
 
 ```bash

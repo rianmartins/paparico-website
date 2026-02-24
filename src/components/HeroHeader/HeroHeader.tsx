@@ -4,11 +4,12 @@ import cx from "classnames";
 import Header from "../Header";
 
 import styles from "./HeroHeader.module.css";
+import { ReactNode } from "react";
 
 type HeroHeaderProps = {
   image: string;
   imageAlt: string;
-  title: string;
+  title: string | ReactNode;
   subtitle: string;
   className?: string;
   heroClassName?: string;
@@ -36,13 +37,13 @@ const HeroHeader = ({
         />
         <div className={styles.heroOverlay} aria-hidden="true" />
       </div>
-      <main className={cx(styles.main, className)}>
+      <div className={cx(styles.main, className)}>
         <Header className={styles.header} />
         <div className={styles.container}>
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.subtitle}>{subtitle}</p>
         </div>
-      </main>
+      </div>
     </>
   );
 };

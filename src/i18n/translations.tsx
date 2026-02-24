@@ -50,6 +50,14 @@ export type TranslationContent = {
         contact: string;
         message: string;
       };
+      formActions: {
+        submit: string;
+        sending: string;
+        cancel: string;
+        success: string;
+        error: string;
+        required: string;
+      };
       cta: string;
     };
     reviews: {
@@ -154,6 +162,14 @@ export const translations: Record<Language, TranslationContent> = {
           contact: "Contato",
           message: "Mensagem",
         },
+        formActions: {
+          submit: "Enviar",
+          sending: "Enviando...",
+          cancel: "Cancelar",
+          success: "Mensagem enviada com sucesso! Vamos responder em breve.",
+          error: "Não foi possível enviar sua mensagem. Tente novamente em instantes.",
+          required: "Preencha nome, email e mensagem.",
+        },
         cta: "Faça a sua avaliação",
       },
       reviews: {
@@ -243,6 +259,14 @@ export const translations: Record<Language, TranslationContent> = {
           email: "Email",
           contact: "Contact",
           message: "Message",
+        },
+        formActions: {
+          submit: "Send",
+          sending: "Sending...",
+          cancel: "Cancel",
+          success: "Message sent! We will get back to you soon.",
+          error: "We couldn't send your message. Please try again shortly.",
+          required: "Please fill in name, email and message.",
         },
         cta: "Leave your review",
       },

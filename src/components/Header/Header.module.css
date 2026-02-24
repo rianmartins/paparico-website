@@ -10,12 +10,13 @@
   z-index: 5;
 
   .logo {
-    align-items: center;
-    align-self: center;
+    top: 5px;
+    position: relative;
   }
 
   .logo.mobile {
     display: none;
+    top: 0px;
   }
 
   .menu {

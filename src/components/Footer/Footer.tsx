@@ -11,8 +11,8 @@ const Footer: FC = () => {
   const t = useTranslations();
 
   return (
-    <div className={styles.Footer}>
-      <main className={styles.main}>
+    <footer className={styles.Footer}>
+      <div className={styles.main}>
         <div className={styles.socialMediaContainer}>
           <div className={styles.logo}>
             <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
@@ -33,8 +33,8 @@ const Footer: FC = () => {
           </div>
           <Button onClick={() => window.open(WHATSAPP_URL, "_blank")}>{t.footer.contact}</Button>
         </nav>
-      </main>
-    </div>
+      </div>
+    </footer>
   );
 };
 

@@ -50,14 +50,13 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         </Link>
         <LanguageSwitcher />
       </nav>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Button
+        variant="secondary"
         className={styles.orderButton}
+        onClick={() => window.open(WHATSAPP_URL, "_blank")}
       >
-        <Button variant="secondary">{t.header.order}</Button>
-      </a>
+        {t.header.order}
+      </Button>
       <button
         className={styles.hamburger}
         type="button"

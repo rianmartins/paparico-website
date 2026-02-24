@@ -4,6 +4,7 @@
   font-family: var(--font-apercu-pro);
   font-weight: 600;
   line-height: 18px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .Button--size-small {
@@ -29,4 +30,13 @@
 .Button--variant-secondary {
   background-color: var(--color-accent);
   color: var(--color-primary);
+}
+
+.Button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.Button:not(:disabled):hover {
+  transform: translateY(-1px);
 }

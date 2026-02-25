@@ -42,9 +42,9 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <Link className={styles.item} href={`/${language}#information`}>
           {t.header.information}
         </Link>
-        <Link className={styles.item} href={`/${language}#reseller`}>
+        {/* <Link className={styles.item} href={`/${language}#reseller`}>
           {t.header.reseller}
-        </Link>
+        </Link> */}
         <Link className={styles.item} href={`/${language}#reviews`}>
           {t.header.reviews}
         </Link>
@@ -80,9 +80,9 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <Link className={styles.mobileItem} href={`/${language}#information`} onClick={closeMenu}>
           {t.header.information}
         </Link>
-        <Link className={styles.mobileItem} href={`/${language}#reseller`} onClick={closeMenu}>
+        {/* <Link className={styles.mobileItem} href={`/${language}#reseller`} onClick={closeMenu}>
           {t.header.reseller}
-        </Link>
+        </Link> */}
         <Link className={styles.mobileItem} href={`/${language}#reviews`} onClick={closeMenu}>
           {t.header.reviews}
         </Link>

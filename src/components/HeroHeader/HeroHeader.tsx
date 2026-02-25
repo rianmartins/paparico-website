@@ -10,7 +10,7 @@ type HeroHeaderProps = {
   image: string;
   imageAlt: string;
   title: string | ReactNode;
-  subtitle: string;
+  subtitle: string | ReactNode;
   className?: string;
   heroClassName?: string;
 };

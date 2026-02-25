@@ -1,7 +1,5 @@
 import { type ReactNode } from "react";
 
-import { type Review } from "@/data/reviews";
-
 export type Language = "pt" | "en";
 export const SUPPORTED_LANGUAGES: Language[] = ["pt", "en"];
 
@@ -68,13 +66,12 @@ export type TranslationContent = {
     };
     heroSection: {
       title: string | ReactNode;
-      subtitle: string;
+      subtitle: string | ReactNode;
       alt: string;
     };
   };
   reviews: {
     starAlt: string;
-    items: Review[];
   };
   modal: {
     close: string;
@@ -135,8 +132,13 @@ export const translations: Record<Language, TranslationContent> = {
             <wbr /> bolo&nbsp;de&nbsp;rolo
           </>
         ),
-        subtitle:
-          "No Paparico, cada camada conta uma história. Um gesto de cuidado, um sabor que acolhe, um abraço em forma de bolo que atravessa o tempo e mantém viva a tradição pernambucana.",
+        subtitle: (
+          <>
+            No Paparico, cada camada conta uma história. Um gesto de cuidado, um sabor que acolhe,
+            um abraço em forma de bolo que atravessa o tempo e mantém viva a{" "}
+            <b>tradição pernambucana</b>.
+          </>
+        ),
         alt: "Paparico",
       },
       galleryTitle: "Mais que um doce. Um gesto de carinho",
@@ -188,29 +190,6 @@ export const translations: Record<Language, TranslationContent> = {
     },
     reviews: {
       starAlt: "Estrela de avaliação",
-      items: [
-        {
-          name: "Aline B.",
-          rating: 5,
-          text: "Maravilhoso! Encomendei 2 bolos de rolo e a experiência foi ótima do início ao fim. Atendimento e entrega ágeis, a embalagem bonita, com ótima apresentação. Os bolos deliciosos. Recomendo e voltarei a encomendar.",
-          headline: "Os bolos deliciosos",
-          origin: "Avaliação Google",
-        },
-        {
-          name: "Viola M.",
-          rating: 5,
-          text: "Encomendei para o aniversário do meu companheiro, um pernambucano doc. Ele não gosta muito de doce, mas enloquece por Bolo de Rolo. Simplesmente adorou o presente, que fez ele lembrar da terra dele. Parabéns Paparico, muito sucesso pela frente!",
-          headline: "Simplesmente adorou",
-          origin: "Avaliação Google",
-        },
-        {
-          name: "Aline S.",
-          rating: 5,
-          text: "Sabe aquele sabor de casa, que a gente mata a saudade pois bem sentimos ao seu deliciar com o bolo de rolo e os casadinhos, meu deus como eu tinha saudades disso e hoje eu pude me deliciar, obrigado pelo atendimento e qualidade dos produtos",
-          headline: "Sabor de casa",
-          origin: "Avaliação Google",
-        },
-      ],
     },
     modal: {
       close: "Sair",
@@ -482,29 +461,6 @@ export const translations: Record<Language, TranslationContent> = {
     },
     reviews: {
       starAlt: "Review star",
-      items: [
-        {
-          name: "Aline B.",
-          rating: 5,
-          text: "Wonderful! I ordered 2 bolos de rolo and the experience was great from start to finish. Fast service and delivery, beautiful packaging with excellent presentation. The cakes were delicious. I recommend and will order again.",
-          headline: "The cakes were delicious",
-          origin: "Google review",
-        },
-        {
-          name: "Viola M.",
-          rating: 5,
-          text: "I ordered for my partner's birthday — he is from Pernambuco and not a big sweets fan, but he goes crazy for bolo de rolo. He simply loved the gift, it reminded him of home. Congratulations Paparico, wishing you lots of success!",
-          headline: "He simply loved it",
-          origin: "Google review",
-        },
-        {
-          name: "Aline S.",
-          rating: 5,
-          text: "It tastes like home, the flavor we miss so much. That is exactly how the bolo de rolo and casadinhos felt — I had missed them so much and today I got to enjoy them. Thank you for the great service and quality products.",
-          headline: "Tastes like home",
-          origin: "Google review",
-        },
-      ],
     },
     modal: {
       close: "Close",

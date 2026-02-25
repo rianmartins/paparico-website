@@ -5,10 +5,19 @@ import Image from "next/image";
 
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
+import { REVIEW_LINK } from "@/constants";
+
+import ProductsService from "@/services/ProductsService";
+import { ReviewsService } from "@/services/ReviewsService";
+
+import { type GridSection } from "@/types/Products";
+import { type Review } from "@/types/Reviews";
+
 import HeroHeader from "@/components/HeroHeader";
 import GridItem from "@/components/GridItem";
 import GridItemSkeleton from "@/components/GridItem/Skeleton";
 import ReviewItem from "@/components/ReviewItem";
+import ReviewSkeleton from "@/components/ReviewItem/Skeleton";
 import Footer from "@/components/Footer";
 import Form from "@/components/Form";
 import InputLabel from "@/components/Form/InputLabel";
@@ -17,9 +26,6 @@ import TextArea from "@/components/Form/TextArea";
 import Button from "@/components/Button";
 import GridText from "@/components/GridText";
 import FormField from "@/components/Form/FormField";
-import { REVIEW_LINK } from "@/constants";
-import ProductsService from "@/services/ProductsService";
-import { type GridSection } from "@/types/Products";
 
 import styles from "./page.module.css";
 
@@ -35,6 +41,8 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState("");
   const [gridItems, setGridItems] = useState<GridSection[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [isLoadingReviews, setIsLoadingReviews] = useState(false);
 
   /**
    * FORM FUNCTIONS/HANDLERS
@@ -137,6 +145,31 @@ export default function Home() {
       })
       .finally(() => {
         if (!cancelled) setIsLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [language]);
+
+  /**
+   * REVIEWS
+   */
+
+  useEffect(() => {
+    let cancelled = false;
+    setIsLoadingReviews(true);
+    setReviews([]);
+
+    ReviewsService.getItems(language)
+      .then((items) => {
+        if (!cancelled) setReviews(items);
+      })
+      .catch(() => {
+        if (!cancelled) setReviews([]);
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoadingReviews(false);
       });
 
     return () => {
@@ -362,17 +395,21 @@ export default function Home() {
             {t.home.reviews.cta}
           </Button>
           <div className={styles.reviewsGrid}>
-            {t.reviews.items.map((review) => (
-              <ReviewItem
-                key={`${review.name}-${review.headline}`}
-                name={review.name}
-                review={review.text}
-                origin={review.origin}
-                headline={review.headline}
-                rating={review.rating}
-                ratingAlt={t.reviews.starAlt}
-              />
-            ))}
+            {isLoadingReviews
+              ? Array.from({ length: 3 }).map((_, index) => (
+                  <ReviewSkeleton key={`review-skeleton-${index}`} />
+                ))
+              : reviews.map((review) => (
+                  <ReviewItem
+                    key={`${review.name}-${review.headline}`}
+                    name={review.name}
+                    review={review.text}
+                    origin={review.origin}
+                    headline={review.headline}
+                    rating={review.rating}
+                    ratingAlt={t.reviews.starAlt}
+                  />
+                ))}
           </div>
         </div>
       </section>

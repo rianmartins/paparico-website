@@ -1,8 +1,9 @@
 import { FC, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { FACEBOOK_URL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL } from "@/constants";
-import { useTranslations } from "@/i18n/LanguageProvider";
+import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
 import SocialMediaIcon from "../SocialMediaIcon";
 import Button from "../Button";
@@ -14,6 +15,7 @@ const Footer: FC = () => {
   const [open, setOpen] = useState(false);
 
   const t = useTranslations();
+  const { language } = useLanguage();
 
   return (
     <footer className={styles.Footer}>
@@ -29,9 +31,9 @@ const Footer: FC = () => {
           </div>
         </div>
         <nav className={styles.siteMap}>
-          <div className={styles.link} onClick={() => window.scrollTo(0, 0)}>
+          <Link href={`/${language}`} className={styles.link}>
             {t.footer.backToTop}
-          </div>
+          </Link>
           <div className={styles.link} onClick={() => setOpen(true)}>
             {t.footer.terms}
           </div>

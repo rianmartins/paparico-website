@@ -1,12 +1,13 @@
 "use client";
 
-import { type ChangeEvent, type FormEvent, useState } from "react";
+import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
 
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
 import HeroHeader from "@/components/HeroHeader";
 import GridItem from "@/components/GridItem";
+import GridItemSkeleton from "@/components/GridItem/Skeleton";
 import ReviewItem from "@/components/ReviewItem";
 import Footer from "@/components/Footer";
 import Form from "@/components/Form";
@@ -17,6 +18,8 @@ import Button from "@/components/Button";
 import GridText from "@/components/GridText";
 import FormField from "@/components/Form/FormField";
 import { REVIEW_LINK } from "@/constants";
+import ProductsService from "@/services/ProductsService";
+import { type GridSection } from "@/types/Products";
 
 import styles from "./page.module.css";
 
@@ -30,6 +33,12 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [gridItems, setGridItems] = useState<GridSection[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  /**
+   * FORM FUNCTIONS/HANDLERS
+   */
 
   const resetStatus = () => {
     if (formStatus !== "idle") {
@@ -110,6 +119,31 @@ export default function Home() {
   const statusTone =
     formStatus === "success" ? "success" : formStatus === "error" ? "error" : undefined;
 
+  /**
+   * PRODUCTS
+   */
+
+  useEffect(() => {
+    let cancelled = false;
+    setIsLoading(true);
+    setGridItems([]);
+
+    ProductsService.getItems(language)
+      .then((items) => {
+        if (!cancelled) setGridItems(items);
+      })
+      .catch(() => {
+        if (!cancelled) setGridItems([]);
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [language]);
+
   return (
     <div className={styles.page}>
       <HeroHeader
@@ -151,85 +185,29 @@ export default function Home() {
         <div id="products" className={styles.products}>
           <h1 className={styles.title}>{t.home.productsTitle}</h1>
           <div className={styles.productsGrid}>
-            <GridItem
-              sizes={[
-                { title: "Bolo de rolo tradicional 450g", price: 14.5 },
-                { title: "Bolo de rolo tradicional 900g", price: 24 },
-              ]}
-              flavors={[
-                "Massa tradicional com goiabada",
-                "Massa tradicional com doce de leite",
-                "Massa tradicional com brigadeiro branco",
-              ]}
-              image="/products/bolo-de-rolo-tradicional.jpg"
-            />
-            <GridItem
-              sizes={[
-                { title: "Bolo de rolo c/ toppings 550g", price: 22.5 },
-                { title: "Bolo de rolo c/ toppings 1100g", price: 38 },
-              ]}
-              flavors={[
-                "Goiabada com brigadeiro de parmesão",
-                "Doce de leite com brigadeiro de cappuccino",
-              ]}
-              image="/products/bolo-de-rolo-toppings-doce-de-leite.png"
-            />
-            <GridText
-              className={styles.gridTextItem}
-              title="Camadas de tradição. Sabor de casa."
-              text={[
-                "Cada produto do Paparico é feito artesanalmente, com atenção a cada detalhe e respeito absoluto à tradição do bolo de rolo pernambucano.",
-                "Aqui, cada escolha carrega sabor, memória e aquele afeto simples que transforma um bolo em um abraço.",
-              ]}
-            />
-            <GridItem
-              sizes={[{ title: "Fatia de bolo de rolo 50g", price: 2.5 }]}
-              flavors={[
-                "Massa tradicional com goiabada",
-                "Massa tradicional com doce de leite",
-                "Massa tradicional com brigadeiro branco",
-              ]}
-              image="/products/bolo-de-rolo-fatia.jpg"
-            />
-            <GridItem
-              sizes={[{ title: "Bolo de rolo no pote 150g", price: 7 }]}
-              flavors={[
-                "Goiabada com brigadeiro de parmesão",
-                "Churros com Doce de leite",
-                "Chocolate com Brigadeiro branco",
-              ]}
-              image="/products/bolo-de-pote.jpg"
-            />
-            <GridItem
-              sizes={[{ title: "Biscoito casadinho 120g", price: 4 }]}
-              flavors={["Sabor goiabada"]}
-              image="/products/casadinho.png"
-            />
-            <GridItem
-              sizes={[{ title: "Naked bolo de rolo 4/4.5Kg", price: 88 }]}
-              flavors={[
-                "Goiabada com brigadeiro de parmesão c/ frutas",
-                "Doce de leite com brigadeiro de cappuccino c/ brigadeiros",
-              ]}
-              image="/products/bolo-de-rolo-naked-recheado.jpg"
-            />
-            <GridText
-              className={styles.gridTextItem}
-              title="Seu evento ainda mais especial."
-              text={[
-                "Cada celebração tem a sua própria história — e nós gostamos de fazer parte dela.No Paparico, desenvolvemos pedidos sob encomenda, pensados de acordo com a sua ideia, o seu momento e o cuidado que a ocasião merece.",
-                "Entre em contacto connosco e vamos criar juntos algo especial, feito à mão e com afeto.",
-              ]}
-            />
-            <GridItem
-              sizes={[{ title: "Mini bolo de rolo 50g", price: 2.5 }]}
-              flavors={[
-                "Massa tradicional com goiabada",
-                "Massa tradicional com doce de leite",
-                "Massa de chocolate com brigadeiro branco",
-              ]}
-              image="/products/events/mini.jpg"
-            />
+            {isLoading
+              ? Array.from({ length: 6 }).map((_, index) => (
+                  <GridItemSkeleton key={`grid-skeleton-${index}`} />
+                ))
+              : gridItems.map((section) =>
+                  section.type === "item" ? (
+                    <GridItem
+                      key={section.id}
+                      sizes={section.sizes}
+                      flavors={section.flavors}
+                      image={section.image}
+                      href={section.href}
+                      openInNewTab={section.openInNewTab}
+                    />
+                  ) : (
+                    <GridText
+                      key={section.id}
+                      className={styles.gridTextItem}
+                      title={section.title}
+                      text={section.text}
+                    />
+                  )
+                )}
           </div>
         </div>
         <div id="images" className={styles.gallery}>

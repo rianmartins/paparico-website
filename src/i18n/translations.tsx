@@ -304,9 +304,9 @@ export const translations: Record<Language, TranslationContent> = {
             <div style={{ fontWeight: "bold" }}>6. Retirada de encomendas</div>
             <p>As retiradas devem ser:</p>
             <ul>
-              <li>sempre agendadas previamente</li>
+              <li>Sempre agendadas previamente</li>
               <li>
-                realizadas dentro do horário de atendimento efetuadas apenas após confirmação da
+                Realizadas dentro do horário de atendimento efetuadas apenas após confirmação da
                 encomenda
               </li>
             </ul>
@@ -341,8 +341,8 @@ export const translations: Record<Language, TranslationContent> = {
             </ul>
             <p>Trabalhamos com:</p>
             <ul>
-              <li>sinal de 50% no momento da confirmação</li>
-              <li>saldo remanescente pago no dia da entrega</li>
+              <li>Sinal de 50% no momento da confirmação</li>
+              <li>Saldo remanescente pago no dia da entrega</li>
             </ul>
             <p>Os prazos, quantidades e condições específicas são acordados caso a caso.</p>
           </div>
@@ -350,9 +350,9 @@ export const translations: Record<Language, TranslationContent> = {
             <div style={{ fontWeight: "bold" }}>9. Validade e conservação dos produtos</div>
             <p>Os produtos do Paparico possuem:</p>
             <ul>
-              <li>validade de 30 dias, salvo indicação contrária</li>
-              <li>devem ser armazenados em local fresco e seco</li>
-              <li>não devem permanecer expostos ao ar, para evitar o ressecamento</li>
+              <li>Validade de 30 dias, salvo indicação contrária</li>
+              <li>Devem ser armazenados em local fresco e seco</li>
+              <li>Não devem permanecer expostos ao ar, para evitar o ressecamento</li>
             </ul>
             <p>
               Após a entrega ou retirada, a responsabilidade pela correta conservação do produto
@@ -590,8 +590,8 @@ export const translations: Record<Language, TranslationContent> = {
             <div style={{ fontWeight: "bold" }}>6. Order pickup</div>
             <p>Pickups must be:</p>
             <ul>
-              <li>scheduled in advance</li>
-              <li>carried out within customer service hours and only after order confirmation</li>
+              <li>Scheduled in advance</li>
+              <li>Carried out within customer service hours and only after order confirmation</li>
             </ul>
             <p>Customer service and pickup hours:</p>
             <ul>
@@ -626,8 +626,8 @@ export const translations: Record<Language, TranslationContent> = {
             </ul>
             <p>We work with:</p>
             <ul>
-              <li>a 50% deposit upon confirmation</li>
-              <li>remaining balance paid on the delivery day</li>
+              <li>A 50% deposit upon confirmation</li>
+              <li>Remaining balance paid on the delivery day</li>
             </ul>
             <p>Lead times, quantities, and specific conditions are agreed upon case by case.</p>
           </div>
@@ -635,9 +635,9 @@ export const translations: Record<Language, TranslationContent> = {
             <div style={{ fontWeight: "bold" }}>9. Product shelf life and storage</div>
             <p>Paparico products have:</p>
             <ul>
-              <li>a shelf life of 30 days, unless stated otherwise</li>
-              <li>storage requirements of a cool, dry place</li>
-              <li>no prolonged exposure to air, to avoid drying out</li>
+              <li>A shelf life of 30 days, unless stated otherwise</li>
+              <li>Storage requirements of a cool, dry place</li>
+              <li>No prolonged exposure to air, to avoid drying out</li>
             </ul>
             <p>
               After delivery or pickup, the customer is responsible for correctly storing the

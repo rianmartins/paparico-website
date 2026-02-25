@@ -107,6 +107,7 @@
 
   .products {
     padding-top: 50px;
+    width: 100%;
 
     .productsGrid {
       margin-top: 40px;

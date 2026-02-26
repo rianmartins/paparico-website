@@ -1,6 +1,6 @@
 .ReviewItem {
   padding: 32px;
-  border: 1px solid #ebebeb;
+  border: 1px solid #d1d1d1;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
     gap: 7px;
 
     .text {
-      color: var(--text-primary);
+      color: var(--color-primary);
       font-weight: 500;
       font-size: 24px;
       line-height: 150%;
@@ -64,7 +64,7 @@
       line-height: 150%;
 
       .name {
-        color: var(--text-primary);
+        color: var(--color-primary);
         font-size: 16px;
       }
 

@@ -26,7 +26,7 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
   return (
     <header className={cx(styles.Header, className)}>
       <Link href={`/${language}`} className={styles.logo} aria-label={t.header.homeAria}>
-        <Image src="/logo-branca.png" alt="Paparico" width={162} height={45} priority />
+        <Image src="/logo-branca.png" alt="Paparico" width={201} height={60} priority />
       </Link>
       <Link
         href={`/${language}`}

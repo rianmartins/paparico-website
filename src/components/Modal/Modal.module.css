@@ -5,19 +5,20 @@
   width: min(800px, calc(100vw - 40px));
   background: transparent;
   color: var(--text-primary);
+  overflow: hidden;
+  height: 90%;
 
   .inner {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 24px 24px 20px;
+    padding: 40px 32px 24px;
     background: linear-gradient(145deg, #ffffff 0%, #f3f6ff 100%);
-    border: 1px solid rgba(49, 64, 94, 0.12);
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.28), 0 4px 20px rgba(49, 64, 94, 0.18);
     overflow: hidden;
     animation: modalEnter 220ms ease forwards;
     max-height: 100%;
+    max-width: 100%;
     overflow: hidden;
   }
 
@@ -59,10 +60,14 @@
   .content {
     font-family: var(--font-apercu-pro);
     color: var(--text-primary);
-    margin-top: 21px;
     line-height: 1.7;
-    max-height: 70vh;
+    max-height: 100%;
     overflow-y: auto;
+    margin-top: 32px;
+  }
+
+  .content:focus-visible {
+    outline: none;
   }
 
   .footer {
@@ -111,20 +116,24 @@
 }
 
 @media (max-width: 640px) {
-  .inner {
-    padding: 20px 18px 18px;
-  }
+  .Modal {
+    height: 95%;
 
-  .title {
-    font-size: 22px;
-    letter-spacing: 0.02em;
-  }
+    .inner {
+      padding: 20px 18px 18px;
+    }
 
-  .description {
-    font-size: 15px;
-  }
+    .title {
+      font-size: 32px;
+      letter-spacing: 0.02em;
+    }
 
-  .footer {
-    margin-top: 4px;
+    .description {
+      font-size: 15px;
+    }
+
+    .footer {
+      margin-top: 4px;
+    }
   }
 }

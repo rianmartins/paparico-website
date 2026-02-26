@@ -1,11 +1,12 @@
 .TermsModal {
   .textContent {
     font-family: var(--font-apercu-pro);
+    color: var(--color-primary);
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    max-width: 100%;
+    width: 100%;
 
     p:not(:last-child) {
       margin-bottom: 15px;

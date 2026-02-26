@@ -483,11 +483,20 @@
       display: none;
     }
 
+    .products {
+      margin-top: -50px;
+      padding-top: 100px;
+    }
+
     .infoOrders {
-      margin-top: 32px;
+      margin-top: -50px;
+      padding-top: 100px;
     }
 
     .reviews {
+      margin-top: -68px;
+      padding-top: 100px;
+
       .reviewsGrid {
         grid-template-columns: 1fr;
       }

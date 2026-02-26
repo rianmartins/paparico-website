@@ -236,7 +236,7 @@ export const translations: Record<Language, TranslationContent> = {
             <p>Atualmente, o Paparico aceita as seguintes formas de pagamento:</p>
             <ul>
               <li>MBWay: +351 932 774 555</li>
-              <li>Transferência bancária via IBAN: PT50 0000 0000 0000 0000 0000 0</li>
+              <li>Transferência bancária via IBAN: PT50 0033 0000 4575 0838 5140 5</li>
             </ul>
             <p>
               A produção ou reserva do produto apenas é iniciada após a confirmação do pagamento.
@@ -507,7 +507,7 @@ export const translations: Record<Language, TranslationContent> = {
             <p>Paparico currently accepts the following payment methods:</p>
             <ul>
               <li>MBWay: +351 932 774 555</li>
-              <li>Bank transfer via IBAN: PT50 0000 0000 0000 0000 0000 0</li>
+              <li>Bank transfer via IBAN: PT50 0033 0000 4575 0838 5140 5</li>
             </ul>
             <p>Production or reservation of the product only begins after payment is confirmed.</p>
           </div>

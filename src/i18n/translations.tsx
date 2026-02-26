@@ -141,7 +141,7 @@ export const translations: Record<Language, TranslationContent> = {
         ),
         alt: "Paparico",
       },
-      galleryTitle: "Mais que um doce. Um gesto de carinho",
+      galleryTitle: "Mais que um doce. Um gesto de carinho.",
       info: {
         title: "Informações",
         subtitle: "Como funcionam os pedidos",
@@ -401,7 +401,7 @@ export const translations: Record<Language, TranslationContent> = {
           </p>
         </>
       ),
-      galleryTitle: "More than a sweet. A gesture of affection",
+      galleryTitle: "More than a sweet. A gesture of affection.",
       info: {
         title: "Information",
         subtitle: "How orders work",

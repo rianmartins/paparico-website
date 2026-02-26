@@ -1,0 +1,97 @@
+.Skeleton {
+  padding: 32px;
+  border: 1px solid #ebebeb;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  min-height: 200px;
+
+  .skeletonBlock {
+    background: #d8d8d8;
+    animation: skeletonPulse 1.2s ease-in-out infinite;
+  }
+
+  .headlineLine {
+    height: 22px;
+    width: 70%;
+  }
+
+  .headlineLineShort {
+    width: 50%;
+  }
+
+  .ratingRow {
+    display: flex;
+    gap: 8px;
+  }
+
+  .ratingDot {
+    width: 20px;
+    height: 20px;
+  }
+
+  .reviewLine {
+    height: 16px;
+    width: 100%;
+  }
+
+  .reviewLineShort {
+    width: 80%;
+  }
+
+  .user {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+
+  .userLines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .userName {
+    height: 14px;
+    width: 110px;
+  }
+
+  .userOrigin {
+    height: 12px;
+    width: 140px;
+  }
+}
+
+@keyframes skeletonPulse {
+  0% {
+    background: #d8d8d8;
+  }
+  50% {
+    background: #e8e8e8;
+  }
+  100% {
+    background: #d8d8d8;
+  }
+}
+
+@media (max-width: 720px) {
+  .Skeleton {
+    .skeletonCard {
+      padding: 24px;
+      gap: 14px;
+    }
+
+    .headlineLine {
+      width: 80%;
+    }
+  }
+}

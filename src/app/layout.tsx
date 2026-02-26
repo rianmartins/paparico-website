@@ -40,6 +40,85 @@ const theSeasons = localFont({
   display: "swap",
 });
 
+const roslindale = localFont({
+  src: [
+    {
+      path: "../../public/fonts/roslindale/Roslindale-DisplayCondensedRegular-Testing.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/roslindale/Roslindale-DisplayCondensedItalic-Testing.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/roslindale/Roslindale-DisplayCondensedLight-Testing.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/roslindale/Roslindale-DisplayCondensedMedium-Testing.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/roslindale/Roslindale-DisplayCondensedMediumItalic-Testing.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/roslindale/Roslindale-DisplayCondensedSemiBold-Testing.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/roslindale/Roslindale-DisplayCondensedSemiBoldItalic-Testing.ttf",
+      weight: "600",
+      style: "italic",
+    },
+  ],
+  variable: "--font-roslindale",
+  display: "swap",
+});
+
+const apercuPro = localFont({
+  src: [
+    {
+      path: "../../public/fonts/apercu-pro/apercu_regular_pro.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apercu-pro/apercu_regular_italic_pro.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/apercu-pro/apercu_medium_pro.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apercu-pro/apercu_medium_italic_pro.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/apercu-pro/apercu_bold_pro.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/apercu-pro/apercu_bold_italic_pro.otf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-apercu-pro",
+  display: "swap",
+});
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -68,7 +147,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${theSeasons.variable} ${interTight.variable}`}
+        className={`${geistSans.variable} ${geistMono.variable} ${theSeasons.variable} ${interTight.variable} ${roslindale.variable} ${apercuPro.variable}`}
       >
         {children}
       </body>

@@ -1,41 +1,47 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "./Footer.module.css";
-import SocialMediaIcon from "../SocialMediaIcon";
-import { FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from "@/constants";
+import { FACEBOOK_URL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_URL } from "@/constants";
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
+import SocialMediaIcon from "../SocialMediaIcon";
+import Button from "../Button";
+
+import TermsModal from "./TermsModal/TermsModal";
+import styles from "./Footer.module.css";
+
 const Footer: FC = () => {
-  const { language } = useLanguage();
+  const [open, setOpen] = useState(false);
+
   const t = useTranslations();
+  const { language } = useLanguage();
 
   return (
-    <div className={styles.Footer}>
-      <main className={styles.main}>
+    <footer className={styles.Footer}>
+      <div className={styles.main}>
         <div className={styles.socialMediaContainer}>
           <div className={styles.logo}>
             <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
           </div>
           <div className={styles.socialMedia}>
-            <SocialMediaIcon icon="/icons/facebook.svg" link={FACEBOOK_URL} />
+            <SocialMediaIcon icon="/icons/tiktok.svg" link={TIKTOK_URL} />
             <SocialMediaIcon icon="/icons/instagram.svg" link={INSTAGRAM_URL} />
+            <SocialMediaIcon icon="/icons/facebook.svg" link={FACEBOOK_URL} />
           </div>
         </div>
         <nav className={styles.siteMap}>
-          <Link className={styles.link} href={`/${language}#products`}>
-            {t.footer.products}
+          <Link href={`/${language}`} className={styles.link}>
+            {t.footer.backToTop}
           </Link>
-          <a className={styles.link} href={`/${language}/eventos`}>
-            {t.footer.events}
-          </a>
-          <a className={styles.link} href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            {t.footer.order}
-          </a>
+          <div className={styles.link} onClick={() => setOpen(true)}>
+            {t.footer.terms}
+          </div>
+          <Button onClick={() => window.open(WHATSAPP_URL, "_blank")}>{t.footer.contact}</Button>
         </nav>
-      </main>
-    </div>
+      </div>
+      <TermsModal open={open} onClose={() => setOpen(false)} />
+    </footer>
   );
 };
 

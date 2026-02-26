@@ -1,19 +1,40 @@
-import { FC } from "react";
+import { type CSSProperties, type FC, type MouseEventHandler, type ReactNode } from "react";
 import cx from "classnames";
 
 import styles from "./Button.module.css";
 
 type ButtonProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
-  onClick?: () => void;
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   size?: "small" | "medium" | "large";
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary";
+  style?: CSSProperties;
 };
 
-const Button: FC<ButtonProps> = ({ children, onClick, size = "medium", className = "" }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  onClick,
+  size = "medium",
+  className = "",
+  variant = "primary",
+  style = {},
+  disabled = false,
+  type = "button",
+}) => {
   return (
     <button
-      className={cx(styles.Button, styles[`Button--size-${size}`], className)}
+      type={type}
+      disabled={disabled}
+      style={style}
+      className={cx(
+        styles.Button,
+        styles[`Button--size-${size}`],
+        styles[`Button--variant-${variant}`],
+        className
+      )}
       onClick={onClick}
     >
       {children}

@@ -14,7 +14,7 @@ export default async function LangLayout({
   params,
 }: {
   children: ReactNode;
-  params: Promise<{ lang: string }>;
+  params: { lang: string } | Promise<{ lang: string }>;
 }) {
   const resolvedParams = await params;
   const paramLang = resolvedParams.lang as Language;

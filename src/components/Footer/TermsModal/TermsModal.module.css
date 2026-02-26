@@ -1,0 +1,24 @@
+.TermsModal {
+  .textContent {
+    font-family: var(--font-apercu-pro);
+    color: var(--color-primary);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    width: 100%;
+
+    p:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin: 15px 0;
+
+      li {
+        margin-left: 30px;
+        list-style: square;
+      }
+    }
+  }
+}

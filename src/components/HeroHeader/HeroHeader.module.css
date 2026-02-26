@@ -18,7 +18,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.45) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.54) 100%);
   pointer-events: none;
 }
 
@@ -28,9 +28,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1440px;
   min-height: 720px;
-  padding: 24px 32px 80px;
+  padding: 24px 35px 80px;
   gap: 64px;
   margin: 0 auto;
 }
@@ -38,23 +38,26 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 760px;
-  padding: 12px;
-  margin: 0 auto;
+  align-items: left;
+  text-align: left;
+  padding: 12px 0;
+  color: #f6f6f6;
 }
 
 .title {
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 140%;
+  font-family: var(--font-roslindale);
+  font-size: 115px;
+  font-weight: 300;
+  line-height: 100%;
+  text-transform: uppercase;
 }
 
 .subtitle {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 120%;
+  font-family: var(--font-apercu-pro);
+  font-size: 30px;
+  line-height: 100%;
+  max-width: 667px;
+  margin-top: 30px;
 }
 
 @media (max-width: 1100px) {
@@ -70,12 +73,13 @@
   }
 
   .title {
-    font-size: 42px;
+    font-size: 75px;
     line-height: 120%;
   }
 
   .subtitle {
     font-size: 20px;
+    width: 60%;
   }
 
   .heroSection {
@@ -85,12 +89,12 @@
 
 @media (max-width: 720px) {
   .main {
-    padding: 78px 20px 32px;
+    padding: 78px 16px 32px;
     gap: 32px;
     min-height: 520px;
 
     .container {
-      margin-top: 30%;
+      margin-top: 10%;
     }
   }
 
@@ -99,10 +103,20 @@
   }
 
   .title {
-    font-size: 36px;
+    font-size: 55px;
   }
 
   .subtitle {
     font-size: 18px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 40px;
+  }
+  .subtitle {
+    width: 90%;
   }
 }

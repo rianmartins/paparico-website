@@ -10,50 +10,42 @@
 
   .imageWrapper {
     width: 100%;
-    border-radius: 15px;
-    margin-bottom: 20px;
     overflow: hidden;
   }
 
   .image {
     width: 100%;
-    height: auto;
     object-fit: cover;
   }
 
   .title {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 150%;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 100%;
     color: var(--color-primary);
-  }
-
-  .description {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 150%;
-    color: var(--text-secondary);
-  }
-
-  .price {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
-    color: var(--color-primary);
+    font-family: var(--font-roslindale);
     display: flex;
-    align-items: baseline;
-    gap: 4px;
+    justify-content: space-between;
+    text-transform: uppercase;
     width: 100%;
   }
 
-  .note {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
-    color: var(--text-secondary);
-    width: min-content;
-    flex-grow: 1;
+  .description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--color-primary);
+    font-family: var(--font-apercu-pro);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    margin-top: 20px;
   }
+}
+
+.GridItem:not(:last-child) {
+  margin-bottom: 70px;
 }
 
 .clickable {
@@ -61,29 +53,31 @@
   color: inherit;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 800px) {
   .GridItem {
     gap: 6px;
 
-    .imageWrapper {
-      margin-bottom: 16px;
-    }
-
     .title {
-      font-size: 20px;
+      font-size: 28px;
     }
 
-    .price {
-      flex-direction: column;
+    .description {
+      font-size: 18px;
+    }
+  }
+
+  .GridItem:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .GridItem {
+    .title {
+      font-size: 24px;
     }
 
-    .note {
-      width: 100%;
-    }
-
-    .description,
-    .price,
-    .note {
+    .description {
       font-size: 16px;
     }
   }

@@ -1,25 +1,42 @@
 .Button {
-  background-color: var(--color-primary);
-  color: var(--color-accent);
-  border-radius: 10px;
   border: none;
   cursor: pointer;
+  font-family: var(--font-apercu-pro);
+  font-weight: 600;
+  line-height: 18px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .Button--size-small {
-  border-radius: 10px;
   padding: 8px 12px;
   font-size: 12px;
 }
 
 .Button--size-medium {
-  border-radius: 10px;
-  padding: 14px 24px;
+  padding: 12px 18px;
   font-size: 16px;
 }
 
 .Button--size-large {
-  border-radius: 10px;
   padding: 20px 32px;
   font-size: 24px;
+}
+
+.Button--variant-primary {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+}
+
+.Button--variant-secondary {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.Button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.Button:not(:disabled):hover {
+  transform: translateY(-1px);
 }

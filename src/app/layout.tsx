@@ -147,18 +147,18 @@ export const metadata: Metadata = {
     description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
     images: [
       {
-        url: "/hero-image.jpg",
-        width: 1440,
-        height: 887,
+        url: "/prc.jpg",
+        width: 805,
+        height: 569,
         alt: "Fatia de bolo de rolo Paparico",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Paparico",
     description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
-    images: ["/hero-image.jpg"],
+    images: ["/prc.jpg"],
   },
 };
 

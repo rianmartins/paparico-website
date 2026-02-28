@@ -134,9 +134,33 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
 });
 
+// Temporarily hardcoded to preview URL for card testing; revert to env/default when merging.
+const siteUrl = "https://paparico-website-git-feat-new-version-rian-martins-projects.vercel.app/";
+
 export const metadata: Metadata = {
   title: "Paparico",
   description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: "Paparico",
+    description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
+    images: [
+      {
+        url: "/hero-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bolo de rolo Paparico",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Paparico",
+    description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
+    images: ["/hero-image.jpg"],
+  },
 };
 
 export default function RootLayout({

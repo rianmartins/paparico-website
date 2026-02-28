@@ -150,7 +150,7 @@ export const metadata: Metadata = {
         url: "/prc.jpg",
         width: 805,
         height: 569,
-        alt: "Fatia de bolo de rolo Paparico",
+        alt: "Bolo de rolo Paparico",
       },
     ],
   },

@@ -134,9 +134,32 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://paparico.pt";
+
 export const metadata: Metadata = {
   title: "Paparico",
   description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: "Paparico",
+    description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
+    images: [
+      {
+        url: "/hero-image.jpg",
+        width: 1440,
+        height: 887,
+        alt: "Fatia de bolo de rolo Paparico",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paparico",
+    description: "O sabor do bolo de rolo tradicional de Pernambuco no coração de Portugal",
+    images: ["/hero-image.jpg"],
+  },
 };
 
 export default function RootLayout({

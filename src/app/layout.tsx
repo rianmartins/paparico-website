@@ -149,8 +149,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/hero-image.jpg",
-        width: 917,
-        height: 569,
+        width: 1200,
+        height: 739,
         alt: "Fatia de bolo de rolo Paparico",
       },
     ],

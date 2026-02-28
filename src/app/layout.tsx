@@ -134,7 +134,9 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://paparico.pt";
+// Temporarily hardcoded to preview URL for card testing; revert to env/default when merging.
+const siteUrl =
+  "https://paparico-website-git-feat-new-version-rian-martins-projects.vercel.app/";
 
 export const metadata: Metadata = {
   title: "Paparico",

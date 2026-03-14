@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
-import { REVIEW_LINK } from "@/constants";
+import { REVIEW_LINK, WHATSAPP_URL } from "@/constants";
 
 import ProductsService from "@/services/ProductsService";
 import { ReviewsService } from "@/services/ReviewsService";
@@ -121,8 +121,8 @@ export default function Home() {
     formStatus === "success"
       ? t.home.reseller.formActions.success
       : formStatus === "error"
-      ? errorMessage || t.home.reseller.formActions.error
-      : undefined;
+        ? errorMessage || t.home.reseller.formActions.error
+        : undefined;
 
   const statusTone =
     formStatus === "success" ? "success" : formStatus === "error" ? "error" : undefined;
@@ -192,6 +192,14 @@ export default function Home() {
           <div className={styles.title}>{t.home.title}</div>
           <div className={styles.text}>{t.home.text}</div>
         </div>
+        <Image
+          className={styles.coverImageMobile}
+          src="/Image_cover_mobile.jpg"
+          alt="Paparico cover"
+          width={390}
+          height={555}
+          priority
+        />
         <div className={styles.productShowcase}>
           <div className={styles.fullWidth}>
             <Image src="/products/Image_1.png" alt="Paparico" width={690} height={700} />
@@ -238,8 +246,9 @@ export default function Home() {
                       className={styles.gridTextItem}
                       title={section.title}
                       text={section.text}
+                      hasCTAButton={section.hasCTAButton}
                     />
-                  )
+                  ),
                 )}
           </div>
         </div>
@@ -287,22 +296,36 @@ export default function Home() {
           <h2 className={styles.subtitle}>{t.home.info.subtitle}</h2>
           <div className={styles.ordersLayout}>
             <div className={`${styles.text} ${styles.ordersText}`}>
-              {t.home.info.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              <h3>{t.home.info.shippingTitle}</h3>
-              <p>{t.home.info.shippingDescription}</p>
-              <h3>{t.home.info.pickupTitle}</h3>
-              <p>{t.home.info.pickupDescription}</p>
+              <div className={styles.card}>
+                <h3>{t.home.info.pickupTitle}</h3>
+                <p>{t.home.info.pickupDescription}</p>
+              </div>
+              <div className={styles.card}>
+                <h3>{t.home.info.shippingTitle}</h3>
+                <p>{t.home.info.shippingDescription}</p>
+              </div>
             </div>
-            <Image src="/info-1.png" alt="Paparico" width={594} height={875} />
             <Image
-              src="/info-2.png"
+              className={styles.imageCenter}
+              src="/info-1.png"
               alt="Paparico"
-              width={302}
-              height={429}
-              className={styles.alignEnd}
+              width={450}
+              height={830}
             />
+            <div className={styles.columnImageCTAButton}>
+              <div>
+                <Image src="/info-2.png" alt="Paparico" width={350} height={536} />
+                {t.home.info.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <Button
+                className={styles.CTAButton}
+                onClick={() => window.open(WHATSAPP_URL, "_blank")}
+              >
+                {t.header.order}
+              </Button>
+            </div>
           </div>
         </div>
         <div id="reseller" className={styles.reseller} style={{ display: "none" }}>
@@ -391,25 +414,30 @@ export default function Home() {
           <h1 className={styles.title}>{t.home.reviews.title}</h1>
           <h3>{t.home.reviews.subheadingOne}</h3>
           <h3>{t.home.reviews.subheadingTwo}</h3>
-          <Button className={styles.reviewsCta} onClick={() => window.open(REVIEW_LINK, "_blank")}>
-            {t.home.reviews.cta}
-          </Button>
-          <div className={styles.reviewsGrid}>
-            {isLoadingReviews
-              ? Array.from({ length: 3 }).map((_, index) => (
-                  <ReviewSkeleton key={`review-skeleton-${index}`} />
-                ))
-              : reviews.map((review) => (
-                  <ReviewItem
-                    key={`${review.name}-${review.headline}`}
-                    name={review.name}
-                    review={review.text}
-                    origin={review.origin}
-                    headline={review.headline}
-                    rating={review.rating}
-                    ratingAlt={t.reviews.starAlt}
-                  />
-                ))}
+          <div>
+            <Button
+              className={styles.reviewsCta}
+              onClick={() => window.open(REVIEW_LINK, "_blank")}
+            >
+              {t.home.reviews.cta}
+            </Button>
+            <div className={styles.reviewsGrid}>
+              {isLoadingReviews
+                ? Array.from({ length: 3 }).map((_, index) => (
+                    <ReviewSkeleton key={`review-skeleton-${index}`} />
+                  ))
+                : reviews.map((review) => (
+                    <ReviewItem
+                      key={`${review.name}-${review.headline}`}
+                      name={review.name}
+                      review={review.text}
+                      origin={review.origin}
+                      headline={review.headline}
+                      rating={review.rating}
+                      ratingAlt={t.reviews.starAlt}
+                    />
+                  ))}
+            </div>
           </div>
         </div>
       </section>

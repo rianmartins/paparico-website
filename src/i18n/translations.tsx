@@ -147,8 +147,6 @@ export const translations: Record<Language, TranslationContent> = {
         subtitle: "Como funcionam os pedidos",
         paragraphs: [
           "No Paparico, cada pedido nasce das mãos e do cuidado. Produzimos bolos artesanais, preparados sob encomenda, respeitando o tempo, a receita e o afeto que cada criação pede.",
-          "Os nossos produtos têm validade de até 30 dias, sempre seguindo as boas práticas de conservação e segurança alimentar.",
-          "As encomendas podem ser feitas através do WhatsApp ou Instagram. Após o contacto, confirmamos disponibilidade, valores, prazos e a melhor forma de entrega.",
         ],
         shippingTitle: "ENVIOS",
         shippingDescription:
@@ -407,8 +405,6 @@ export const translations: Record<Language, TranslationContent> = {
         subtitle: "How orders work",
         paragraphs: [
           "At Paparico, every order starts with hands-on care. We craft artisanal cakes made to order, respecting the time, recipe, and affection each creation calls for.",
-          "Our products keep for up to 30 days, always following best practices for storage and food safety.",
-          "Orders can be placed via WhatsApp or Instagram. After you reach out, we confirm availability, prices, timelines, and the best delivery option.",
         ],
         shippingTitle: "SHIPPING",
         shippingDescription:

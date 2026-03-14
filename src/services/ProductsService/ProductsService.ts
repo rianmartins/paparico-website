@@ -30,7 +30,7 @@ export class ProductsService {
               price: size.price,
             })),
             flavors: entry.flavors.map((flavorId) =>
-              pickLocalized(flavorDictionary, flavorId, lang)
+              pickLocalized(flavorDictionary, flavorId, lang),
             ),
           }
         : {
@@ -38,9 +38,10 @@ export class ProductsService {
             id: entry.id,
             title: pickLocalized(textDictionary, entry.titleId, lang),
             text: entry.paragraphIds.map((paragraphId) =>
-              pickLocalized(textDictionary, paragraphId, lang)
+              pickLocalized(textDictionary, paragraphId, lang),
             ),
-          }
+            hasCTAButton: entry.hasCTAButton,
+          },
     );
   }
 }

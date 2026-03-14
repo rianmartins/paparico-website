@@ -19,9 +19,10 @@
   }
 
   .title {
-    font-weight: 300;
-    font-size: 23px;
+    font-weight: 500;
+    font-size: 24px;
     line-height: 100%;
+    letter-spacing: 5%;
     color: var(--color-primary);
     font-family: var(--font-roslindale);
     display: flex;
@@ -53,6 +54,23 @@
   color: inherit;
 }
 
+@media (max-width: 1400px) {
+  .GridItem {
+    .title {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .GridItem {
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}
+
 @media (max-width: 800px) {
   .GridItem {
     gap: 6px;
@@ -74,11 +92,12 @@
 @media (max-width: 400px) {
   .GridItem {
     .title {
-      font-size: 24px;
+      font-size: 20px;
+      font-weight: 500;
     }
 
     .description {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }

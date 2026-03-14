@@ -20,8 +20,12 @@
     font-family: var(--font-apercu-pro);
     letter-spacing: 0;
 
-    p:not(:last-child) {
+    p {
       margin-bottom: 16px;
     }
+  }
+
+  .CTAButton {
+    width: fit-content;
   }
 }

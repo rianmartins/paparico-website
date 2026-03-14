@@ -17,6 +17,7 @@ export type GridTextSource = {
   id: string;
   titleId: string;
   paragraphIds: string[];
+  hasCTAButton?: boolean;
 };
 
 export type GridSource = Array<GridItemSource | GridTextSource>;
@@ -36,4 +37,5 @@ export type GridSection =
       id: string;
       title: string;
       text: string[];
+      hasCTAButton?: boolean;
     };

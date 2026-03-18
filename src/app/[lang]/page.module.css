@@ -44,7 +44,10 @@
   visibility: hidden;
   transform: translateY(-18px);
   pointer-events: none;
-  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
   z-index: 20;
 }
 
@@ -617,7 +620,7 @@
     }
 
     .reviews {
-      margin-top: -68px;
+      margin-top: -88px;
       padding-top: 100px;
 
       .reviewsGrid {
@@ -632,6 +635,7 @@
     .coverImageMobile {
       display: block;
       margin-top: 46px;
+      width: 100vw;
     }
 
     .coverImage {
@@ -655,7 +659,7 @@
 
             > div {
               img {
-                width: 300%;
+                width: 380%;
                 height: 180px;
                 object-position: 0;
               }

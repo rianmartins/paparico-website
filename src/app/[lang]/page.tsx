@@ -2,6 +2,7 @@
 
 import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
+import cx from "classnames";
 
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
@@ -26,6 +27,9 @@ import TextArea from "@/components/Form/TextArea";
 import Button from "@/components/Button";
 import GridText from "@/components/GridText";
 import FormField from "@/components/Form/FormField";
+import Header from "@/components/Header";
+
+import { useFloatingHeader } from "@/hooks/useFloatingHeader";
 
 import styles from "./page.module.css";
 
@@ -43,6 +47,13 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isLoadingReviews, setIsLoadingReviews] = useState(false);
+  const {
+    floatingHeaderRef,
+    isFloatingHeaderVisible,
+    handleFloatingHeaderMouseEnter,
+    handleFloatingHeaderMouseLeave,
+    handleFloatingHeaderClickCapture,
+  } = useFloatingHeader();
 
   /**
    * FORM FUNCTIONS/HANDLERS
@@ -179,6 +190,18 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <div
+        ref={floatingHeaderRef}
+        className={cx(styles.floatingHeader, {
+          [styles.floatingHeaderVisible]: isFloatingHeaderVisible,
+        })}
+        aria-hidden={!isFloatingHeaderVisible}
+        onMouseEnter={handleFloatingHeaderMouseEnter}
+        onMouseLeave={handleFloatingHeaderMouseLeave}
+        onClickCapture={handleFloatingHeaderClickCapture}
+      >
+        <Header variant="floating" />
+      </div>
       <HeroHeader
         className={styles.header}
         heroClassName={styles.heroImage}

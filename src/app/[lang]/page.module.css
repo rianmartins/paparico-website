@@ -33,6 +33,28 @@
   }
 }
 
+.floatingHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-18px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  z-index: 20;
+}
+
+.floatingHeaderVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 .content {
   h1,
   h2,
@@ -269,6 +291,12 @@
 
   .reviewsCta {
     margin: 40px 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .floatingHeader {
+    display: none;
   }
 }
 

@@ -25,6 +25,10 @@ export type TranslationContent = {
   };
   home: {
     productsTitle: string;
+    productsText1: string;
+    productsText2: string;
+    productsSubtitle1: string;
+    productsSubtitle2: string;
     title: string;
     text: ReactNode;
     galleryTitle1: string;
@@ -106,6 +110,12 @@ export const translations: Record<Language, TranslationContent> = {
     },
     home: {
       productsTitle: "Conheça o nosso menu",
+      productsText1:
+        "Cada produto do Paparico é feito artesanalmente, com atenção a cada detalhe e respeito absoluto à tradição do bolo de rolo pernambucano.",
+      productsText2:
+        "Aqui, cada escolha carrega sabor, memória e aquele afeto simples que transforma um bolo em um abraço.",
+      productsSubtitle1: "Camadas de tradição.",
+      productsSubtitle2: "Sabor de casa.",
       title: "A História do Bolo de Rolo",
       text: (
         <>
@@ -383,6 +393,12 @@ export const translations: Record<Language, TranslationContent> = {
     },
     home: {
       productsTitle: "Discover our menu",
+      productsText1:
+        "Each Paparico product is handmade, with attention to every detail and absolute respect for the tradition of Pernambuco's bolo de rolo.",
+      productsText2:
+        "Here, every choice carries flavor, memory, and that simple affection that turns a cake into a hug.",
+      productsSubtitle1: "Layers of tradition.",
+      productsSubtitle2: "The taste of home.",
       title: "The history of Bolo de Rolo",
       text: (
         <>

@@ -269,6 +269,10 @@ export default function Home() {
       <section className={styles.content}>
         <div id="products" className={styles.products}>
           <h1 className={styles.title}>{t.home.productsTitle}</h1>
+          <p className={styles.textMobile}>{t.home.productsText1}</p>
+          <p className={styles.textMobile}>{t.home.productsText2}</p>
+          <h2 className={styles.textMobile}>{t.home.productsSubtitle1}</h2>
+          <h2 className={styles.textMobile}>{t.home.productsSubtitle2}</h2>
           <div className={styles.productsGrid}>
             {isLoading
               ? Array.from({ length: 6 }).map((_, index) => (

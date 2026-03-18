@@ -82,6 +82,10 @@
     font-size: 60px;
   }
 
+  .textMobile {
+    display: none;
+  }
+
   .fullWidth {
     width: 100%;
   }
@@ -349,12 +353,12 @@
 
 @media (max-width: 1100px) {
   .content {
-    h1.title {
+    h1 {
       font-size: 70px;
       line-height: 90px;
     }
 
-    h2.subtitle {
+    h2 {
       font-size: 48px;
     }
 
@@ -435,12 +439,12 @@
   }
 
   .content {
-    h1.title {
+    h1 {
       font-size: 48px;
       line-height: 100%;
     }
 
-    h2.subtitle {
+    h2 {
       font-size: 36px;
     }
 
@@ -643,6 +647,39 @@
     }
 
     .content {
+      h1 {
+        font-size: 35px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      .textMobile {
+        display: block;
+      }
+
+      p.textMobile:first-of-type {
+        margin-top: 24px;
+      }
+
+      p.textMobile {
+        margin: 24px 0;
+      }
+
+      h2.textMobile {
+        text-align: right;
+        float: right;
+      }
+
+      h2.textMobile:last-of-type {
+        margin-bottom: 24px;
+      }
+
       .infoOrders {
         .ordersLayout {
           .ordersText {

@@ -2,10 +2,11 @@
 
 import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
+import cx from "classnames";
 
 import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
-import { REVIEW_LINK } from "@/constants";
+import { REVIEW_LINK, WHATSAPP_URL } from "@/constants";
 
 import ProductsService from "@/services/ProductsService";
 import { ReviewsService } from "@/services/ReviewsService";
@@ -26,6 +27,9 @@ import TextArea from "@/components/Form/TextArea";
 import Button from "@/components/Button";
 import GridText from "@/components/GridText";
 import FormField from "@/components/Form/FormField";
+import Header from "@/components/Header";
+
+import { useFloatingHeader } from "@/hooks/useFloatingHeader";
 
 import styles from "./page.module.css";
 
@@ -43,6 +47,13 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isLoadingReviews, setIsLoadingReviews] = useState(false);
+  const {
+    floatingHeaderRef,
+    isFloatingHeaderVisible,
+    handleFloatingHeaderMouseEnter,
+    handleFloatingHeaderMouseLeave,
+    handleFloatingHeaderClickCapture,
+  } = useFloatingHeader();
 
   /**
    * FORM FUNCTIONS/HANDLERS
@@ -121,8 +132,8 @@ export default function Home() {
     formStatus === "success"
       ? t.home.reseller.formActions.success
       : formStatus === "error"
-      ? errorMessage || t.home.reseller.formActions.error
-      : undefined;
+        ? errorMessage || t.home.reseller.formActions.error
+        : undefined;
 
   const statusTone =
     formStatus === "success" ? "success" : formStatus === "error" ? "error" : undefined;
@@ -179,6 +190,18 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <div
+        ref={floatingHeaderRef}
+        className={cx(styles.floatingHeader, {
+          [styles.floatingHeaderVisible]: isFloatingHeaderVisible,
+        })}
+        aria-hidden={!isFloatingHeaderVisible}
+        onMouseEnter={handleFloatingHeaderMouseEnter}
+        onMouseLeave={handleFloatingHeaderMouseLeave}
+        onClickCapture={handleFloatingHeaderClickCapture}
+      >
+        <Header variant="floating" />
+      </div>
       <HeroHeader
         className={styles.header}
         heroClassName={styles.heroImage}
@@ -192,16 +215,45 @@ export default function Home() {
           <div className={styles.title}>{t.home.title}</div>
           <div className={styles.text}>{t.home.text}</div>
         </div>
+      </section>
+      <Image
+        className={styles.coverImageMobile}
+        src="/Image_cover_mobile.jpg"
+        alt="Paparico cover"
+        width={390}
+        height={555}
+        priority
+      />
+      <section className={styles.content}>
         <div className={styles.productShowcase}>
           <div className={styles.fullWidth}>
-            <Image src="/products/Image_1.png" alt="Paparico" width={690} height={700} />
+            <Image
+              src="/products/Image_1.png"
+              alt="Paparico"
+              className={styles.mobile}
+              width={690}
+              height={700}
+            />
           </div>
           <div className={styles.columnFullWidth}>
             <div>
-              <Image src="/products/Image_2.png" alt="Paparico" width={360} height={350} />
+              <Image
+                src="/products/Image_2.png"
+                alt="Paparico"
+                className={styles.mobile}
+                width={360}
+                height={350}
+              />
             </div>
             <div className={styles.textRight}>
               <Image src="/products/Image_3.png" alt="Paparico" width={360} height={350} />
+              <Image
+                src="/gallery/Image_2.png"
+                alt="Paparico"
+                className={styles.mobile}
+                width={360}
+                height={350}
+              />
             </div>
           </div>
         </div>
@@ -211,12 +263,16 @@ export default function Home() {
         src="/Image_cover.png"
         alt="Paparico cover"
         width={1440}
-        height={800}
+        height={887}
         priority
       />
       <section className={styles.content}>
         <div id="products" className={styles.products}>
           <h1 className={styles.title}>{t.home.productsTitle}</h1>
+          <p className={styles.textMobile}>{t.home.productsText1}</p>
+          <p className={styles.textMobile}>{t.home.productsText2}</p>
+          <h2 className={styles.textMobile}>{t.home.productsSubtitle1}</h2>
+          <h2 className={styles.textMobile}>{t.home.productsSubtitle2}</h2>
           <div className={styles.productsGrid}>
             {isLoading
               ? Array.from({ length: 6 }).map((_, index) => (
@@ -238,13 +294,15 @@ export default function Home() {
                       className={styles.gridTextItem}
                       title={section.title}
                       text={section.text}
+                      hasCTAButton={section.hasCTAButton}
                     />
-                  )
+                  ),
                 )}
           </div>
         </div>
         <div id="images" className={styles.gallery}>
-          <h1 className={styles.title}>{t.home.galleryTitle}</h1>
+          <h2 className={styles.subtitle}>{t.home.galleryTitle1}</h2>
+          <h2 className={styles.subtitle}>{t.home.galleryTitle2}</h2>
           <div className={styles.galleryGrid}>
             <div className={styles.row}>
               <Image
@@ -284,25 +342,46 @@ export default function Home() {
         </div>
         <div id="information" className={styles.infoOrders}>
           <h1 className={styles.title}>{t.home.info.title}</h1>
-          <h2 className={styles.subtitle}>{t.home.info.subtitle}</h2>
+          <h3 className={styles.subtitle}>{t.home.info.subtitle}</h3>
           <div className={styles.ordersLayout}>
             <div className={`${styles.text} ${styles.ordersText}`}>
-              {t.home.info.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              <h3>{t.home.info.shippingTitle}</h3>
-              <p>{t.home.info.shippingDescription}</p>
-              <h3>{t.home.info.pickupTitle}</h3>
-              <p>{t.home.info.pickupDescription}</p>
+              <div className={styles.card}>
+                <h3>{t.home.info.pickupTitle}</h3>
+                <p>{t.home.info.pickupDescription}</p>
+              </div>
+              <div className={styles.card}>
+                <h3>{t.home.info.shippingTitle}</h3>
+                <p>{t.home.info.shippingDescription}</p>
+              </div>
             </div>
-            <Image src="/info-1.png" alt="Paparico" width={594} height={875} />
             <Image
-              src="/info-2.png"
+              className={styles.imageCenter}
+              src="/info-1.png"
               alt="Paparico"
-              width={302}
-              height={429}
-              className={styles.alignEnd}
+              width={450}
+              height={830}
             />
+            <div className={styles.columnImageCTAButton}>
+              <div>
+                <Image src="/info-2.png" alt="Paparico" width={350} height={536} />
+                <Image
+                  src="/info-1.png"
+                  alt="Paparico"
+                  className={styles.mobile}
+                  width={350}
+                  height={536}
+                />
+                {t.home.info.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <Button
+                className={styles.CTAButton}
+                onClick={() => window.open(WHATSAPP_URL, "_blank")}
+              >
+                {t.header.order}
+              </Button>
+            </div>
           </div>
         </div>
         <div id="reseller" className={styles.reseller} style={{ display: "none" }}>
@@ -391,25 +470,30 @@ export default function Home() {
           <h1 className={styles.title}>{t.home.reviews.title}</h1>
           <h3>{t.home.reviews.subheadingOne}</h3>
           <h3>{t.home.reviews.subheadingTwo}</h3>
-          <Button className={styles.reviewsCta} onClick={() => window.open(REVIEW_LINK, "_blank")}>
-            {t.home.reviews.cta}
-          </Button>
-          <div className={styles.reviewsGrid}>
-            {isLoadingReviews
-              ? Array.from({ length: 3 }).map((_, index) => (
-                  <ReviewSkeleton key={`review-skeleton-${index}`} />
-                ))
-              : reviews.map((review) => (
-                  <ReviewItem
-                    key={`${review.name}-${review.headline}`}
-                    name={review.name}
-                    review={review.text}
-                    origin={review.origin}
-                    headline={review.headline}
-                    rating={review.rating}
-                    ratingAlt={t.reviews.starAlt}
-                  />
-                ))}
+          <div>
+            <Button
+              className={styles.reviewsCta}
+              onClick={() => window.open(REVIEW_LINK, "_blank")}
+            >
+              {t.home.reviews.cta}
+            </Button>
+            <div className={styles.reviewsGrid}>
+              {isLoadingReviews
+                ? Array.from({ length: 3 }).map((_, index) => (
+                    <ReviewSkeleton key={`review-skeleton-${index}`} />
+                  ))
+                : reviews.map((review) => (
+                    <ReviewItem
+                      key={`${review.name}-${review.headline}`}
+                      name={review.name}
+                      review={review.text}
+                      origin={review.origin}
+                      headline={review.headline}
+                      rating={review.rating}
+                      ratingAlt={t.reviews.starAlt}
+                    />
+                  ))}
+            </div>
           </div>
         </div>
       </section>

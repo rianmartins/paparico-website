@@ -12,9 +12,10 @@ import { useLanguage, useTranslations } from "@/i18n/LanguageProvider";
 
 type HeaderProps = {
   className?: string;
+  variant?: "hero" | "floating";
 };
 
-const Header: FC<HeaderProps> = ({ className = "" }) => {
+const Header: FC<HeaderProps> = ({ className = "", variant = "hero" }) => {
   const { language } = useLanguage();
   const t = useTranslations();
   const pathname = usePathname();
@@ -24,9 +25,15 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
   const isHome = pathname === `/${language}` || pathname === `/${language}/`;
 
   return (
-    <header className={cx(styles.Header, className)}>
-      <Link href={`/${language}`} className={styles.logo} aria-label={t.header.homeAria}>
-        <Image src="/logo-branca.png" alt="Paparico" width={201} height={60} priority />
+    <header className={cx(styles.Header, styles[variant], className)}>
+      <Link href={`/${language}`} className={cx(styles.logo, styles.desktopLogo)} aria-label={t.header.homeAria}>
+        <Image
+          src={variant === "floating" ? "/logo.png" : "/logo-branca.png"}
+          alt="Paparico"
+          width={variant === "floating" ? 162 : 201}
+          height={variant === "floating" ? 45 : 60}
+          priority
+        />
       </Link>
       <Link
         href={`/${language}`}
@@ -48,7 +55,7 @@ const Header: FC<HeaderProps> = ({ className = "" }) => {
         <Link className={styles.item} href={`/${language}#reviews`}>
           {t.header.reviews}
         </Link>
-        <LanguageSwitcher />
+        <LanguageSwitcher className={styles.languageSwitcher} />
       </nav>
       <Button
         variant="secondary"

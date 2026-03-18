@@ -42,6 +42,12 @@
   text-align: left;
   padding: 12px 0;
   color: #f6f6f6;
+  gap: 30px;
+
+  .menuButton {
+    width: fit-content;
+    text-transform: uppercase;
+  }
 }
 
 .title {
@@ -57,7 +63,6 @@
   font-size: 30px;
   line-height: 100%;
   max-width: 667px;
-  margin-top: 30px;
 }
 
 @media (max-width: 1100px) {

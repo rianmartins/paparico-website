@@ -24,9 +24,38 @@
     padding-top: 50px;
   }
 
+  .coverImageMobile {
+    display: none;
+  }
+
   img {
     object-fit: cover;
   }
+}
+
+.floatingHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-18px);
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+  z-index: 20;
+}
+
+.floatingHeaderVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .content {
@@ -40,17 +69,21 @@
     color: var(--color-primary);
   }
 
-  h1.title {
-    font-size: 90px;
+  h1 {
+    font-size: 120px;
     line-height: 153px;
   }
 
-  h2.subtitle {
-    font-size: 60px;
+  h2 {
+    font-size: 80px;
   }
 
   h3 {
-    font-size: 50px;
+    font-size: 60px;
+  }
+
+  .textMobile {
+    display: none;
   }
 
   .fullWidth {
@@ -103,6 +136,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 5px;
     width: 100%;
+
+    .textRight {
+      img.mobile {
+        display: none;
+      }
+    }
   }
 
   .products {
@@ -135,7 +174,7 @@
 
     .galleryGrid {
       width: 100%;
-      margin-bottom: 50px;
+      margin: 50px 0;
       gap: 16px;
       display: flex;
       flex-direction: column;
@@ -154,12 +193,23 @@
 
     .ordersLayout {
       display: flex;
-      justify-content: space-between;
+      gap: 32px;
       margin-top: 48px;
       width: 100%;
     }
 
-    .text {
+    .ordersText {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card {
+      background: #d9d9d9;
+      color: var(--color-primary);
+      padding: 28px 36px;
+      height: 390px;
+
       p {
         font-family: var(--font-apercu-pro);
         font-size: 20px;
@@ -171,10 +221,29 @@
       }
     }
 
-    .ordersText {
+    .columnImageCTAButton {
       display: flex;
       flex-direction: column;
-      width: 432px;
+      gap: 38px;
+
+      img {
+        width: 100%;
+        margin-bottom: 38px;
+      }
+
+      img.mobile {
+        display: none;
+      }
+
+      p {
+        font-family: var(--font-apercu-pro);
+        font-size: 20px;
+        color: var(--color-primary);
+      }
+
+      .CTAButton {
+        width: fit-content;
+      }
     }
   }
 
@@ -232,6 +301,12 @@
   }
 }
 
+@media (max-width: 720px) {
+  .floatingHeader {
+    display: none;
+  }
+}
+
 @media (max-width: 1430px) {
   .content {
     .gallery {
@@ -248,18 +323,9 @@
 
     .infoOrders {
       .ordersLayout {
-        gap: 16px;
-
-        .ordersText {
-          width: 50%;
-        }
-
-        img:not(.alignEnd) {
-          width: 50%;
-          height: 680px;
-        }
-        .alignEnd {
-          display: none;
+        .imageCenter {
+          width: 30%;
+          max-width: 450px;
         }
       }
     }
@@ -287,12 +353,12 @@
 
 @media (max-width: 1100px) {
   .content {
-    h1.title {
+    h1 {
       font-size: 70px;
       line-height: 90px;
     }
 
-    h2.subtitle {
+    h2 {
       font-size: 48px;
     }
 
@@ -332,9 +398,23 @@
 
     .infoOrders {
       .ordersLayout {
-        img:not(.alignEnd) {
-          width: 50%;
-          height: auto;
+        .ordersText {
+          gap: 50px;
+        }
+
+        .card {
+          height: 50%;
+        }
+        .imageCenter {
+          display: none;
+        }
+
+        .columnImageCTAButton {
+          img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+          }
         }
       }
     }
@@ -343,18 +423,6 @@
 
 @media (max-width: 900px) {
   .content {
-    .infoOrders {
-      .ordersLayout {
-        .ordersText {
-          width: 100%;
-        }
-
-        img:not(.alignEnd) {
-          display: none;
-        }
-      }
-    }
-
     .reseller {
       .resellerContent {
         img {
@@ -371,12 +439,12 @@
   }
 
   .content {
-    h1.title {
+    h1 {
       font-size: 48px;
       line-height: 100%;
     }
 
-    h2.subtitle {
+    h2 {
       font-size: 36px;
     }
 
@@ -445,6 +513,60 @@
 
 @media (max-width: 770px) {
   .content {
+    .infoOrders {
+      .ordersLayout {
+        display: block;
+
+        .ordersText {
+          width: 100%;
+          gap: 20px;
+          justify-content: start;
+        }
+
+        .card {
+          height: auto;
+          padding: 10px;
+          h3 {
+            font-weight: 400;
+          }
+          p {
+            font-size: 18px;
+          }
+        }
+
+        .columnImageCTAButton {
+          width: 100%;
+          margin-top: 20px;
+
+          p {
+            font-size: 18px;
+          }
+
+          > div {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 20px;
+
+            img:not(.mobile) {
+              display: none;
+            }
+
+            img.mobile {
+              display: block;
+              width: 250%;
+              height: 250px;
+              object-fit: cover;
+            }
+          }
+
+          .CTAButton {
+            width: 100%;
+            margin: auto;
+          }
+        }
+      }
+    }
+
     .productShowcase {
       display: grid;
       grid-template-columns: 1fr;
@@ -474,6 +596,14 @@
         }
       }
     }
+
+    .reviews {
+      > div {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
   }
 }
 
@@ -494,7 +624,7 @@
     }
 
     .reviews {
-      margin-top: -68px;
+      margin-top: -88px;
       padding-top: 100px;
 
       .reviewsGrid {
@@ -506,37 +636,108 @@
 
 @media (max-width: 450px) {
   .page {
+    .coverImageMobile {
+      display: block;
+      margin-top: 46px;
+      width: 100vw;
+    }
+
     .coverImage {
       display: none;
     }
 
     .content {
-      .productShowcase {
-        display: grid;
-        grid-template-columns: 1fr;
-        margin: auto;
-        gap: 16px;
+      h1 {
+        font-size: 35px;
+      }
 
-        .fullWidth {
-          img {
-            width: 100%;
-            height: auto;
+      h2 {
+        font-size: 30px;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      .textMobile {
+        display: block;
+      }
+
+      p.textMobile:first-of-type {
+        margin-top: 24px;
+      }
+
+      p.textMobile {
+        margin: 24px 0;
+      }
+
+      h2.textMobile {
+        text-align: right;
+        float: right;
+      }
+
+      h2.textMobile:last-of-type {
+        margin-bottom: 24px;
+      }
+
+      .infoOrders {
+        .ordersLayout {
+          .ordersText {
+            .card {
+              p {
+                font-size: 15px;
+              }
+            }
+          }
+          .columnImageCTAButton {
+            p {
+              font-size: 15px;
+            }
+
+            > div {
+              img {
+                width: 380%;
+                height: 180px;
+                object-position: 0;
+              }
+            }
+
+            .CTAButton {
+              width: 60%;
+              margin: auto;
+            }
           }
         }
+      }
+
+      .productShowcase {
+        padding-top: 28px;
+        display: flex;
+        flex-direction: column-reverse;
+
+        .fullWidth {
+          img:not(.mobile) {
+            display: none;
+          }
+
+          img.mobile {
+            display: block;
+            height: 220px;
+          }
+        }
+
         .columnFullWidth {
           display: flex;
-          flex-direction: column;
           gap: 16px;
           width: 100%;
 
-          > div {
-            width: 100%;
+          img:not(.mobile) {
+            display: none;
+          }
 
-            img {
-              width: 100%;
-              height: 350px;
-              object-position: 20%;
-            }
+          img.mobile {
+            display: block;
+            height: 190px;
           }
         }
       }
@@ -544,6 +745,17 @@
       .reseller {
         .resellerHeading {
           width: 100%;
+        }
+      }
+
+      .reviews {
+        h1 {
+          margin-bottom: 16px;
+          font-size: 35px;
+        }
+
+        h3 {
+          font-size: 25px;
         }
       }
     }

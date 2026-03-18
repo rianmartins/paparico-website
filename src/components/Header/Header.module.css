@@ -14,6 +14,10 @@
     position: relative;
   }
 
+  .desktopLogo {
+    display: inline-flex;
+  }
+
   .logo.mobile {
     display: none;
     top: 0px;
@@ -42,6 +46,45 @@
 
   .hamburger {
     display: none;
+  }
+}
+
+.floating {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: 78px;
+  padding: 16px 35px;
+  background: rgba(255, 252, 242, 0.96);
+  box-shadow: 0 10px 30px rgba(26, 17, 10, 0.08);
+  backdrop-filter: blur(10px);
+
+  .logo {
+    top: 0;
+
+    img {
+      width: 162px;
+      height: auto;
+    }
+  }
+
+  .menu {
+    color: var(--color-primary);
+
+    .item {
+      color: var(--color-primary);
+    }
+  }
+
+  .orderButton {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+  }
+
+  .languageSwitcher {
+    color: var(--color-primary);
   }
 }
 
@@ -103,6 +146,10 @@
       display: none;
     }
 
+    .desktopLogo {
+      display: none;
+    }
+
     .logo.mobile {
       display: inline-flex;
     }
@@ -137,6 +184,10 @@
     .menu {
       display: none;
     }
+  }
+
+  .floating {
+    display: none;
   }
 
   .mobileMenu {

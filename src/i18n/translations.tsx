@@ -25,9 +25,14 @@ export type TranslationContent = {
   };
   home: {
     productsTitle: string;
+    productsText1: string;
+    productsText2: string;
+    productsSubtitle1: string;
+    productsSubtitle2: string;
     title: string;
     text: ReactNode;
-    galleryTitle: string;
+    galleryTitle1: string;
+    galleryTitle2: string;
     info: {
       title: string;
       subtitle: string;
@@ -105,6 +110,12 @@ export const translations: Record<Language, TranslationContent> = {
     },
     home: {
       productsTitle: "Conheça o nosso menu",
+      productsText1:
+        "Cada produto do Paparico é feito artesanalmente, com atenção a cada detalhe e respeito absoluto à tradição do bolo de rolo pernambucano.",
+      productsText2:
+        "Aqui, cada escolha carrega sabor, memória e aquele afeto simples que transforma um bolo em um abraço.",
+      productsSubtitle1: "Camadas de tradição.",
+      productsSubtitle2: "Sabor de casa.",
       title: "A História do Bolo de Rolo",
       text: (
         <>
@@ -141,14 +152,13 @@ export const translations: Record<Language, TranslationContent> = {
         ),
         alt: "Paparico",
       },
-      galleryTitle: "Mais que um doce. Um gesto de carinho.",
+      galleryTitle1: "Mais que um doce.",
+      galleryTitle2: "Um gesto de carinho.",
       info: {
         title: "Informações",
         subtitle: "Como funcionam os pedidos",
         paragraphs: [
           "No Paparico, cada pedido nasce das mãos e do cuidado. Produzimos bolos artesanais, preparados sob encomenda, respeitando o tempo, a receita e o afeto que cada criação pede.",
-          "Os nossos produtos têm validade de até 30 dias, sempre seguindo as boas práticas de conservação e segurança alimentar.",
-          "As encomendas podem ser feitas através do WhatsApp ou Instagram. Após o contacto, confirmamos disponibilidade, valores, prazos e a melhor forma de entrega.",
         ],
         shippingTitle: "ENVIOS",
         shippingDescription:
@@ -383,6 +393,12 @@ export const translations: Record<Language, TranslationContent> = {
     },
     home: {
       productsTitle: "Discover our menu",
+      productsText1:
+        "Each Paparico product is handmade, with attention to every detail and absolute respect for the tradition of Pernambuco's bolo de rolo.",
+      productsText2:
+        "Here, every choice carries flavor, memory, and that simple affection that turns a cake into a hug.",
+      productsSubtitle1: "Layers of tradition.",
+      productsSubtitle2: "The taste of home.",
       title: "The history of Bolo de Rolo",
       text: (
         <>
@@ -401,14 +417,13 @@ export const translations: Record<Language, TranslationContent> = {
           </p>
         </>
       ),
-      galleryTitle: "More than a sweet. A gesture of affection.",
+      galleryTitle1: "More than a sweet.",
+      galleryTitle2: "A gesture of affection.",
       info: {
         title: "Information",
         subtitle: "How orders work",
         paragraphs: [
           "At Paparico, every order starts with hands-on care. We craft artisanal cakes made to order, respecting the time, recipe, and affection each creation calls for.",
-          "Our products keep for up to 30 days, always following best practices for storage and food safety.",
-          "Orders can be placed via WhatsApp or Instagram. After you reach out, we confirm availability, prices, timelines, and the best delivery option.",
         ],
         shippingTitle: "SHIPPING",
         shippingDescription:

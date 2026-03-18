@@ -151,6 +151,7 @@ export const productGrid: GridSource = [
     id: "text-1",
     titleId: "text-1-title",
     paragraphIds: ["text-1-p1", "text-1-p2"],
+    hasCTAButton: true,
   },
   {
     type: "item",

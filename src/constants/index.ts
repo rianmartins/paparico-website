@@ -4,4 +4,6 @@ export const WHATSAPP_URL = "https://wa.me/351932774555";
 export const TIKTOK_URL = "https://www.tiktok.com/@paparico.prc";
 
 export const MENU_LINK = "https://drive.google.com/file/d/16e2WscNJmkd6gY_MckUQlF_7mRVDXCYe";
+export const MENU_PASCOA_LINK =
+  "https://drive.google.com/file/d/1WF38lHEyQRqz38M7BQgy4QsR2tX-gsBn/view?usp=drivesdk";
 export const REVIEW_LINK = "https://g.page/r/CdjjyJx8R5QDEBM/review";

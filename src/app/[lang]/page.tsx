@@ -1,6 +1,6 @@
 "use client";
 
-import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import cx from "classnames";
 
@@ -30,23 +30,18 @@ import FormField from "@/components/Form/FormField";
 import Header from "@/components/Header";
 
 import { useFloatingHeader } from "@/hooks/useFloatingHeader";
+import { initialResellerFormValues, useResellerForm } from "@/hooks/useResellerForm";
 
 import styles from "./page.module.css";
 
 export default function Home() {
   const { language } = useLanguage();
   const t = useTranslations();
-  const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
-  const [email, setEmail] = useState("");
-  const [contact, setContact] = useState("");
-  const [message, setMessage] = useState("");
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
   const [gridItems, setGridItems] = useState<GridSection[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isLoadingReviews, setIsLoadingReviews] = useState(false);
+  const [resellerFormValues, setResellerFormValues] = useState(initialResellerFormValues);
   const {
     floatingHeaderRef,
     isFloatingHeaderVisible,
@@ -54,89 +49,27 @@ export default function Home() {
     handleFloatingHeaderMouseLeave,
     handleFloatingHeaderClickCapture,
   } = useFloatingHeader();
-
-  /**
-   * FORM FUNCTIONS/HANDLERS
-   */
-
-  const resetStatus = () => {
-    if (formStatus !== "idle") {
-      setFormStatus("idle");
-      setErrorMessage("");
-    }
-  };
-
-  const handleInputChange =
-    (setter: (value: string) => void) =>
-    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      resetStatus();
-      setter(event.target.value);
-    };
-
-  const handleCancel = () => {
-    setName("");
-    setCompany("");
-    setEmail("");
-    setContact("");
-    setMessage("");
-    setFormStatus("idle");
-    setErrorMessage("");
-  };
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const trimmedValues = {
-      name: name.trim(),
-      company: company.trim(),
-      email: email.trim(),
-      contact: contact.trim(),
-      message: message.trim(),
-    };
-
-    if (!trimmedValues.name || !trimmedValues.email || !trimmedValues.message) {
-      setErrorMessage(t.home.reseller.formActions.required);
-      setFormStatus("error");
-      return;
-    }
-
-    setFormStatus("submitting");
-    setErrorMessage("");
-
-    try {
-      const response = await fetch("/api/reseller", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...trimmedValues, language }),
-      });
-      const data = await response.json().catch(() => null);
-
-      if (!response.ok) {
-        throw new Error(data?.error || t.home.reseller.formActions.error);
-      }
-
-      setFormStatus("success");
-      setName("");
-      setCompany("");
-      setEmail("");
-      setContact("");
-      setMessage("");
-    } catch (error) {
-      const message = error instanceof Error ? error.message : t.home.reseller.formActions.error;
-      setErrorMessage(message);
-      setFormStatus("error");
-    }
-  };
-
-  const statusMessage =
-    formStatus === "success"
-      ? t.home.reseller.formActions.success
-      : formStatus === "error"
-        ? errorMessage || t.home.reseller.formActions.error
-        : undefined;
-
-  const statusTone =
-    formStatus === "success" ? "success" : formStatus === "error" ? "error" : undefined;
+  const {
+    formStatus,
+    fieldErrors,
+    handleFieldChange,
+    handleFieldBlur,
+    handleSubmit,
+    handleCancel,
+  } = useResellerForm({
+    language,
+    values: resellerFormValues,
+    setValues: setResellerFormValues,
+    validationMessages: {
+      nameRequired: t.home.reseller.formActions.nameRequired,
+      emailRequired: t.home.reseller.formActions.emailRequired,
+      emailInvalid: t.home.reseller.formActions.emailInvalid,
+      messageRequired: t.home.reseller.formActions.messageRequired,
+    },
+    successMessage: t.home.reseller.formActions.success,
+    errorMessage: t.home.reseller.formActions.error,
+  });
+  const { name, company, email, contact, message } = resellerFormValues;
 
   /**
    * PRODUCTS
@@ -300,6 +233,12 @@ export default function Home() {
                 )}
           </div>
         </div>
+      </section>
+      <div className={styles.galleryMobile}>
+        <Image src="/gallery/Image_1.png" alt="Paparico" width={445} height={408} />
+        <Image src="/gallery/Image_2.png" alt="Paparico" width={621} height={519} />
+      </div>
+      <section className={styles.content}>
         <div id="images" className={styles.gallery}>
           <h2 className={styles.subtitle}>{t.home.galleryTitle1}</h2>
           <h2 className={styles.subtitle}>{t.home.galleryTitle2}</h2>
@@ -384,7 +323,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div id="reseller" className={styles.reseller} style={{ display: "none" }}>
+        <div id="reseller" className={styles.reseller}>
           <h1 className={styles.title}>{t.home.reseller.title}</h1>
           <div className={styles.fullWidth}>
             <h3 className={styles.resellerHeading}>{t.home.reseller.heading}</h3>
@@ -403,16 +342,18 @@ export default function Home() {
                   submitLabel={t.home.reseller.formActions.submit}
                   submittingLabel={t.home.reseller.formActions.sending}
                   cancelLabel={t.home.reseller.formActions.cancel}
-                  statusMessage={statusMessage}
-                  statusTone={statusTone}
                 >
-                  <FormField>
+                  <FormField errorMessage={fieldErrors.name} errorId="reseller-name-error">
                     <InputLabel>{t.home.reseller.formLabels.name}</InputLabel>
                     <Input
                       name="name"
                       placeholder={t.home.reseller.formLabels.name}
                       value={name}
-                      onChange={handleInputChange(setName)}
+                      onChange={(event) => handleFieldChange("name", event.target.value)}
+                      onBlur={() => handleFieldBlur("name")}
+                      hasError={Boolean(fieldErrors.name)}
+                      aria-invalid={Boolean(fieldErrors.name)}
+                      aria-describedby={fieldErrors.name ? "reseller-name-error" : undefined}
                       required
                       autoComplete="name"
                     />
@@ -423,18 +364,23 @@ export default function Home() {
                       name="company"
                       placeholder={t.home.reseller.formLabels.company}
                       value={company}
-                      onChange={handleInputChange(setCompany)}
+                      onChange={(event) => handleFieldChange("company", event.target.value)}
+                      onBlur={() => handleFieldBlur("company")}
                       autoComplete="organization"
                     />
                   </FormField>
-                  <FormField>
+                  <FormField errorMessage={fieldErrors.email} errorId="reseller-email-error">
                     <InputLabel>{t.home.reseller.formLabels.email}</InputLabel>
                     <Input
                       type="email"
                       name="email"
                       placeholder={t.home.reseller.formLabels.email}
                       value={email}
-                      onChange={handleInputChange(setEmail)}
+                      onChange={(event) => handleFieldChange("email", event.target.value)}
+                      onBlur={() => handleFieldBlur("email")}
+                      hasError={Boolean(fieldErrors.email)}
+                      aria-invalid={Boolean(fieldErrors.email)}
+                      aria-describedby={fieldErrors.email ? "reseller-email-error" : undefined}
                       required
                       autoComplete="email"
                     />
@@ -446,17 +392,22 @@ export default function Home() {
                       name="contact"
                       placeholder={t.home.reseller.formLabels.contact}
                       value={contact}
-                      onChange={handleInputChange(setContact)}
+                      onChange={(event) => handleFieldChange("contact", event.target.value)}
+                      onBlur={() => handleFieldBlur("contact")}
                       autoComplete="tel"
                     />
                   </FormField>
-                  <FormField>
+                  <FormField errorMessage={fieldErrors.message} errorId="reseller-message-error">
                     <InputLabel>{t.home.reseller.formLabels.message}</InputLabel>
                     <TextArea
                       name="message"
                       placeholder={t.home.reseller.formLabels.message}
                       value={message}
-                      onChange={handleInputChange(setMessage)}
+                      onChange={(event) => handleFieldChange("message", event.target.value)}
+                      onBlur={() => handleFieldBlur("message")}
+                      hasError={Boolean(fieldErrors.message)}
+                      aria-invalid={Boolean(fieldErrors.message)}
+                      aria-describedby={fieldErrors.message ? "reseller-message-error" : undefined}
                       required
                       autoComplete="off"
                     />

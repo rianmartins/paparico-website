@@ -59,7 +59,10 @@ export type TranslationContent = {
         cancel: string;
         success: string;
         error: string;
-        required: string;
+        nameRequired: string;
+        emailRequired: string;
+        emailInvalid: string;
+        messageRequired: string;
       };
       cta: string;
     };
@@ -187,7 +190,10 @@ export const translations: Record<Language, TranslationContent> = {
           cancel: "Cancelar",
           success: "Mensagem enviada com sucesso! Vamos responder em breve.",
           error: "Não foi possível enviar sua mensagem. Tente novamente em instantes.",
-          required: "Preencha nome, email e mensagem.",
+          nameRequired: "Preencha o seu nome.",
+          emailRequired: "Preencha o seu email.",
+          emailInvalid: "Digite um email válido.",
+          messageRequired: "Preencha a sua mensagem.",
         },
         cta: "Faça a sua avaliação",
       },
@@ -452,7 +458,10 @@ export const translations: Record<Language, TranslationContent> = {
           cancel: "Cancel",
           success: "Message sent successfully! We will get back to you soon.",
           error: "We couldn't send your message. Please try again shortly.",
-          required: "Please fill in name, email, and message.",
+          nameRequired: "Please enter your name.",
+          emailRequired: "Please enter your email.",
+          emailInvalid: "Please enter a valid email.",
+          messageRequired: "Please enter your message.",
         },
         cta: "Leave your review",
       },

@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 
+import { ToastProvider } from "@/components/Toast";
 import { LanguageProvider, type Language } from "@/i18n/LanguageProvider";
 import { SUPPORTED_LANGUAGES } from "@/i18n/translations";
 
@@ -20,5 +21,9 @@ export default async function LangLayout({
   const paramLang = resolvedParams.lang as Language;
   const lang = SUPPORTED_LANGUAGES.includes(paramLang) ? paramLang : ("pt" as Language);
 
-  return <LanguageProvider initialLanguage={lang}>{children}</LanguageProvider>;
+  return (
+    <LanguageProvider initialLanguage={lang}>
+      <ToastProvider>{children}</ToastProvider>
+    </LanguageProvider>
+  );
 }

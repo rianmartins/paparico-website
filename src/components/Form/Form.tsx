@@ -11,8 +11,6 @@ type FormProps = {
   submittingLabel?: string;
   cancelLabel?: string;
   isSubmitting?: boolean;
-  statusMessage?: React.ReactNode;
-  statusTone?: "success" | "error" | "info";
 };
 
 export const Form: React.FC<FormProps> = ({
@@ -23,20 +21,8 @@ export const Form: React.FC<FormProps> = ({
   submittingLabel,
   cancelLabel = "Cancelar",
   isSubmitting = false,
-  statusMessage,
-  statusTone,
 }) => {
   const currentSubmitLabel = isSubmitting && submittingLabel ? submittingLabel : submitLabel;
-
-  const statusClassName = `${styles.status} ${
-    statusTone === "success"
-      ? styles.statusSuccess
-      : statusTone === "error"
-        ? styles.statusError
-        : statusTone === "info"
-          ? styles.statusInfo
-          : ""
-  }`;
 
   return (
     <form className={styles.Form} onSubmit={onSubmit} noValidate>
@@ -49,7 +35,6 @@ export const Form: React.FC<FormProps> = ({
           {currentSubmitLabel}
         </Button>
       </div>
-      {statusMessage ? <p className={statusClassName}>{statusMessage}</p> : null}
     </form>
   );
 };

@@ -1,0 +1,54 @@
+.viewport {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 2000;
+  display: flex;
+  width: min(360px, calc(100vw - 32px));
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast {
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 16px 40px rgba(24, 31, 46, 0.16);
+  color: #fff;
+  font-family: var(--font-apercu-pro), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: toast-in 180ms ease-out forwards;
+}
+
+.success {
+  background: #2f6a4f;
+}
+
+.error {
+  background: #8f3c3c;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .viewport {
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+  }
+}

@@ -192,24 +192,45 @@ export default function Home() {
           <div className={styles.title}>{t.home.title}</div>
           <div className={styles.text}>{t.home.text}</div>
         </div>
-        <Image
-          className={styles.coverImageMobile}
-          src="/Image_cover_mobile.jpg"
-          alt="Paparico cover"
-          width={390}
-          height={555}
-          priority
-        />
+      </section>
+      <Image
+        className={styles.coverImageMobile}
+        src="/Image_cover_mobile.jpg"
+        alt="Paparico cover"
+        width={390}
+        height={555}
+        priority
+      />
+      <section className={styles.content}>
         <div className={styles.productShowcase}>
           <div className={styles.fullWidth}>
-            <Image src="/products/Image_1.png" alt="Paparico" width={690} height={700} />
+            <Image
+              src="/products/Image_1.png"
+              alt="Paparico"
+              className={styles.mobile}
+              width={690}
+              height={700}
+            />
           </div>
           <div className={styles.columnFullWidth}>
             <div>
-              <Image src="/products/Image_2.png" alt="Paparico" width={360} height={350} />
+              <Image
+                src="/products/Image_2.png"
+                alt="Paparico"
+                className={styles.mobile}
+                width={360}
+                height={350}
+              />
             </div>
             <div className={styles.textRight}>
               <Image src="/products/Image_3.png" alt="Paparico" width={360} height={350} />
+              <Image
+                src="/gallery/Image_2.png"
+                alt="Paparico"
+                className={styles.mobile}
+                width={360}
+                height={350}
+              />
             </div>
           </div>
         </div>
@@ -219,7 +240,7 @@ export default function Home() {
         src="/Image_cover.png"
         alt="Paparico cover"
         width={1440}
-        height={800}
+        height={887}
         priority
       />
       <section className={styles.content}>
@@ -253,7 +274,8 @@ export default function Home() {
           </div>
         </div>
         <div id="images" className={styles.gallery}>
-          <h1 className={styles.title}>{t.home.galleryTitle}</h1>
+          <h2 className={styles.subtitle}>{t.home.galleryTitle1}</h2>
+          <h2 className={styles.subtitle}>{t.home.galleryTitle2}</h2>
           <div className={styles.galleryGrid}>
             <div className={styles.row}>
               <Image
@@ -293,7 +315,7 @@ export default function Home() {
         </div>
         <div id="information" className={styles.infoOrders}>
           <h1 className={styles.title}>{t.home.info.title}</h1>
-          <h2 className={styles.subtitle}>{t.home.info.subtitle}</h2>
+          <h3 className={styles.subtitle}>{t.home.info.subtitle}</h3>
           <div className={styles.ordersLayout}>
             <div className={`${styles.text} ${styles.ordersText}`}>
               <div className={styles.card}>
@@ -315,6 +337,13 @@ export default function Home() {
             <div className={styles.columnImageCTAButton}>
               <div>
                 <Image src="/info-2.png" alt="Paparico" width={350} height={536} />
+                <Image
+                  src="/info-1.png"
+                  alt="Paparico"
+                  className={styles.mobile}
+                  width={350}
+                  height={536}
+                />
                 {t.home.info.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}

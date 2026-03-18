@@ -27,7 +27,8 @@ export type TranslationContent = {
     productsTitle: string;
     title: string;
     text: ReactNode;
-    galleryTitle: string;
+    galleryTitle1: string;
+    galleryTitle2: string;
     info: {
       title: string;
       subtitle: string;
@@ -141,7 +142,8 @@ export const translations: Record<Language, TranslationContent> = {
         ),
         alt: "Paparico",
       },
-      galleryTitle: "Mais que um doce. Um gesto de carinho.",
+      galleryTitle1: "Mais que um doce.",
+      galleryTitle2: "Um gesto de carinho.",
       info: {
         title: "Informações",
         subtitle: "Como funcionam os pedidos",
@@ -399,7 +401,8 @@ export const translations: Record<Language, TranslationContent> = {
           </p>
         </>
       ),
-      galleryTitle: "More than a sweet. A gesture of affection.",
+      galleryTitle1: "More than a sweet.",
+      galleryTitle2: "A gesture of affection.",
       info: {
         title: "Information",
         subtitle: "How orders work",

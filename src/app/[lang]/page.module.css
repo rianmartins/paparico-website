@@ -58,6 +58,10 @@
   pointer-events: auto;
 }
 
+.galleryMobile {
+  display: none;
+}
+
 .content {
   h1,
   h2,
@@ -249,9 +253,10 @@
 
   .reseller {
     width: 100%;
+    margin-bottom: 50px;
 
     .resellerHeading {
-      width: 710px;
+      width: 750px;
     }
 
     .resellerContent {
@@ -608,25 +613,31 @@
 }
 
 @media (max-width: 720px) {
+  .galleryMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+
+    > img {
+      width: 100vw;
+      height: auto;
+    }
+  }
+
   .content {
+    .products,
+    .infoOrders,
+    .reseller,
+    .reviews {
+      scroll-margin-top: 96px;
+    }
+
     .gallery {
       display: none;
     }
 
-    .products {
-      margin-top: -50px;
-      padding-top: 100px;
-    }
-
-    .infoOrders {
-      margin-top: -50px;
-      padding-top: 100px;
-    }
-
     .reviews {
-      margin-top: -88px;
-      padding-top: 100px;
-
       .reviewsGrid {
         grid-template-columns: 1fr;
       }

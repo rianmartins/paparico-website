@@ -26,7 +26,11 @@ const Header: FC<HeaderProps> = ({ className = "", variant = "hero" }) => {
 
   return (
     <header className={cx(styles.Header, styles[variant], className)}>
-      <Link href={`/${language}`} className={cx(styles.logo, styles.desktopLogo)} aria-label={t.header.homeAria}>
+      <Link
+        href={`/${language}`}
+        className={cx(styles.logo, styles.desktopLogo)}
+        aria-label={t.header.homeAria}
+      >
         <Image
           src={variant === "floating" ? "/logo.png" : "/logo-branca.png"}
           alt="Paparico"
@@ -49,9 +53,9 @@ const Header: FC<HeaderProps> = ({ className = "", variant = "hero" }) => {
         <Link className={styles.item} href={`/${language}#information`}>
           {t.header.information}
         </Link>
-        {/* <Link className={styles.item} href={`/${language}#reseller`}>
+        <Link className={styles.item} href={`/${language}#reseller`}>
           {t.header.reseller}
-        </Link> */}
+        </Link>
         <Link className={styles.item} href={`/${language}#reviews`}>
           {t.header.reviews}
         </Link>
@@ -87,9 +91,9 @@ const Header: FC<HeaderProps> = ({ className = "", variant = "hero" }) => {
         <Link className={styles.mobileItem} href={`/${language}#information`} onClick={closeMenu}>
           {t.header.information}
         </Link>
-        {/* <Link className={styles.mobileItem} href={`/${language}#reseller`} onClick={closeMenu}>
+        <Link className={styles.mobileItem} href={`/${language}#reseller`} onClick={closeMenu}>
           {t.header.reseller}
-        </Link> */}
+        </Link>
         <Link className={styles.mobileItem} href={`/${language}#reviews`} onClick={closeMenu}>
           {t.header.reviews}
         </Link>

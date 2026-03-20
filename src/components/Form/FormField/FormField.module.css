@@ -3,3 +3,10 @@
   flex-direction: column;
   gap: 8px;
 }
+
+.error {
+  color: #ff5555;
+  font-family: var(--font-apercu-pro);
+  font-size: 13px;
+  line-height: 18px;
+}

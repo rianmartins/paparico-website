@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { resend, resendEmailConfig } from "@/lib/resend";
+
 type ResellerPayload = {
   name?: string;
   company?: string;
@@ -8,8 +10,6 @@ type ResellerPayload = {
   message?: string;
   language?: string;
 };
-
-const RESEND_API_URL = "https://api.resend.com/emails";
 
 const escapeHtml = (value: string) =>
   value
@@ -39,11 +39,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Name, email and message are required." }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL;
-  const toEmail = process.env.RESEND_TO_EMAIL;
+  const { fromEmail, toEmail } = resendEmailConfig;
 
-  if (!apiKey || !fromEmail || !toEmail) {
+  if (!resend || !fromEmail || !toEmail) {
     return NextResponse.json(
       { error: "Email service is not configured. Please contact support." },
       { status: 500 },
@@ -77,26 +75,21 @@ export async function POST(request: Request) {
 
   const emailPayload = {
     from: fromEmail,
-    to: [toEmail],
+    to: toEmail,
     subject,
     html: `<div>${detailsHtml}</div>`,
     text: textSummary,
     reply_to: email,
   };
 
-  const response = await fetch(RESEND_API_URL, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(emailPayload),
-  });
+  const { error } = await resend.emails.send(emailPayload);
 
-  if (!response.ok) {
-    const errorBody = await response.text();
+  if (error) {
     return NextResponse.json(
-      { error: "Unable to send your message right now. Please try again later.", details: errorBody },
+      {
+        error: "Unable to send your message right now. Please try again later.",
+        details: error.message,
+      },
       { status: 502 },
     );
   }

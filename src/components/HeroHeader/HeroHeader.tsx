@@ -1,12 +1,10 @@
+import { ReactNode } from "react";
 import Image from "next/image";
 import cx from "classnames";
 
 import Header from "../Header";
 
 import styles from "./HeroHeader.module.css";
-import { ReactNode } from "react";
-import Button from "../Button";
-import { MENU_PASCOA_LINK } from "@/constants";
 
 type HeroHeaderProps = {
   image: string;
@@ -44,13 +42,6 @@ const HeroHeader = ({
         <div className={styles.container}>
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.subtitle}>{subtitle}</p>
-          <Button
-            variant="secondary"
-            className={styles.menuButton}
-            onClick={() => window.open(MENU_PASCOA_LINK, "_blank")}
-          >
-            Confira nosso menu de páscoa
-          </Button>
         </div>
       </div>
     </>

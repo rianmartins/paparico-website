@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 
 import styles from "./GridText.module.css";
 import Button from "../Button";

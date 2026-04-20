@@ -25,9 +25,9 @@ const Footer: FC = () => {
             <Image src="/logo.png" alt="Paparico" width={226} height={62} priority />
           </div>
           <div className={styles.socialMedia}>
-            <SocialMediaIcon icon="/icons/tiktok.svg" link={TIKTOK_URL} />
-            <SocialMediaIcon icon="/icons/instagram.svg" link={INSTAGRAM_URL} />
-            <SocialMediaIcon icon="/icons/facebook.svg" link={FACEBOOK_URL} />
+            <SocialMediaIcon icon="/icons/tiktok.svg" link={TIKTOK_URL} label="TikTok" />
+            <SocialMediaIcon icon="/icons/instagram.svg" link={INSTAGRAM_URL} label="Instagram" />
+            <SocialMediaIcon icon="/icons/facebook.svg" link={FACEBOOK_URL} label="Facebook" />
           </div>
         </div>
         <nav className={styles.siteMap}>

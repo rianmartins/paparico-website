@@ -3,7 +3,6 @@ import { FC } from "react";
 import styles from "./TermsModal.module.css";
 import Modal from "@/components/Modal";
 import { useTranslations } from "@/i18n/LanguageProvider";
-import Image from "next/image";
 
 interface TermsModalProps {
   open: boolean;

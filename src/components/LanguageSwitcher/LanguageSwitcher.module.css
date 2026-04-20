@@ -6,9 +6,13 @@
   margin: auto;
   color: white;
 
+  a,
   div {
     font-family: var(--font-apercu-pro);
     font-weight: 500;
+  }
+
+  a {
     cursor: pointer;
   }
 

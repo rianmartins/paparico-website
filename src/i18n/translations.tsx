@@ -153,7 +153,7 @@ export const translations: Record<Language, TranslationContent> = {
             <b>tradição pernambucana</b>.
           </>
         ),
-        alt: "Paparico",
+        alt: "Bolo de rolo artesanal Paparico",
       },
       galleryTitle1: "Mais que um doce.",
       galleryTitle2: "Um gesto de carinho.",
@@ -168,7 +168,7 @@ export const translations: Record<Language, TranslationContent> = {
           "Enviamos para todo o país através de transportadora. Os envios nacionais têm um custo fixo de €4,50 para pedidos até 5kg. Para outros volumes ou localizações, o valor é informado sob consulta",
         pickupTitle: "RETIRADAS",
         pickupDescription:
-          "Também é possível retirar o pedido na nossa sede de produção. O Paparico não é uma loja física e trabalha exclusivamente com encomendas previamente confirmadas e pagas, sendo a retirada realizada apenas nesses casos.",
+          "Também é possível retirar o pedido na nossa sede de produção, de terça a sexta das 8h às 17h e sábado das 9h às 18h. O Paparico não é uma loja física e trabalha exclusivamente com encomendas previamente confirmadas e pagas, sendo a retirada realizada apenas nesses casos.",
       },
       reseller: {
         title: "Seja um revendedor",
@@ -305,9 +305,9 @@ export const translations: Record<Language, TranslationContent> = {
                 encomenda
               </li>
             </ul>
-            <p>Horário de atendimento e retiradas:</p>
+            <p>Horário de retiradas:</p>
             <ul>
-              <li>Terça a sexta, das 8h às 20h</li>
+              <li>Terça a sexta, das 8h às 17h</li>
               <li>Sábado, das 9h às 18h</li>
               <li>Não realizamos retiradas aos domingos.</li>
             </ul>
@@ -430,13 +430,14 @@ export const translations: Record<Language, TranslationContent> = {
         subtitle: "How orders work",
         paragraphs: [
           "At Paparico, every order starts with hands-on care. We craft artisanal cakes made to order, respecting the time, recipe, and affection each creation calls for.",
+          "WhatsApp support is available Monday to Saturday, from 9 a.m. to 9 p.m.",
         ],
         shippingTitle: "SHIPPING",
         shippingDescription:
           "We ship nationwide via carrier. Domestic shipping has a fixed cost of €4.50 for orders up to 5kg. For other weights or locations, the cost is provided upon request.",
         pickupTitle: "PICKUPS",
         pickupDescription:
-          "You can also pick up your order at our production space. Paparico is not a physical store and works exclusively with confirmed and paid orders, so pickups only happen in those cases.",
+          "You can also pick up your order at our production space, Tuesday to Friday from 8 a.m. to 5 p.m. and Saturday from 9 a.m. to 6 p.m. Paparico is not a physical store and works exclusively with confirmed and paid orders, so pickups only happen in those cases.",
       },
       reseller: {
         title: "Become a reseller",
@@ -480,7 +481,7 @@ export const translations: Record<Language, TranslationContent> = {
         ),
         subtitle:
           "At Paparico, each layer tells a story. A gesture of care, a flavor that welcomes, a hug in cake form that travels through time and keeps the Pernambucan tradition alive.",
-        alt: "Paparico",
+        alt: "Handmade Paparico bolo de rolo",
       },
     },
     reviews: {
@@ -573,9 +574,9 @@ export const translations: Record<Language, TranslationContent> = {
               <li>Scheduled in advance</li>
               <li>Carried out within customer service hours and only after order confirmation</li>
             </ul>
-            <p>Customer service and pickup hours:</p>
+            <p>Pickup hours:</p>
             <ul>
-              <li>Tuesday to Friday, 8 a.m. to 8 p.m.</li>
+              <li>Tuesday to Friday, 8 a.m. to 5 p.m.</li>
               <li>Saturday, 9 a.m. to 6 p.m.</li>
               <li>No pickups on Sundays.</li>
             </ul>

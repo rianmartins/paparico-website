@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import styles from "./ProductItem.module.css";
 
@@ -13,7 +14,14 @@ type ProductItemProps = {
 const ProductItem: FC<ProductItemProps> = ({ image, title, description, price, moreInfo }) => {
   return (
     <div className={styles.ProductItem}>
-      <img src={image} className={styles.image} alt={title} />
+      <Image
+        src={image}
+        className={styles.image}
+        alt={title}
+        width={800}
+        height={600}
+        sizes="(max-width: 720px) 100vw, 65vw"
+      />
       <div className={styles.details}>
         <div className={styles.title}>{title}</div>
         <div className={styles.description}>{description}</div>

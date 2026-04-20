@@ -106,7 +106,7 @@ const Modal: FC<ModalProps> = ({
           <div className={styles.footer}>{footer}</div>
         ) : (
           <div className={styles.footer}>
-            <Button aria-label="Fechar" onClick={onClose}>
+            <Button aria-label={t.modal.close} onClick={onClose}>
               {t.modal.close}
             </Button>
           </div>

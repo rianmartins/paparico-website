@@ -34,8 +34,8 @@ export const sizes: Record<string, Localized> = {
     en: "Naked roll cake 4/4.5kg",
   },
   "size-mini-50": {
-    pt: "Mini bolo de rolo 50g",
-    en: "Mini roll cake 50g",
+    pt: "Mini bolo de rolo 45g",
+    en: "Mini roll cake 45g",
   },
 };
 
